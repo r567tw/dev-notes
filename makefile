@@ -1,4 +1,4 @@
 serve:
 	npx docusaurus start
 build:
-	echo 'build'
+	yarn build
