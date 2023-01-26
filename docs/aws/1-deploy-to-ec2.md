@@ -3,23 +3,29 @@ sidebar_position: 1
 ---
 # EC2
 ## How to deploy laravel project to ec2
-```
+
+### Pre-requirement
+```bash
 apt-get update && apt-get upgrade
 apt-get install nginx
 apt-get install php
 apt-get install php-mysql
 apt-get install php-mysql php-fpm php-xml php-gd php-opcache php-mbstring
 apt-get install php-curl
+apt-get install php-sqlite3
 apt-get install composer
-chown -R www-data:www-data test/
-chmod -R 775 test/
-cd /etc/nginx/sites-available
-vim laravelapp.conf
-ln -s  /etc/nginx/sites-available/laravelapp.conf /etc/nginx/sites-enabled
-nginx -t
+```
+### In Laravel Project Foder
+```bash
+#! Ready Laravel App (git clone or ftp upload...etc)
+$ chown -R www-data:www-data ./
+$ chmod -R 775 ./
+$ cd /etc/nginx/sites-available
+$ vim laravelapp.conf
+$ ln -s  /etc/nginx/sites-available/laravelapp.conf /etc/nginx/sites-enabled
 ```
 
-```title=laravelapp.conf
+```conf title="laravelapp.conf"
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -45,9 +51,13 @@ server {
 
 ```
 
-### about nginx
-```
+### Nginx Command
+```bash
+#! command about nginx command 
 $ sudo service nginx start/stop/restart
+#! test nginx configuration command
+$ nginx -t
 ```
 
-ref: https://www.clickittech.com/tutorial/deploy-laravel-on-aws-ec2/
+### REF
+https://www.clickittech.com/tutorial/deploy-laravel-on-aws-ec2/
