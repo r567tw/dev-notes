@@ -51,9 +51,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: '文件',
+            label: 'Documents',
           },
-          { to: '/blog', label: '隨筆', position: 'left' },
+          { to: '/blog', label: 'Post', position: 'left' },
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',
