@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 999
 ---
 
 # Other
@@ -24,3 +24,13 @@ Ref: https://www.newscan.com.tw/all-seo/robots-block-search-engines.htm
 ### DNS
 
 ### URI and URL and URN
+
+## Docker & Command
+```bash
+# 使用 Docker 起
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name mysql mysql
+docker run --rm -v $(pwd):/app composer "composer install"
+```
+
+## Blogs
+[explainthis - 軟體工程面試與筆記](https://www.explainthis.io/zh-hant)
