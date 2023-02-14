@@ -7,8 +7,8 @@
 - 求出變化
 - 「極限」「趨近於」==不管多麼趨近還是無法劃上等號==
 
-![](https://hackmd.io/_uploads/ryOZ5_OSc.jpg)
-![](https://hackmd.io/_uploads/rJdWqOdHc.jpg)
+<!-- ![](https://hackmd.io/_uploads/ryOZ5_OSc.jpg)
+![](https://hackmd.io/_uploads/rJdWqOdHc.jpg) -->
 
 ## 積分篇
 積分,微分的相反
@@ -16,4 +16,3 @@
 ==什麼東西對x微分後會變成f(x)==
 ==如果微分是變化,那麼積分就代表所有變化的總和==
 
-###### tags: `math`
