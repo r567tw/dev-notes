@@ -109,7 +109,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         copyright: `Copyright © ${new Date().getFullYear()} Dev Notes`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
