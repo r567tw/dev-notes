@@ -5,7 +5,7 @@ sidebar_position: 1
 ## 執行原理
 - input URL (brower)
 - HTTP & HTTPS & HTTP2
-- CGI Process Request (& use Database)
+- CGI Process Request (& connect Database)
 - output HTML Page (brower)
 
 ## DNS
