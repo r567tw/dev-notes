@@ -45,7 +45,7 @@ Docker 網路類型
 - docker-compose.yaml    
 - docker-compose up -d
 - docker-compose ps
-- docker-cmpoere
+- docker-compose
 
 ## Ref
 - [cheat-sheet](https://swissarmydevops.com/wp-content/uploads/2020/11/Docker_Cheat_Sheet-1.pdf)
