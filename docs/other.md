@@ -14,17 +14,5 @@ Disallow: /
 ```
 Ref: https://www.newscan.com.tw/all-seo/robots-block-search-engines.htm
 
-## Web Basic
-### 執行原理
-- input URL (brower)
-- HTTP & HTTPS & HTTP2
-- CGI Process Request (& use Database)
-- output HTML Page (brower)
-
-### DNS
-
-### URI and URL and URN
-
-
 ## Blogs
 [explainthis - 軟體工程面試與筆記](https://www.explainthis.io/zh-hant)
