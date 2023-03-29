@@ -14,5 +14,11 @@ Disallow: /
 ```
 Ref: https://www.newscan.com.tw/all-seo/robots-block-search-engines.htm
 
+## Web Server
+https://tenten.co/insight/dev/apache-nginx-comparison/
+
 ## Blogs
+
 [explainthis - 軟體工程面試與筆記](https://www.explainthis.io/zh-hant)
+[Daily WPdev](https://oberonlai.blog/): 一個很適合開發 wordpress 外掛相關的部落格
+[Roadmap](https://roadmap.sh/): 很適合來檢視目前程度的網站
