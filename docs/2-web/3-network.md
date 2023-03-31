@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 # Network
 # 入門篇
@@ -221,14 +221,14 @@ s.close()
 - hciconfig , hcitool
 - l2ping
 
-
-
 # Docker Container Network篇
-docker network create <name>
-https://ithelp.ithome.com.tw/articles/10193457
+```sh
+docker network create {{name}}
+```
 
 container 模式：
-參考： 
+Ref： 
+- https://ithelp.ithome.com.tw/articles/10193457
 - https://www.hwchiu.com/docker-network-model.html
 - https://www.hwchiu.com/docker-network-model-lab.html
 - https://www.hwchiu.com/docker-network-model-snat.html

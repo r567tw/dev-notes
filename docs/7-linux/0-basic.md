@@ -72,7 +72,7 @@ aircrack-ng 無線破解工具
 - locate rsyslog
 - logrotate
 - /etc/rsyslog.conf /etc/logrotate.conf
-- shred <file> shred -f -n 10 /var/log/auth.log.*
+- shred {{file}} shred -f -n 10 /var/log/auth.log.*
 - service rsyslog stop
 
 ## 服務

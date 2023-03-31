@@ -1,14 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
-
-# Intro
-這裡只是個簡單的筆記網站...Build By docusaurus.
-
-# change log
-- 2023/02/04: 將資料從自己的Hackmd 整合進來，資料上有點亂
-- 2023/02/04: 移除 docusaurus 教學文件
-
 # Code Review
 :::tip
 Code Review 同樣可以用心理學的馬斯洛需求層次理論去應用...
