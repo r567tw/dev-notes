@@ -50,7 +50,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           { to: 'https://jimmycode.tw/', label: 'Site', position: 'left' },
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'coding/intro',
             position: 'left',
             label: 'Documents',
           },
