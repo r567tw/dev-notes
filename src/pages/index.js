@@ -27,7 +27,7 @@ function HomepageHeader() {
 }
 
 export default function Home() {
-  return <Redirect to="/docs/intro" />;
+  return <Redirect to="/docs/coding/intro" />;
 
   // const { siteConfig } = useDocusaurusContext();
   // return (
