@@ -5,3 +5,6 @@
 
 - sudo lsof -PiTCP -sTCP:LISTEN
 查看目前哪些port號被用(mac)
+
+- true > .vscode/logs/log 
+清空某個檔案 
