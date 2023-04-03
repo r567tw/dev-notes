@@ -27,19 +27,6 @@ docker build .
     - `docker container start <container name> (<sh -c "command">)`
     - `docker container run <container name> -d (相當於 create + start)`
 
-## Docker Networking (Single host)
-:::info
-Docker 網路類型 
-- None
-- Host
-- Bridge
-- Contaienr:$ID
-:::
-- linux network space
-    - `sudo ip netns list`
-    - `sudo ip netns add/delete <name>`
-    - `sudo ip netns exec <name> ip a`
-- docker network ls
 
 ## Docker-Compose
 - docker-compose.yaml    

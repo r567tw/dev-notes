@@ -65,3 +65,13 @@ User-agent: *
 Disallow: /
 ```
 Ref: https://www.newscan.com.tw/all-seo/robots-block-search-engines.htm
+
+## RESTFul API
+:::info
+一種透過 HTTP 設計的架構風格
+:::
+- Resource 通常是單例或集合
+- 使用名詞表達Resource
+- 表示一制性
+- 不在url 使用 crud的名稱
+- 使用查詢參數過濾集合
