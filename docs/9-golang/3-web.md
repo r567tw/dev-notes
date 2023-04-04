@@ -133,3 +133,41 @@ t.Execute(w,user)
 {{ range list}} T1 {{ end }}
 ```
 
+## Cookie
+- SetCookie
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func test(w http.ResponseWriter, r *http.Request) {
+	// c, err := r.Cookie("test") // 這兩行是可以取得cookies的資料
+	// fmt.Println("cookie %#v, err: %v", c, err)
+	cookie := &http.Cookie{
+		Name:   "test",
+		Value:  "aaaaaa",
+		MaxAge: 360,
+		Domain: "localhost",
+		Path:   "/",
+	}
+
+	http.SetCookie(w, cookie)
+	w.Write([]byte("helloworld"))
+}
+
+func main() {
+	http.HandleFunc("/", test)
+	http.ListenAndServe(":8080", nil)
+}
+```
+
+- GetCookie
+```go
+func (r *Request) Cookies() []*Cookie
+func (r *Request) Cookie(name string) (*Cookie, error)
+```
+
+## Session
