@@ -9,3 +9,8 @@ Kafka和MQTT都是用於處理實時消息的流行消息代理協議，但它�
 配置：Kafka需要較多的配置和管理，例如設置分區、副本等。MQTT則更加簡單，不需要額外的管理和配置。
 
 總的來說，Kafka和MQTT都有自己的優點和適用場景。如果需要處理大量數據並保證高可用性和高效性，則Kafka是一個更好的選擇；如果需要低延遲和簡單的配置，則MQTT是一個更好的選擇。
+
+
+- KafKa
+    - [https://ithelp.ithome.com.tw/articles/10159460](https://ithelp.ithome.com.tw/articles/10159460)
+    - [https://www.796t.com/content/1574928184.html](https://www.796t.com/content/1574928184.html)

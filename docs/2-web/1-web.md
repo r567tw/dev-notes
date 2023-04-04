@@ -54,6 +54,10 @@ URL: URI的子集
 Ref: https://tenten.co/insight/dev/apache-nginx-comparison/
 
 ## Session & Cookies
+> **HTTP是一種stateless的協定**
+
+Session: 伺服器為這次請求開闢一塊記憶體間，這物件便是session物件、結構為ConcurrentHashMap。並且會同時生成session-id, 透過request-header: `set-cookie: JSESSIONID=xxxxxx`,cookie的過期時間是在瀏覽器階段結束之前
+Cookie: 瀏覽器的一小段記憶空間
 
 ## SEO
 ### Robots

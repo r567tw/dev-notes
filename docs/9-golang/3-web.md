@@ -45,6 +45,7 @@ func main(){
 
     // 創建各種request
     resp,err := http.NewRequest(Method,URI,Payload)
+    // http.NewRequest("PUT",url,payload)
     resp,err := http.Get("http://123.com")
     resp,err := http.Post("http://123.com",Header,Body)
 
@@ -54,6 +55,81 @@ func main(){
 }
 ```
 
-## html/template
+## net/http/client.go
+```go
+var DefaultClient = &Client{}
 
+```
+## html/template, text/template
+```html title="template_example.tmpl"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+</head>
+<body>
+    <p> Hello World {{ . }}</p>
+</body>
+</html>
+```
+
+```go
+package main
+
+import (
+    "html/template"
+    "net/http"
+)
+
+func Hello(w http.ResponseWriter, r *http.Request){
+    t, _ := template.ParseFiles("./template_example.tmpl")
+
+    name := "Jimmy"
+
+    t.Execute(w,name)
+}
+
+func main(){
+    http.HandleFunc("/",Hello)
+    http.ListenAndServe(":8080",nil)
+}
+```
+
+- 參數名稱
+```go
+// in Program
+type User struct {
+    Name string
+}
+
+user := User{
+    Name: "Jimmy"
+}
+
+t.Execute(w,user)
+
+// template
+{{ .Name }}
+```
+- 註釋
+```
+{{/* */}}
+```
+- pipeline
+```
+{{ .Name | {{func}} }}
+```
+
+- 條件
+```
+{{ if condition }} T1 {{ end} }
+```
+
+- range
+```
+{{ range list}} T1 {{ end }}
+```
 

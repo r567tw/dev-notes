@@ -11,3 +11,7 @@ Coroutines: 一種比執行序更小的函數，由程式控制
 
 > Process > Thread > Coroutines
 
+## MVC
+- Model：處理與應用程式業務邏輯相關的資料、及資料的處理方法
+- View：實現顯示
+- Controller：控制應用程式的流程、處理事件並作出回應

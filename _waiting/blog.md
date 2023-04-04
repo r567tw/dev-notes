@@ -1,17 +1,21 @@
  git-hook 系統
  https://xyz.cinc.biz/2013/08/mysql-server-sql-modes.html
- 準備鐵人賽的文章： 寫golang嗎？ 自學組：連續30天問ChatGPT問題
+ 
+ 準備鐵人賽的文章： 
+ ~~寫golang嗎？~~ 
+ 自學組：連續30天問ChatGPT問題
+ 
+ 
  下班找個興趣處理一下～～～ 
- https://wattbrother.com/31255
+ USB 規格：https://wattbrother.com/31255
 
-什麼是為服務
+什麼是微服務
  https://www.tibco.com/zh-hant/reference-center/what-are-microservices
  https://www.readfog.com/a/1631109542248026112
  https://www.ithome.com.tw/news/142406
 
 模組化
  https://progressbar.tw/posts/249
-
  https://www.technice.com.tw/experience/42804/
 
 
