@@ -34,6 +34,12 @@ docker build .
 - docker-compose ps
 - docker-compose
 
+## Clean
+```
+$ docker system prune --volumes
+```
+
 ## Ref
 - [cheat-sheet](https://swissarmydevops.com/wp-content/uploads/2020/11/Docker_Cheat_Sheet-1.pdf)
 - [Docker Network參考網址](https://hwchiu.com/docker-network-model.html)
+- Ref: https://renehernandez.io/snippets/cleaning-local-docker-cache/
