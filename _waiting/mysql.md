@@ -9,5 +9,5 @@ COMMIT
 Tab2
 update brand set contact = 'yy' WHERE name = 'Gottone'
 
-822
-263540161660
+
+mysql JSON_QUOTE JSON_OBJECT GROUP_CONCAT 設定 Max GroupConcat len SQL mode https://vocus.cc/article/615ffe32fd8978000126804a
