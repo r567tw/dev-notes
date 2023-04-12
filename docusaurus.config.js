@@ -47,14 +47,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           src: 'img/logo.svg',
         },
         items: [
-          { to: 'https://jimmycode.tw/', label: 'Site', position: 'left' },
+          { to: 'https://jimmycode.tw/', label: 'Main', position: 'left' },
           {
             type: 'doc',
             docId: 'coding/intro',
             position: 'left',
             label: 'Documents',
           },
-          // { to: '/blog', label: 'Post', position: 'left' },
+          { to: '/blog', label: 'Post', position: 'left' },
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',

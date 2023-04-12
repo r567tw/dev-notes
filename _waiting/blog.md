@@ -19,7 +19,6 @@
  https://www.technice.com.tw/experience/42804/
 
 
-jimmycode 開寫
 - 原來可以這麼寫：git-hook & mysql mode
 - 5 篇文章搞懂git 系列
 - 模組化：SOLID 原則
