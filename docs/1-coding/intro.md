@@ -2,7 +2,6 @@
 sidebar_position: 1
 hide_table_of_contents: true
 ---
-<!-- docusaurus -->
 # Intro
 :::success
 Welcome to Jimmy notes ! ❤️❤️❤️

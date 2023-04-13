@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# Mysql/Mariadb
+# MySQL
 
 ## Configuration
 - SQL Mode

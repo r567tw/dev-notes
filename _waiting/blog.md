@@ -22,9 +22,7 @@
 - 原來可以這麼寫：git-hook & mysql mode
 - 5 篇文章搞懂git 系列
 - 模組化：SOLID 原則
-
-
-mysql mode > 也要記錄在 dev-note裡面
+- 關於我常常粗心大意的問題、如何改善！
 
 
 BDD:
