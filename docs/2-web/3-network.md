@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 # Network
-# 入門篇
+## 入門篇
 什麼是網路：簡單有「網」與「路」，其實網路在早期台灣政府組織的規劃中，是被規劃在「交通部」的業務範圍呢...（不知道現在還是不是）
 
 簡單來說兩個電腦要溝通，就形成路。很多的電腦要一起溝通，就形成網。所以這就是「網路」
@@ -13,7 +13,7 @@ LAN(區域網路,自行架設) vs WAN(廣域網路,業者)
 網際網路不等於WAN, 但網際網路用到WAN
 
 封包Packet：把資料切割成固定的單位並加上header
-# OSI 七層篇
+## OSI 七層篇
 介面層(實體層：路由,switch)->網路層(IP)->傳輸層(TCP/UDP)->應用層(HTTP)
 
 1.實體層 乙太網路硬體
@@ -25,7 +25,7 @@ LAN(區域網路,自行架設) vs WAN(廣域網路,業者)
 7.應用層
 應用程式：會談、表現、應用
 
-# TCP/IP 篇
+## TCP/IP 篇
 - 網路介面層：乙太網路 ARP RARP MAC位址 WIFI PPP PPPoE=> 實體＋資料鏈結
 為直接連結的電腦互相建立連線
 - 網路層：IP ICMP 路由
@@ -71,13 +71,13 @@ NAPT 位址轉換技術
 DHCP
 NAT /NAPT: 轉換位址,使用公用IP表明身份
 
-# 深入淺出 DNS
+## 深入淺出 DNS
 A
 MX
 TEXT
 CNAME
 
-# 第三章TCP/IP架構
+## 第三章TCP/IP架構
 VLSM 可變長度子網路遮罩
 CIDR 無類別網域間路由, CIDR表示法
 MAC位址
@@ -85,17 +85,25 @@ ARP:Address Resolution Protocol:位址解析通訊協議,將IP位址分析出MAC
 
 網域名稱
 
-# 好用指令
-Windows
-ping, nslookup Name, tracert Name, ipconfig /all ,Route print
-MAC
-ping dig/dig-x IP/nslookup Name,traceroute NAme,ip a , ifconfig -a, ip r route
+## 好用指令
+### Windows
+- ping
+- nslookup Name
+- tracert Name
+- ipconfig /all ,Route print
 
-# 第四章 網路設備及虛擬化
+### MAC
+- ping 
+- dig/dig-x IP
+- nslookup Name
+- traceroute NAme,ip a
+- ifconfig -a, ip r route
+
+## 第四章 網路設備及虛擬化
 SDN
 OpenFlow
 
-# 第六章 
+## 安全
 資安三要素：機密性、可用性、完整性
 DMZ: 隔離區
 IDS: 入侵偵測系統
@@ -104,150 +112,8 @@ UTM: 整合式威脅管理的設備
 
 
 
-# Socket 篇
+## Socket 篇
 Socket 是一種處理程序呼叫的機制，一種抽象層實作。
 Socket 為應用程式隱藏TCP/IP網路傳輸層及以下的網路細節
-## TCP
-```python
-# client.py 
-import socket
 
-host = '127.0.0.1'
-port = 3434
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((host, port))
-
-data = s.recv(1024)
-print(f'Received: {data}')
-s.close()
-```
-
-```python
-# server.py 
-import socket
-import datetime
-
-host = '0.0.0.0'
-port = 3434
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((host, port))
-s.listen(1)
-
-while True:
-    conn, addr = s.accept()
-    print(f'Client {str(addr)} connect')
-    dt = datetime.datetime.now()
-    message = f'Now: {str(dt)}'
-    conn.send(message.encode('utf-8'))
-    # print(f'sent : {message}')
-    conn.close()
-```
-
-## UDP
-```python
-# client.py
-import socket
-
-host = '127.0.0.1'
-port = 3434
-
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-data = 'Hello World'
-s.sendto(data.encode('utf-8'), (host, port))
-s.close()
-
-```
-
-```python
-# server.py
-import socket
-import datetime
-
-host = '0.0.0.0'
-port = 3434
-
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.bind((host, port))
-
-while True:
-    data, addr = s.recvfrom(1024)
-    print(f'Received {data} from {str(addr)}')
-
-s.close()
-
-```
-
-
-# OpenSSL
-
-# Web 伺服器實現呼叫介面標準
-## CGI
-允許WEB伺服器執行外部程式，將他們輸出發送給瀏覽器
-## ISAGI
-微軟提供的網路服務器標準介面
-## WSGI
-為Python 語言制定的網路服務器標準介面
-## ASGI
-
-# Linux 基本網路
-- ifconfig / ifconfig eth0 192.168.181.115
-- iwconfig
-- dhclient
-- dig
-
-# Linux 網路安全與匿名
-- traceroute google.com
-- tor 路由器：匿名IP
-- proxy
-- proxychains
-    - /etc/proxychains.conf
-- VPN
-- ProtonMail
-
-# Linux 無線網路
-- AP 無線存取點、ESSID 擴充服務設定識別馬、BSSID 基本服務設定識別馬、SSID 服務設定識別馬
-- 頻道
-- 功率：越靠近越大但也越容易被破解
-- 安全協定： 安全程度 WPA2-PSK > WPA > WEP
-- ifconfig / wlan0
-- iwconfig / iwlist
-- nmcli
-
-# 藍芽
-- apt-get install bluez
-- hciconfig , hcitool
-- l2ping
-
-# Docker Container Network篇
-```sh
-docker network create {{name}}
-```
-
-container 模式：
-Ref： 
-- https://ithelp.ithome.com.tw/articles/10193457
-- https://www.hwchiu.com/docker-network-model.html
-- https://www.hwchiu.com/docker-network-model-lab.html
-- https://www.hwchiu.com/docker-network-model-snat.html
-- https://www.hwchiu.com/docker-network-model-lab-dnat.html
-
-<!-- 
-最好能照上面, 實作操作過
-按照順序看這 1~4篇
-
-特別是第 2 篇
-要有能力按照步驟做完且完全理解
-=>
-建出 bridge
-建出 virtual 網卡 vethx
-把 vethx 黏到 container 端
-把 vethx 綁定到剛建立的 bridge
-設定 container IP
-
-另外,第 3 篇一樣重要
-
-要了解封包 從 container -> host ethx -> 外部網路 的原因
-也要了解封包 從外部網路 -> host ethx -> 轉進 container 內 的原因 -->
+## OpenSSL

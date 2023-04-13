@@ -40,6 +40,36 @@ Docker 網路類型
     - `sudo ip netns exec <name> ip a`
 - docker network ls
 
+## Docker Container Network篇
+```sh
+docker network create {{name}}
+```
+
+container 模式：
+Ref： 
+- https://ithelp.ithome.com.tw/articles/10193457
+- https://www.hwchiu.com/docker-network-model.html
+- https://www.hwchiu.com/docker-network-model-lab.html
+- https://www.hwchiu.com/docker-network-model-snat.html
+- https://www.hwchiu.com/docker-network-model-lab-dnat.html
+
+<!-- 
+最好能照上面, 實作操作過
+按照順序看這 1~4篇
+
+特別是第 2 篇
+要有能力按照步驟做完且完全理解
+=>
+建出 bridge
+建出 virtual 網卡 vethx
+把 vethx 黏到 container 端
+把 vethx 綁定到剛建立的 bridge
+設定 container IP
+
+另外,第 3 篇一樣重要
+
+要了解封包 從 container -> host ethx -> 外部網路 的原因
+也要了解封包 從外部網路 -> host ethx -> 轉進 container 內 的原因 -->
 
 ## For Example: 
 ```bash
