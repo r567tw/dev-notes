@@ -3,6 +3,25 @@ sidebar_position: 1
 ---
 # MySQL
 
+## Basic
+```sql
+create database test;
+show databases;
+show databases like 'test'
+use test;
+alter databases test default character SET UTF-8 collate UTF-8_chinese_ci;
+drop database test;
+create table `user` (
+    `id` int(11) Not null auto_increment
+    `name` varchar(10) default '' comment '姓名'
+) engine=InnoDB auto_increment=1;
+desc `user`;
+show create table user;
+alter table user ADD phone varchar(30) DEFAULT '' Null;
+drop table `user`;
+
+```
+
 ## Configuration
 - SQL Mode
 - group_concat_max_len
