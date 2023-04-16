@@ -25,6 +25,7 @@ func main(){
     fmt.Println(msg)
 }
 ```
+
 ### keyword `go`
 ### channel
 

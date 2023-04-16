@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 # Basic
-
+<!--  參考：https://github.com/shirdonl/goWebActualCombat -->
 ## Installation
 - windows : 下載檔案 msi 安裝
 - mac : 在官網下載 pkg 安裝
