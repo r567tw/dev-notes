@@ -19,8 +19,7 @@
  https://www.technice.com.tw/experience/42804/
 
 
-- 原來可以這麼寫：git-hook & mysql mode
-- 5 篇文章搞懂git 系列
+- 原來可以這麼寫：git-hook & mysql mode ＆ git-hook ,  air/gin
 - 模組化：SOLID 原則
 - 關於我常常粗心大意的問題、如何改善！
 
