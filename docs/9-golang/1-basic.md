@@ -268,3 +268,15 @@ func main() {
 ``` -->
 
 ## 單元測試
+
+
+## 關於Golang 的那些命令們
+- `Go build`
+```bash
+go build -ldflags "-X main.VERSION=1.0.0 -X" # 在build 時代入內容
+go build --tags prod # 在golang 裡面的檔案可以加入+build prod 等等
+```
+
+- Ref: https://ithelp.ithome.com.tw/articles/10224843
+- Ref: https://islishude.github.io/blog/2019/08/20/golang/Go-%E4%BD%BF%E7%94%A8-build-tag-%E6%9D%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE/
+

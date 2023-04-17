@@ -29,6 +29,17 @@ func main(){
 }
 ```
 
+## Mode
+- gin.ReleaseMode
+- gin.TestMode
+- gin.DebugMode
+
+```go
+// 可以在go裡面使用：
+gin.SetMode(gin.DebugMode)
+```
+Ref: https://blog.csdn.net/wohu1104/article/details/126689099
+
 ## csrf
 
 ## cors
