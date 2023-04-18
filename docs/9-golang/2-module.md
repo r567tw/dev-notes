@@ -14,6 +14,28 @@ Ref: https://blog.wu-boy.com/2018/04/init-func-in-golang/
 
 
 ## String
+### Title func被棄用
+> 因為 Title 無法正確使用 Unicode 標點符號和其他語言
+golang 1.18 之後請改用
+```go
+package main 
+
+import (
+	"fmt"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
+)
+
+func main() {
+    foo := "hello"
+	bar := cases.Title(language.Und).String(foo)
+	
+	fmt.Println(bar)
+}
+```
+- Ref: https://segmentfault.com/a/1190000041413266
+
 ### Concat 字串串結
 可以透過`+`串接字串
 ```go
