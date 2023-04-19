@@ -17,3 +17,14 @@ sudo lsof -PiTCP -sTCP:LISTEN # Mac 用：查看目前哪些port號被用
 true > .vscode/logs/log 
 ```
 
+- `sudo` 不用密碼
+```bash
+sudo visudo # = vi /etc/sudoers
+# 在 /etc/sudoers 增加一行
+{ username } ALL=(ALL) NOPASSWD:ALL
+
+# Ref: https://linuxhint.com/setup-sudo-no-password-linux/
+# Ref: https://dchesmis.blogspot.com/2018/05/visudosudo.html
+```
+
+
