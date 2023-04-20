@@ -23,6 +23,7 @@
 - 模組化：SOLID 原則
 - 關於我常常粗心大意的問題、如何改善！
 
+practice firebase , gcp... etc
 
 BDD:
 https://tw.alphacamp.co/blog/bdd-tdd-cucumber-behaviour-driven-development#%E4%BB%80%E9%BA%BC%E6%98%AF_BDD_Behaviour-Driven_Development_%EF%BC%9F
