@@ -17,12 +17,12 @@ Ref: https://blog.wu-boy.com/2018/04/init-func-in-golang/
 ### Title func被棄用
 > 因為 Title 無法正確使用 Unicode 標點符號和其他語言
 golang 1.18 之後請改用
+
 ```go
 package main 
 
 import (
 	"fmt"
-
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
