@@ -28,3 +28,5 @@ practice firebase , gcp... etc
 BDD:
 https://tw.alphacamp.co/blog/bdd-tdd-cucumber-behaviour-driven-development#%E4%BB%80%E9%BA%BC%E6%98%AF_BDD_Behaviour-Driven_Development_%EF%BC%9F
 
+Vercel
+https://yuanlin.dev/posts/web-deploy-vercel-tutorial

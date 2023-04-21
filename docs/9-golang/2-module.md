@@ -12,6 +12,15 @@ func init(){
 
 Ref: https://blog.wu-boy.com/2018/04/init-func-in-golang/
 
+## Struct Tag
+```golang
+type Person struct {
+    FirstName  string `json:"first_name"`
+    LastName   string `json:"last_name"`
+    MiddleName string `json:"middle_name,omitempty"`
+}
+```
+Ref: https://zhuanlan.zhihu.com/p/32279896
 
 ## String
 ### Title func被棄用
