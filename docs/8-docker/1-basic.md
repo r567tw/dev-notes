@@ -14,19 +14,50 @@ Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應�
 - REST API
 - Client (Docker CLI)
 
-## 概念初探
+## Overview
 - `images`  相當於物件導向程式語言裡面的`class`,是run container的核心與映像檔
     - `Dockerfile` 是`Docker`用來build檔案,如果單純的`docker pull` 無法滿足你的需求, 你可以在`Dockerfile`裡面撰寫一行一行的指令將`image` 建立起來,從而建立容器。
 - `container` 相當於物件導向程式語言裡面的`object`、`object = new class()`, 是實際跑在機器上的實際單位
 - 快速QA: https://www.ithome.com.tw/news/91847
 - `Repository` 集中存放image 的場所。分public/private兩種
 
+## Commands
+- image related
+    - docker images
+    - docker image ls/rm
+- how to find Docker image
+    - from registry
+        - `docker pull <Name>`
+    - from dockfile
+        - DockFile
+            - https://www.jinnsblog.com/2018/12/docker-dockerfile-guide.html
+            - https://peihsinsu.gitbooks.io/docker-note-book/content/docker-build.html
+        - docker build
+```shell=
+docker build -t="${tag name}" .
+docker build .
+```
+- Docker Container (`container` 關鍵字可以省略)
+    - `docker container create <docker image name>`
+    - `docker container ls (-a)`
+    - `docker container rm <container id>`
+    - `docker container start <container name> (<sh -c "command">)`
+    - `docker container run <container name> -d (相當於 create + start)`
+    - `docker container run <container name> -rm`: (container 掛掉之後就自動remove)
 
-## 其他可以參考的完整教程
-- [鐵人賽](https://ithelp.ithome.com.tw/users/20103456/ironman/1320)
-- https://askie.today/docker-dockerfile-dockercompose-intro/
+## Docker-Compose
+- `docker-compose.yaml`    
+- `docker-compose up -d`
+- `docker-compose ps`
+
+## Clean
+```
+$ docker system prune --volumes
+```
+
 
 ## Docker Networking (Single host)
+
 :::info
 Docker 網路類型 
 - None
@@ -40,7 +71,7 @@ Docker 網路類型
     - `sudo ip netns exec <name> ip a`
 - docker network ls
 
-## Docker Container Network篇
+## Docker Container Network
 ```sh
 docker network create {{name}}
 ```
@@ -71,11 +102,9 @@ Ref：
 要了解封包 從 container -> host ethx -> 外部網路 的原因
 也要了解封包 從外部網路 -> host ethx -> 轉進 container 內 的原因 -->
 
-## For Example: 
-```bash
-# 使用 Docker 起
-# 快速架設DB
-docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name mysql mysql
-# 啟動 composer install
-docker run --rm -v $(pwd):/app composer "composer install"
-```
+## 其他可以參考的完整教程
+- [鐵人賽](https://ithelp.ithome.com.tw/users/20103456/ironman/1320)
+- https://askie.today/docker-dockerfile-dockercompose-intro/
+- [cheat-sheet](https://swissarmydevops.com/wp-content/uploads/2020/11/Docker_Cheat_Sheet-1.pdf)
+- [Docker Network參考網址](https://hwchiu.com/docker-network-model.html)
+- Ref: https://renehernandez.io/snippets/cleaning-local-docker-cache/
