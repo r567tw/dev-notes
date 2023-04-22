@@ -55,7 +55,20 @@ $ ./main
 - bool
 - integer
 - string
+- *rune
 - 複合：array , slice, map , struct
+
+#### rune
+一個特別的資料結構，處理用來像是"A","B"這種的“字節”
+```go
+s := "golang"
+fmt.Println(s[:3])
+
+s := "中文中文"
+res := []rune(s)
+fmt.Println(string(res[:2]))
+```
+Ref: https://learnku.com/articles/23411/the-difference-between-rune-and-byte-of-go
 
 ### define
 ```go
