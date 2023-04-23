@@ -2,12 +2,11 @@
  https://xyz.cinc.biz/2013/08/mysql-server-sql-modes.html
  
  準備鐵人賽的文章： 
- ~~寫golang嗎？~~ 
+ 寫gin30 天～
  自學組：連續30天問ChatGPT問題
  
  
- 下班找個興趣處理一下～～～ 
- USB 規格：https://wattbrother.com/31255
+下班找個興趣處理一下～～～ 
 
 什麼是微服務
  https://www.tibco.com/zh-hant/reference-center/what-are-microservices
@@ -19,7 +18,6 @@
  https://www.technice.com.tw/experience/42804/
 
 
-- 原來可以這麼寫：git-hook & mysql mode ＆ git-hook ,  air/gin
 - 模組化：SOLID 原則
 - 關於我常常粗心大意的問題、如何改善！
 
@@ -30,3 +28,6 @@ https://tw.alphacamp.co/blog/bdd-tdd-cucumber-behaviour-driven-development#%E4%B
 
 Vercel
 https://yuanlin.dev/posts/web-deploy-vercel-tutorial
+
+GCP
+gcp php function by code
