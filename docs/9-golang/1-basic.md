@@ -104,6 +104,25 @@ var array[10] int
 var numbers = [...]int{1,2,3}
 ```
 
+### slice
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var a []string
+	a = make([]string, 3, 5)
+	a[0] = "test"
+	a[1] = "abc"
+	a[2] = "def"
+	fmt.Printf("%#v\n", a)
+}
+```
+Ref: https://ithelp.ithome.com.tw/articles/10203043
+
 ### struct
 ```go
 type 類型名稱 struct {
@@ -237,6 +256,8 @@ type Engine interface {
 }
 
 ```
+- Ref: https://ithelp.ithome.com.tw/articles/10204662
+
 
 ### 繼承
 ```go

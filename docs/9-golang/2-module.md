@@ -2,6 +2,13 @@
 sidebar_position: 2
 ---
 # Module
+
+<!-- - https://ithelp.ithome.com.tw/articles/10206579
+- https://ithelp.ithome.com.tw/articles/10206858
+https://ithelp.ithome.com.tw/articles/10207167
+
+ -->
+
 ## init func
 在`Main`之前會被呼叫的func。按照字母順序、檔案內順序執行，**且不可被呼叫**
 ```go

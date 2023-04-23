@@ -1,7 +1,7 @@
 ---
 sidebar_position: 8
 ---
-
+<!-- https://ithelp.ithome.com.tw/articles/10243831 -->
 # Gin
 ## 安裝
 ```bash
