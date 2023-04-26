@@ -42,5 +42,8 @@ sidebar_position: 1
 - **方案四：加鹽後用 SHA1 雜湊(至少比較安全的方案)**：salt 是一種隨機生成的字串，讓他與密碼串接之後雜湊。
 - 方案五：用 Bcrypt 慢雜湊演算法
 
+## AES 對稱加密
+Ref: https://easonwang.gitbook.io/crypto/aes
+
 - Ref: https://medium.com/starbugs/how-to-store-password-in-database-sefely-6b20f48def92
 

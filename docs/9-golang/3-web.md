@@ -171,3 +171,6 @@ func (r *Request) Cookie(name string) (*Cookie, error)
 ```
 
 ## Session
+
+## REf
+- https://willh.gitbook.io/build-web-application-with-golang-zhtw/09.0/09.6
