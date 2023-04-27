@@ -257,6 +257,7 @@ type Engine interface {
 
 ```
 - Ref: https://ithelp.ithome.com.tw/articles/10204662
+- Ref: https://pjchender.dev/golang/interfaces/
 
 
 ### 繼承

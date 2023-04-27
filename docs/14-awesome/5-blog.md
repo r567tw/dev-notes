@@ -7,3 +7,4 @@ sidebar_position: 5
 - [Daily WPdev](https://oberonlai.blog/): 一個很適合開發 wordpress 外掛開發相關的部落格
 - [地鼠文檔](https://www.topgoer.cn/): Golang 各式各樣的文件說明
 - [閱坊](https://www.readfog.com/t/dev):感覺應該不錯的部落格,只是不太確定是不是內容農場。
+- [選擇無聊的技術](https://boringtechnology.club/index_zh_TW.html)
