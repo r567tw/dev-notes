@@ -88,3 +88,15 @@ Ref: https://www.newscan.com.tw/all-seo/robots-block-search-engines.htm
 - 表示一制性
 - 不在url 使用 crud的名稱
 - 使用查詢參數過濾集合
+
+## SSE & Websocket
+- SSE 單向的：讓server可以推送資料給client端、基於HTTP 協議
+```javascript
+res.set({
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
+    'Connection': 'keep-alive'
+  });
+```
+
+- Websocket 雙向的：允許Client&Server 雙向通信、基於WS協議,TCP協議
