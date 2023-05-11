@@ -4,6 +4,13 @@ sidebar_position: 3
 
 # Architecture
 
+## Reference
+- [如何開始架構設計](https://jed1978.github.io/2018/05/06/How-To-Start-Architecture-Design.html)
+    - **需求決定架構**
+```
+* 需求決定架構，需求更可以區分有功能性需求、非功能性需求以及『約束』
+```
+
 ## Basic
 - 系統 v.s 子系統
 - 模組 v.s 元件
