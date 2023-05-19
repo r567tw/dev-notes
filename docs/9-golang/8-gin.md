@@ -47,3 +47,8 @@ Ref: https://blog.csdn.net/wohu1104/article/details/126689099
 ## 限制API請求的頻率
 
 ## JWT Token
+
+## Validator
+- `github.com/go-playground/validator`
+
+Ref: https://www.readfog.com/a/1637366423504392192

@@ -68,3 +68,10 @@ https://www.digitalocean.com/community/tutorials/how-to-write-packages-in-go
 https://go.dev/doc/modules/publishing
 https://pkg.go.dev/about#adding-a-package
 https://medium.com/geekculture/release-your-go-package-on-pkg-go-dev-886ec42fbc77
+
+## Container
+- `heap`
+- `list`
+- `ring`
+
+Ref: https://www.readfog.com/a/1644907362392313856
