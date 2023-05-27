@@ -1,10 +1,10 @@
- git-hook 系統
- https://xyz.cinc.biz/2013/08/mysql-server-sql-modes.html
- 
  準備鐵人賽的文章： 
  寫gin30 天～
  自學組：連續30天問ChatGPT問題
  
+ 部落格可以寫的 
+ - idea：我自己喜歡訂閱的電子報
+ - 100 days of golang 的心得～
  
 下班找個興趣處理一下～～～ 
 
@@ -31,3 +31,6 @@ https://yuanlin.dev/posts/web-deploy-vercel-tutorial
 
 GCP
 gcp php function by code
+
+用AI 來generate my jimmycode 的logo ? https://uxplanet.org/ui-design-using-midjourney-713e8d1b6a6b
+

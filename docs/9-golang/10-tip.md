@@ -29,3 +29,6 @@ func main() {
 ```
 
 Ref: https://www.readfog.com/a/1657316285844918272
+
+## Option
+https://pjchender.dev/golang/note-design-pattern/
