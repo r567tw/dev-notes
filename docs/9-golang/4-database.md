@@ -30,6 +30,14 @@ func main() {
     err := initDB()
 }
 ```
+:::info
+trace detail:
+
+1. 在 database/sql 的 open 裡面有個讀取`drivers`陣列的資料
+2. `_ "github.com/go-sql-driver/mysql"` 這一行 裡 `driver.go` 有`init()`function 會註冊 `database/sql` 裡面的driver
+3. 如果你呼叫`sql.Drivers()` 應該就只有`mysql`這一行
+4. 所以Open的Error 只是呈現有沒有驅動driver connect 是否成立。**是否有連線仍需要`ping()`**
+:::
 
 
 ## Redis
