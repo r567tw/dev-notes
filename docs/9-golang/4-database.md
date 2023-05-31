@@ -34,6 +34,22 @@ func main() {
 
 ## Redis
 - github.com/gomodule/redigo/redis
+```golang
+package main
+
+import (
+	"fmt"
+	"github.com/gomodule/redigo/redis"
+)
+
+func main() {
+	c, _ := redis.Dial("tcp", "localhost:6379")
+	res, _ := redis.String(c.Do("GET", "hh"))
+	// c.Do("expire","name",10)
+	fmt.Println(res)
+	defer c.Close()
+}
+```
 
 ## MongoDB
 - go.mongodb.org/mongo-driver/mongo
