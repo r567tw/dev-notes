@@ -1,5 +1,7 @@
 # Dictionary
 
+## SOLID 
+
 ##  function overloading
 一個方法可以有很多不同的參數, 可以使用的語言 Java
 

@@ -50,3 +50,6 @@ update brand set contact = 'yy' WHERE name = 'Gottone'
 -- 會等前面卡住20秒完成之後才能執行成功
 -- 因為前面`for update` 會形成row級lock
 ```
+
+## Group-Concat
+- https://www.footmark.com.tw/news/database/mysql/mysql-group-concat-json/

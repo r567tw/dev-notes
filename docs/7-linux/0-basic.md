@@ -30,6 +30,7 @@ sidebar_position: 1
 - rmdir
 - rm
 - head less tail nl more
+- patch : 撰寫 patch 檔案以修改原檔
 
 aircrack-ng 無線破解工具
 ## 套件
@@ -43,6 +44,8 @@ aircrack-ng 無線破解工具
 
 ## 程序管理
 - ps -aux
+<!-- ps -aux thread 測底搞懂 program , process ,thread https://www.796t.com/content/1527709011.html
+https://totoroliu.medium.com/program-process-thread-%E5%B7%AE%E7%95%B0-4a360c7345e5 -->
 - top
 - nice
 - kill
