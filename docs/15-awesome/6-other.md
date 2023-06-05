@@ -15,6 +15,11 @@ sidebar_position: 6
 ## Ansible
 - https://chusiang.gitbooks.io/automate-with-ansible/content/06.how-to-use-the-ansible.html
 
+## Vscode extension
+- https://juejin.cn/post/7117082008819351566
+- https://ithelp.ithome.com.tw/articles/10237380 
+
+
 ## Frontend
 ### QWik
 - https://www.readfog.com/a/1672334005931970560
