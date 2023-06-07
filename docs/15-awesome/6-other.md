@@ -34,4 +34,9 @@ sidebar_position: 6
 - https://www.astralweb.com.tw/use-markdown-to-write-api/
 
 <!-- ## Jobs
-- 職涯諮詢：https://coach.taiwanjobs.gov.tw/wdaecPublic/ -->
+- 職涯諮詢：https://coach.taiwanjobs.gov.tw/wdaecPublic/ 
+## 資訊相關
+- [軟體業界現況與職涯](https://m.gamer.com.tw/forum/C.php?bsn=60076&page=&snA=5444020&last=&fbclid=IwAR3J1m7dDAEjorusk2oUoKCJsHABLjIobixv_WBYgsam1DkCBNix-9UUviI)
+- https://hackmd.io/QK5OvYLxStC5Zhw2SVRXxw?fbclid=IwAR3eNJnAZWTWrzAtyKJ4jpDQbGQjViTNoYPoh7qRSu7nWHZRxA6X08zfyCQ
+- [你要coding多久呢](https://kevintsengtw.blogspot.com/2015/03/coding.html)
+-->
