@@ -10,3 +10,4 @@ https://rapidapi.com/blog/how-to-call-an-api-from-wordpress/
 
 ## Ref:
 - https://ithelp.ithome.com.tw/articles/10236734
+- https://blog.yuyansoftware.com.tw/2017/11/wordpress-plugin-development/
