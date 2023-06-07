@@ -63,6 +63,23 @@ https://totoroliu.medium.com/program-process-thread-%E5%B7%AE%E7%95%B0-4a360c734
 - tar -cvf xx.tar a b c
 - tar -tvf xx.tar
 - tar -xvf xx.tar / tar -xf xx.tar
+```
+打包壓縮與解壓縮
+//tar 指令
+tar -cvf data.tar * //將目錄下所有檔案包蟲data.tar
+tar -cvzf data.tar.gz *
+tar -tvf data.tar // 檢視data.tar 有哪些檔案
+tar -xvf data.tar //解壓縮
+
+//zip 指令
+zip myfiles *.txt
+zip myfiles *.txt  *.jpg
+zip -g myfiles data2/*.log
+unzip myfiles.zip
+unzip myfiles.zip -dmydir
+
+//gzip,gunzip 指令
+```
 
 ## 管理檔案系統
 - fdisk -l
@@ -131,5 +148,13 @@ Host             {{NAME}}
 Hostname         x.x.x.x
 Port             22
 User             admin
+
+## 其他
+```
+passwd //改密碼
+date 
+timedatectl
+ntpdate clock.stdtime.gov.tw
+```
 
 alias enter-nas="sshpass -p password ssh -t {{NAME}}"
