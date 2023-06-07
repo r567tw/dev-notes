@@ -36,4 +36,7 @@ Welcome to Jimmy notes ! ❤️❤️❤️
 
 <!-- # change log
 - 2023/02/04: 將資料從自己的Hackmd 整合進來，資料上有點亂
-- 2023/02/04: 移除 docusaurus 教學文件 -->
+- 2023/02/04: 移除 docusaurus 教學文件 
+- 2023/06/07: 發現以前有deeper in xxx的相關專案，為統一知識點全部整併進來
+
+-->
