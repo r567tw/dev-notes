@@ -132,7 +132,7 @@ return HttpResponse(html)
 ## 5.網址的對應與委派
 - URLconf 模組
 - https://docs.djangoproject.com/en/2.0/topics/http/urls/ 
-```
+```
 from django.conf.urls import include,url
 
 urlpatterns =[
