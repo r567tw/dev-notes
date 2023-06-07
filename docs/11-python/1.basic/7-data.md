@@ -1,5 +1,7 @@
-# 精通 Python：運用簡單的套件進行現代運算
-
+---
+sidebar_position: 5
+---
+# Input/Output
 ## 第七章 喔喔：處理資料
 - 文字字串
     - ASCII
@@ -26,3 +28,23 @@
 - 資料庫
     - SQLite / Mysql / PSSQL / NoSQL
     - SQLAlchemy
+
+## 基本輸入與輸出
+```
+input()
+eval() #處理數學運算
+>>> eval("1+3")
+4
+
+//help(print)
+print(value,sep="",end="\n",file=sys.stdout,flush=False)
+print("%s的物理成績是%d"%(name,grade))
+print("{}的物理成績是{}".format(name,grade))
+print()
+
+//file
+open()
+
+dir(__builtins__)
+
+```
