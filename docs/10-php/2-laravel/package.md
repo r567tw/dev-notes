@@ -8,15 +8,36 @@ sidebar_position: 2
     - [vscode-handler](https://github.com/shengyou/vscode-handler):使用vs-code一鍵開檔
 - [laravel debugbar](https://github.com/barryvdh/laravel-debugbar) 
 
+## Code-Analysis
+- Larastan: static analysis to Laravel. [intro](https://laravel-news.com/larastan-v1-released)
+- Laravel Inspector [intro](https://laravel-news.com/how-a-code-driven-monitoring-tool-can-help-you-deliver-successful-software-products)
+- Grumphp: [連結](https://tech.ray247k.com/blog/202107-grumphp-a-php-code-quality-tool/)
+
+## Tests
+Test coverage 
+- https://ithelp.ithome.com.tw/articles/10242288
+- https://medium.com/@anowarhossain/code-coverage-report-in-laravel-and-make-100-coverage-of-your-code-ce27cccbc738
+- laravel dusk (瀏覽器測試)
+
 ## 開發相關
 - [laravel-model-generator](https://github.com/ignasbernotas/laravel-model-generator):生成laravel model
 - [laravel-oh-generators](https://github.com/Mombuyish/Laravel-Oh-Generators):生成優美laravel 架構
 - laravelcollective HTML
 - Infyom laravel generator
 https://www.youtube.com/playlist?list=PL0wCC44AhrC3JHzcB5qmjYkm70OaoKegg
-- laravel dusk (瀏覽器測試)
 - laravel-fractal (創建api)
 - doctrine DBAL (更優的數據表操作)
+
+## GraphQL Related
+- https://tiagomichaelsousa.dev/articles/laragraph-laravel-and-graphql-part-1
+
+## Livewire
+### Component
+- https://github.com/jantinnerezo/livewire-alert
+### Starter-kit
+- [https://filamentphp.com/](https://filamentphp.com/)
+### Projects
+- https://github.com/devaslanphp/project-management
 
 ## 資料庫備份
 - laravel-backup
@@ -76,11 +97,33 @@ https://github.com/ash-jc-allen/laravel-exchange-rates
 - Laravel Websocket
     - https://docs.beyondco.de/laravel-websockets/1.0/getting-started/introduction.html
     - https://www.youtube.com/watch?v=mDnsC-sfG7I
+- https://docs.soketi.app/
+- https://learnku.com/articles/65072
+- https://kbouzidi.com/real-time-events-with-laravel-and-soketi
+
 
 ## social
 - https://github.com/multicaret/laravel-acquaintances
+
+## Firebase 
+https://www.cloudways.com/blog/php-firebase-integration/
+
+## In-App-Purchases
+https://github.com/imdhemy/laravel-in-app-purchases
+
+## ShoppingCart
+https://github.com/Crinsane/LaravelShoppingcart#database
+
+## Versions 
+https://laravelversions.com
+
+## Notes
+https://jamie-life-coding.site/2022/01/laravel-artisan-run/
+https://tn710617.github.io/zh-tw/laravelDiggingDeeperQueues/
+https://www.reddit.com/r/laravel/comments/tw5h9b/performance_of_relationship_queries_eloquent_vs/
 
 ## 之前工作中用到
 - [laravel-setting](https://github.com/anlutro/laravel-settings)
 - [phpword](https://github.com/PHPOffice/PHPWord)
     -  可以幫助產生報表、office 文件等，好用
+
