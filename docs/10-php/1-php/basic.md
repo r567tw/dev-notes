@@ -6,10 +6,8 @@ sidebar_position: 1
 :::info
 - 內容 From `PHP學習手冊` & `現代PHP`
 :::
-## PHP學習手冊
 
-### 1.方向與第一步
-- 介紹php
+## 介紹php
 - php 是一個直譯式的伺服器端腳本語言
 - php 引擎是一個可以解析、直譯和執行php 程式碼的程式
     - Zend Engine
@@ -18,7 +16,8 @@ sidebar_position: 1
 - 動態型別在程式執行時期檢查；靜態型別再編譯時期被檢查
 - 開始標籤與結束標籤
 - 註解
-### 2.資料:處理文字及數字
+
+## 資料:處理文字及數字
 - 文字: 單引號或者雙引號
 - 數字
 - 函數
@@ -29,16 +28,16 @@ sidebar_position: 1
     - strtolower()
     - strtoupper()
 
-### 3.邏輯：　決策與迴圈
-- true false
+## 邏輯：　決策與迴圈
+- true 和 false
 - if elseif else
 - == 和 === 和 !=
 - for while foreach
 
-### 4.群組資料:陣列
+## 陣列
 - array()
 
-### 5.邏輯群組：函式與檔案
+## 函式與檔案
 ```php
 function page_header({string} $color){
 
@@ -54,7 +53,7 @@ page_header($color)
 - **include**
     - **有問題會繼續**執行接下來得php程式
 
-### 6.資料與邏輯:使用物件
+## 物件
 ```php
     class person{
         public $name;
@@ -71,19 +70,69 @@ page_header($color)
     
 ```
 - 繼承 extends
-- 名稱空間
+- 名稱空間 namespace
+    - from php5.3.0
     - 提供一種組織程式碼的方法，確保你的類別名稱不會與別人的類別名稱衝突
+    - 緊接<?php 標籤之後
     - use
+- Import and Alias
+    - 不用輸入完整的namespace 落落長的名稱
+```php
+#不利用import and alias
+$response = new \Symfony\Component\HttpFoundation\Response('oops',400);
+#利用import and alias
+use \Symfony\Component\HttpFoundation\Response as Res
+$r=Res('oops',400)
+```
+- 多重匯入(可以好幾個use)
+- 單一檔案多重名稱空間
+```php
+<?php
+namespace foo{
+    
+}
+namespace bar{
+    
+}
+```
 
-### 7.與使用者資料互換:表單製作
+- 全域名稱空間
+    - 有些程式碼沒有名稱空間，將存在於全域名稱空間，例如exception
+```php
+<?php
+namespace My\App
+class foo{
+    public function do(){
+        $exception = new \Exception()
+    }
+}
+```
+- 程式碼作為介面
+    - 一個介於兩個php 物件之中的合約，它讓一個物件瞭解另一個物件可以做甚麼，而不是另一個物件是甚麼
+    - interface 的撰寫
+- 特徵機制
+    - trait: [用法可參考文章](http://oomusou.io/php/php-trait/)
+    - 模組化實作方式可以被插入到不相關的類別中
+```php
+<?php
+trait mytrait{
+    
+}
+#use trait
+class myclass{
+    use mytrait;
+}
+```
+
+## 表單製作
 - 這裡做了一個簡單實例
 - $_POST[]
 - $_GET[]
 
-### 8.資料庫
+## 資料庫
 - PDO
 
-### 9.檔案
+## 檔案
 - file_get_contects()
 - file_put_contents()
 - fopen()
@@ -92,18 +141,17 @@ page_header($color)
 - fgets()
 - fgetcsv()
 
-### 10.Cookies 跟 Sessions
 
-### 11.與其他網站或服務互動
+## 與其他網站或服務互動
 - cURL
     - curl_init()
     - curl_setopt()
     - curl_exec()
 
-### 12.除錯
+## 除錯
 - try...catch
 
-### 13.測試:確保程式正確
+## 測試:確保程式正確
 - 單元測試：確認小段程式碼正確的方法
 - 隔離受測程式
     - 重要測試原則
@@ -116,7 +164,7 @@ page_header($color)
         - function testWithTaxAndTip()
             - $this->assertEquals(result,value)
 
-### 14.必須知道的軟體工程實作
+## 必須知道的軟體工程實作
 - 版本控制
     - GIT
 - 問題追蹤
@@ -127,7 +175,7 @@ page_header($color)
 
 > Facebook 甚至建立自有的php 引擎 HHVM
 
-### 15.處理日期與時間
+## 處理日期與時間
 ```php
 $d = new DateTime();
 print $p->format('m/d/y');
@@ -138,7 +186,7 @@ print $p->format('m/d/y');
 - 時區
     - date_default_timezone_set()
 
-### 16.套件管理
+## 套件管理
 - Composer
     - 安裝
     - 新增
@@ -147,8 +195,18 @@ print $p->format('m/d/y');
         - Packagist 網站
 - 更多的Composer 資訊
     - [Wordpress Packagist](https://wpackagist.org)
+- Packagist 可以尋找合適的元件
+- 建立php 元件
+    - src
+    - tests
+    - composer.json
+    - README.md
+    - CoONTRIBUTING.md
+    - LICENSE
+    - CHANGELOG.md
 
-### 17.寄送Email
+
+## 寄送Email
 - Swift Mailer
 
 ```php
@@ -165,12 +223,7 @@ $message->setBody('example');
 # 如果要寄HTML $message->setBody('example',"text/html");               
 ```
 
-### 18.框架
-- Laravel
-- Symfony
-- Zend Framework
-
-### 19.在命令列執行php
+## 在命令列執行php
 - $_SERVER['argv']
 - php example.php
 - php -S localhost:8000
@@ -178,7 +231,7 @@ $message->setBody('example');
 
 - composer global require psy/psysh
 
-### 20.多國語系
+## 多國語系
 - 文字處理
 - 排序和比較
     - Collator
@@ -217,65 +270,9 @@ https://ithelp.ithome.com.tw/articles/10135522
 7. __sleep / __wakeup
 8. __clone()
 
-## 現代PHP讀書筆記
 
-### 2.特點
-- 名稱空間 namespace
-    - from php5.3.0
-    - 解決class 名稱的衝突
-    - 緊接<?php 標籤之後
-    - 讓我們創造出程式碼並獨立運作於其他開發者的程式
-- Import and Alias
-    - 不用輸入完整的namespace 落落長的名稱
-```php
-#不利用import and alias
-$response = new \Symfony\Component\HttpFoundation\Response('oops',400);
-#利用import and alias
-use \Symfony\Component\HttpFoundation\Response as Res
-$r=Res('oops',400)
-```
-- 多重匯入(可以好幾個use)
-- 單一檔案多重名稱空間
-```php
-<?php
-namespace foo{
-    
-}
-namespace bar{
-    
-}
-```
-
-- 全域名稱空間
-    - 有些程式碼沒有名稱空間，將存在於全域名稱空間，例如exception
-```php
-<?php
-namespace My\App
-class foo{
-    public function do(){
-        $exception = new \Exception()
-    }
-}
-```
-- 程式碼作為介面
-    - 一個介於兩個php 物件之中的合約，它讓一個物件瞭解另一個物件可以做甚麼，而不是另一個物件是甚麼
-    - interface 的撰寫
-- 特徵機制
-    - trait
-    - from php5.4
-    - 模組化實作方式可以被插入到不相關的類別中
-```php
-<?php
-trait mytrait{
-    
-}
-#use trait
-class myclass{
-    use mytrait;
-}
-```
+## 特點
 - 產生器
-    - from php 5.5
     - 簡單的迭代器
     - [文章參考](https://ithelp.ithome.com.tw/articles/10133614)
     - 如果一次把檔案讀入記憶體，會使用掉很大的資源，比較好的處理方式是用streaming的方式讀取，逐步處理讀取的內容。
@@ -331,7 +328,7 @@ print_r($numberplusone);
     - [參考文章](https://ithelp.ithome.com.tw/articles/10132747)
     - bindTo and invoke
         - [參考文章](http://oomusou.io/php/php-bindTo/)
-    - 利用use 關鍵字傳入多個參數到closure 可以利用逗號區分變數，如同其他任何php函式或方法的參數
+    - 利用 use 關鍵字傳入多個參數到closure 可以利用逗號區分變數，如同其他任何php函式或方法的參數
 ```php
 <?php
 function enclosePerson($name){
@@ -349,17 +346,14 @@ echo $clay('get me sweet tea!');
 - 內建http 伺服器
 > php -S localhost:4000
 
-### 3.標準
+## 標準
 - PHP-FIG 到 Rescue
-- 框架互通性
-    - 介面
-    - 自動載入
-    - 風格
+- 框架互通性：介面、自動載入、風格
 - PSR
     - PHP 標準協議 PHP standards recommendation
 
-- PSR-0 已棄用，由PSR-4 取代
-- PSR-1:基本程式碼風格
+### PSR-0 已棄用，由PSR-4 取代
+### PSR-1:基本程式碼風格
     - PHP 標籤 你要用PHP 標籤<?php ?> 或 <?= ?>包覆PHP 程式碼
     - 編碼：必須以沒有位元順序標記的utf-8字元編碼
     - 目的：每個php檔案可以用來定義符號或執行一個有作用的動作
@@ -367,7 +361,7 @@ echo $clay('get me sweet tea!');
     - 類別:使用CamelCase 格式 ex. CoffeeGrinder
     - 常數名稱:必須使用大寫，並且必要時使用底線
     - 方法名稱:使用camelCase 格式，弟一個字要小寫，每個單字的第一個字元是大寫
-- PSR-2:嚴厲程式碼風格
+### PSR-2:嚴厲程式碼風格
     - 實做PSR-1
     - 縮排：建議表示四個空白字元縮排
     - 檔案和行距：使用ＬＦ　做為每一行結尾，檔案最後應該保有最後一行並且不能包含?> 每一行不應超越80個字元，如果不得以，不能超越120個字元，每行結尾不能有空白字元
@@ -377,39 +371,17 @@ echo $clay('get me sweet tea!');
     - 方法:方法定義的起始括號必須要在方法名稱下一行的開頭，結尾在方法內容結束後的下一行開頭，第一個參數不用以空白結尾，而最後一個括號不用預留前置的空白，方法的每一個參數(除了最後一個)都緊接著一個逗號和一個空白
     - 能見度:必須宣告能見度，public protected private，abstract 或finial 在能見度之前，static 在能見度之後
     - 控制流程:所有控制流成關鍵字必須接上一個空白字元，起始括號和控制流成關鍵字同一行，結尾則在新的一行
-- PSR-3:記錄器介面
+### PSR-3:記錄器介面
     - 實做php 記錄器
-- PSR-4:自動載入器
+### PSR-4:自動載入器
 
-### 4.元件
-- 框架
-- Packagist 可以尋找合適的元件
-- composer
-    - 安裝
-    - 元件安裝
-- 建立php 元件
-    - src
-    - tests
-    - composer.json
-    - README.md
-    - CoONTRIBUTING.md
-    - LICENSE
-    - CHANGELOG.md
-### 5.良好習慣
-- 消毒、驗證和跳脫
-- 日期時間與時區
+### 快速整理
+- [文章連結](https://www.ccc.tc/article/php-standards-recommendations#)
+- PHP標準建議編號1(PSR-1)，基本編碼標準. 像是類別(Class)名稱必需宣告為StudlyCaps，方法(Method)的名稱需宣告為camelCase..等
+- PHP標準建議編號2(PSR-2)，則是PSR-1的擴充，規範了PHP編碼風格，像是extends或是implements必需與class名稱同一行...等。
+- PHP標準建議編號4(PSR-4)，則定義了自動載入(Autoloader標準)
 
-### 6.寄存
-- 共享伺服器
-- 虛擬私有伺服器 VPS
-- 獨佔伺服器
-- PaaS
-
-### 7.服務開通
-vps 的開通
-- php-fpm
-
-### 8.調校
+## 調校
 - php.ini
 - 記憶體
 - zend opcache
@@ -419,7 +391,7 @@ vps 的開通
 - 輸出緩衝區
 - 真實路徑快取
 
-### 9.部屬
+## 部屬
 - 版本控制
 - 自動化部屬
     - 保持簡單
@@ -431,20 +403,7 @@ vps 的開通
     - magallanes
     - rocketeer
 
-### 10.測試
-- 何時開始
-    - 開發前
-    - 開發當中
-    - 開發結束
-- 如何測試
-    - 單元測試
-        - PHPUnit
-    - 測試驅動開發TDD
-    - 行為驅動開發BDD
-- 以Travis CI 持續測試
-    - 測試應當自動化進行
-
-### 11.剖析
+## 剖析
 - 分析應用程式效能的一種方式
     - 用於開發階段
     - 用於產品階段
@@ -453,7 +412,7 @@ vps 的開通
 - New Relic 剖析器
 - Blackfire 剖析器
 
-### 12.HHVM 和 HACK
+## HHVM 和 HACK
 - HHVM
     - PHP 引擎
     - 已經最佳化應用程式但是需要更高效能的開法者
@@ -467,29 +426,6 @@ echo "I'm Hack";
 - 動態型別
     - 一直到執行階段才被檢查
 - HACK 同時實做了靜態與動態~
-
-### 13.社群
-- 當地PUG
-    - http://php.ug
-- 研討會
-- 導師
-    - http://phpmentoring.org
-- 持續吸收新知
-
-### 補充
-#### PSR PHP標準建議
-- [文章連結](https://www.ccc.tc/article/php-standards-recommendations#)
-- PHP標準建議編號1(PSR-1)，基本編碼標準. 像是類別(Class)名稱必需宣告為StudlyCaps，方法(Method)的名稱需宣告為camelCase..等
-- PHP標準建議編號2(PSR-2)，則是PSR-1的擴充，規範了PHP編碼風格，像是extends或是implements必需與class名稱同一行...等。
-- PHP標準建議編號4(PSR-4)，則定義了自動載入(Autoloader標準)
-
-### PHP 物件導向
-- Trait: [用法](http://oomusou.io/php/php-trait/)
-
-### 物件導向 學習
-- https://www.youtube.com/watch?v=duP1EnOuERU
-
-
 
 ## Interview
 1. 列出sql語法優化的注意事項
