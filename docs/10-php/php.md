@@ -84,7 +84,7 @@ echo $clay('get me sweet tea!');
 ```
 
 ## Object
-### Basic
+### Simple
 ```php
     class person{
         public $name;
