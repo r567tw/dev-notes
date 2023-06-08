@@ -4,41 +4,21 @@ sidebar_position: 1
 
 # Basic
 :::info
-from Laravel 建置與執行
+內容整理 From `Laravel 建置與執行`
 :::
 
-## 1.為甚麼要使用Laravel
-- 為甚麼要使用框架
-    - Laravel
-    - Lumen
-    - Slim
-- 歷史
-    - Ruby on rails
-    - CodeIgniter
-    - Laravel
-- Laravel 的設計哲學
-    - 使用與光有關的字眼
-        - illuminate 照亮
-        - spark 火花
-    - 提升開發速度和開發者的幸福
-- Laravel 社群
-
-## 2.設置Laravel 開發環境與介紹
+## Development
 - 系統需求
 - Composer
 - 本地開發環境
     - Laravel Valet (mac)
-    - Laravel Homestead 
-        - vagrant up
-        - vagrant suspend
-        - vagrant halt
-        - vagrant destroy
-        - vagrant provision
+    - Laravel Homestead
+    - Laravel Sail 
 - laravel new & composer create-project
 - Laravel 的目錄結構
 
-## 3.路由與控制器
-```php=
+## Route
+```php
 
 Route::get('/',function(){
     return 'Hello World';
@@ -58,20 +38,21 @@ Route::get('/{name}',function(){
     - Put/Patch 更新
     - Delete 刪除
     - **any**
-        ```php=
+        ```php
             Route::any('/',function(){})
         ```
     - **match**
-        ```php=
+        ```php
             Route::match(['get','post'],'/',function(){})
         ```
-- 中介層 middleware
+- middleware
     - 在進入controller 之前 過濾request 的條件和身分等
     - 有controller construct 和 route 定義兩種方式宣告
+    - 回傳 response
 
 - 使用視圖組件讓所有視圖共用變數
 
-```php=
+```php
     view()->share('variable','variable);
 ```
 
@@ -109,7 +90,7 @@ php artisan route:clear
     - response()->json()
     - response()->download()
 ## 4.Blade 模板
-```php=
+```php
  @if 和 @endif
  {{ }}
  @unless @endunless
@@ -121,7 +102,7 @@ php artisan route:clear
 ```
 - 自動blade 指令
 - 全域共用變數
-```php=
+```php
 # in App\Providers\AppServiceProvider.php
 public function boot()
 {
@@ -206,7 +187,7 @@ public function boot()
         php artisan make:seeder ContactsTableSeeder
     ```
     
-    ```php=
+    ```php
     #database/seeds/DatabaseSeeder.php
     .... 
     public function run()
@@ -218,7 +199,7 @@ public function boot()
 - 查詢產生器
     - 任何一種資料庫的功能核心都是查詢產生器
     - 原生DB 靜態介面寫法
-    ```php=
+    ```php
         DB::statement('drop table users')
         DB::select('select * from student where id=?',[1])
         $users=DB::table('users')->get()
@@ -369,7 +350,7 @@ public function boot()
 - Session
     - Laravel 的session 管理器支援：檔案、cookie、資料庫、Memcached、**Redis**
 
-```php=
+```php
 #取出
 session()->get('key')
 session('key')
@@ -388,7 +369,7 @@ session()->flush() #移除每一個
 - Flash session 儲存
     - 只想要在下一個網頁載入時抹除它
 
-```php=
+```php
 
 session()->flash(key,value)
 
@@ -427,7 +408,7 @@ session()->reflash() / session()->keep(key)
 > toSearchableArray()
 > searchableAs()
 
-```php=
+```php
 Revie::search('Llew')->get();
 ```
 
@@ -442,7 +423,7 @@ Revie::search('Llew')->get();
     - mailable
     
 - 傳統郵件 classic
-```php=
+```php
 Mail::send(view,data,closure)
 # closure 裡面有寄件者 收件者 等等
 ```
