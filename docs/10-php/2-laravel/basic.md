@@ -450,15 +450,10 @@ Mail::send(view,data,closure)
     - $schedule
 > php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1 (in linux:將唯一的cron 項目啟動)
 
-## 17.輔助函式與集合
+## helpers & Collection
 - https://laravel.com/docs/5.5/helpers
 - https://laravel.com/docs/5.5/collections
 
-# Laravel 新手道場
-
-## Unit 15
-
-### 輔助函式
 陣列
 - array_except() 排除陣列指定鍵值資料
 - array_forget() 移除陣列指定鍵值資料
@@ -486,9 +481,9 @@ Mail::send(view,data,closure)
 - now()
 - collect() 將陣列轉換成collection 資料集合物件
 
-### Collection資料集合物件
+### Collection資料集合物件
 - all()
-- toArray()
+- toArray()
 - toJson()
 - values()
 - keys()
