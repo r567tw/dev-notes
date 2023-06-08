@@ -527,7 +527,7 @@ $filterCollection = $collection->filter(function($value,$key){
 - encrypt()
 - decrypt()
 
-### 錯誤與日誌
+## 錯誤與日誌
 - ex. Log::error($message)
     - emergency
     - alert
@@ -549,47 +549,6 @@ return [
 
 abort(404)  HTTP 例外錯誤代碼
 
-### Artisan 指令
-- php artisan env
-- php artisan down
-- php artisan up
-- php artisan tinker
-
-### 快取
-- Cache::put()
-- Cache::forever()
-- Cache::has()
-- Cache::forget()
-- Cache::get()
-- Cache::pull()
-- Cache::flush();
-
-### 儲存
-- Storage::disk()->put(name,content)
-- Storage::copy(old,new)
-- Storage::move(old,new)
-- Storage::delete()
-- Storage::directories()
-- Storage::allDirectories()
-- Storage::makeDirectory()
-- Storage::deleteDirectory()
-
-## Unit 16
-
-- laravel  請求生命週期
-1. 開始
-2. 請求
-3. 路由
-4. 中介層
-5. 控制器->驗證器->工作事項->模型->模板
-
-- laravel 目錄結構
-- 請求 request
-- 模板 blade
-- 轉址 redirect
-- csrf 保護
-- 回應 response
-- artisan 指令
 
 ## 上線清單
 - https://www.jishuwen.com/d/2EMv/zh-tw
