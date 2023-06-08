@@ -3,13 +3,21 @@ sidebar_position: 1
 ---
 
 # Basic
+:::info
+- 內容 From `PHP學習手冊` & `現代PHP`
+:::
 ## PHP學習手冊
 
 ### 1.方向與第一步
 - 介紹php
+- php 是一個直譯式的伺服器端腳本語言
+- php 引擎是一個可以解析、直譯和執行php 程式碼的程式
+    - Zend Engine
+- Hack 程式語言：建立在PHP 之上的新程式語言
+    - 靜態型別
+- 動態型別在程式執行時期檢查；靜態型別再編譯時期被檢查
 - 開始標籤與結束標籤
 - 註解
-
 ### 2.資料:處理文字及數字
 - 文字: 單引號或者雙引號
 - 數字
@@ -31,19 +39,20 @@ sidebar_position: 1
 - array()
 
 ### 5.邏輯群組：函式與檔案
-```php=
- function page_header({string} $color){
+```php
+function page_header({string} $color){
 
 }
 
 page_header($color)
 ```
+
 - 變數可視範圍
 - $GLOBALS 陣列
-- require
-    - 出現錯誤直接停止程式
-- include
-    - 有問題會繼續執行接下來得php程式
+- **require**
+    - 出現錯誤**直接停止**程式
+- **include**
+    - **有問題會繼續**執行接下來得php程式
 
 ### 6.資料與邏輯:使用物件
 ```php
@@ -119,12 +128,9 @@ page_header($color)
 > Facebook 甚至建立自有的php 引擎 HHVM
 
 ### 15.處理日期與時間
-
-```php=
-
+```php
 $d = new DateTime();
 print $p->format('m/d/y');
-
 ```
 - 解析日期與時間
 - 計算日期與時間
@@ -145,9 +151,8 @@ print $p->format('m/d/y');
 ### 17.寄送Email
 - Swift Mailer
 
-> composer require swiftmailer/swiftmailer
-```php=
-# in example.php
+```php
+# composer require swiftmailer/swiftmailer
 requrie "vendor/autoload.php"
 $transport=Swift_SmtpTransport::newInstance('smtp.example.com',25);
 $mailer = Swift_Mailer::newInstance($transport);
@@ -157,8 +162,7 @@ $message->setFrom('a@example.com');
 $message->setTo(array('b@example.com'=>'james bard'));
 $message->setSubject('example');
 $message->setBody('example');
-# 如果要記HTML $message->setBody('example',"text/html");               
-
+# 如果要寄HTML $message->setBody('example',"text/html");               
 ```
 
 ### 18.框架
@@ -166,16 +170,12 @@ $message->setBody('example');
 - Symfony
 - Zend Framework
 
-
 ### 19.在命令列執行php
 - $_SERVER['argv']
 - php example.php
-
 - php -S localhost:8000
-- PHP REPL 一個好用的php 現成 ide
 - php -a
 
-- psysh
 - composer global require psy/psysh
 
 ### 20.多國語系
@@ -218,16 +218,7 @@ https://ithelp.ithome.com.tw/articles/10135522
 8. __clone()
 
 ## 現代PHP讀書筆記
-### 1.現代的php
-- php 是一個直譯式的伺服器端腳本語言
-- php3
-- php7
-- php 引擎是一個可以解析、直譯和執行php 程式碼的程式
-    - Zend Engine
-    - HipHop Virtual Machine
-- Hack 程式語言：建立在PHP 之上的新程式語言
-    - 靜態型別
-- 動態型別在程式執行時期檢查；靜態型別再編譯時期被檢查(第十二章)
+
 ### 2.特點
 - 名稱空間 namespace
     - from php5.3.0
@@ -236,7 +227,7 @@ https://ithelp.ithome.com.tw/articles/10135522
     - 讓我們創造出程式碼並獨立運作於其他開發者的程式
 - Import and Alias
     - 不用輸入完整的namespace 落落長的名稱
-```php=
+```php
 #不利用import and alias
 $response = new \Symfony\Component\HttpFoundation\Response('oops',400);
 #利用import and alias
@@ -245,7 +236,7 @@ $r=Res('oops',400)
 ```
 - 多重匯入(可以好幾個use)
 - 單一檔案多重名稱空間
-```php=
+```php
 <?php
 namespace foo{
     
@@ -257,7 +248,7 @@ namespace bar{
 
 - 全域名稱空間
     - 有些程式碼沒有名稱空間，將存在於全域名稱空間，例如exception
-```php=
+```php
 <?php
 namespace My\App
 class foo{
@@ -273,7 +264,7 @@ class foo{
     - trait
     - from php5.4
     - 模組化實作方式可以被插入到不相關的類別中
-```php=
+```php
 <?php
 trait mytrait{
     
@@ -289,7 +280,7 @@ class myclass{
     - [文章參考](https://ithelp.ithome.com.tw/articles/10133614)
     - 如果一次把檔案讀入記憶體，會使用掉很大的資源，比較好的處理方式是用streaming的方式讀取，逐步處理讀取的內容。
     - 不會要求你的類別實作Iterator 介面，產生器只在需要的時候計算並產生迭代的數值
-```php=
+```php
 <?php
 function makeRange($length){
     for ($i=0; $i<$length; $i++){
@@ -319,7 +310,7 @@ foreach (getRows('data.csv') as $row){
 ```
 - 閉包
     - from php 5.3.0
-```php=
+```php
 $closure = function ($name){
     return sprintf('hello %s',$name);
 }
@@ -341,7 +332,7 @@ print_r($numberplusone);
     - bindTo and invoke
         - [參考文章](http://oomusou.io/php/php-bindTo/)
     - 利用use 關鍵字傳入多個參數到closure 可以利用逗號區分變數，如同其他任何php函式或方法的參數
-```php=
+```php
 <?php
 function enclosePerson($name){
     return function($doCommand) use ($name){
@@ -467,7 +458,7 @@ vps 的開通
     - PHP 引擎
     - 已經最佳化應用程式但是需要更高效能的開法者
 - HACK 語言
-```php=
+```php
 <?hh
 echo "I'm Hack";
 ```
