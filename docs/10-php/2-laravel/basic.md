@@ -29,34 +29,35 @@ Route::get('/',function(){
 Route::get('/{name}',function(){
     return 'Hello World';
 })->where('name','[0-9]+')
-
 ```
 
-- 路由動詞
-    - Get 觀看
-    - Post 新增
-    - Put/Patch 更新
-    - Delete 刪除
-    - **any**
-        ```php
-            Route::any('/',function(){})
-        ```
-    - **match**
-        ```php
-            Route::match(['get','post'],'/',function(){})
-        ```
-- middleware
-    - 在進入controller 之前 過濾request 的條件和身分等
-    - 有controller construct 和 route 定義兩種方式宣告
-    - 回傳 response
+### 路由動詞
+- Get 
+- Post 
+- Put/Patch 更新
+- Delete 刪除
+- **any**
+```php
+Route::any('/',function(){})
+```
+- **match**
+```php
+Route::match(['get','post'],'/',function(){})
+```
 
+## Middleware
+- 在進入controller 之前 過濾request 的條件和身分等
+- 有controller construct 和 route 定義兩種方式宣告
+- 回傳 response
+
+## View
 - 使用視圖組件讓所有視圖共用變數
 
 ```php
     view()->share('variable','variable);
 ```
 
-- Controller
+## Controller
 
 | 方法名稱 | 動詞 | URL |
 | -------- | -------- | -------- |
@@ -69,12 +70,12 @@ Route::get('/{name}',function(){
 |destroy|post (delete)| tasks/{task}|
 
 - 路由模型綁定
-
 > 定義一個特定的參數名稱 如{task} 來指示路由解析器，他應該用那個的id 來尋找而不是傳統將id 傳入
-> - 顯式與隱式
+> 顯式與隱式
+
 - 路由快取
 > 壓榨載入時間的每毫秒
-```shell=
+```shell
 php artisan route:cache
 php artisan route:clear
 ```
@@ -89,7 +90,8 @@ php artisan route:clear
     - response()->make() 建立一個http 回應
     - response()->json()
     - response()->download()
-## 4.Blade 模板
+
+## Blade 模板
 ```php
  @if 和 @endif
  {{ }}
@@ -123,10 +125,7 @@ public function boot()
 }
 ```
 
-## 5.前端套件
-- laravel-mix
-
-## 6.收集與處理用戶資料
+## 收集與處理用戶資料
 - Request
     - all()
     - except() or only()
@@ -155,13 +154,12 @@ public function boot()
     - $fillable in model
 - {{ ... }} v.s {!! ... !!}
 
-## 7.Artisan 與 Tinker
+## Artisan 與 Tinker
 > php artisan make:command action
 > #可以同時生成model 和migration 和controller
 > php artisan make:model [name] -m -r
 
-
-## 8.資料庫與Eloquent
+## Eloquent
 - Laravel 的 ActiveRecord ORM
 - config/database.php
 - migration 資料庫遷移
@@ -179,7 +177,7 @@ public function boot()
         ```
     - 撰寫 migration [請參考文件](https://laravel.com/docs/5.5/migrations)
     - seeder
-    ```shell=
+    ```shell
         php artisan migrate --seed #與migrate 一起
         php artisan migrate:refresh --seed #與migrate 一起
         php artisan db:seed #分別執行
@@ -245,18 +243,8 @@ public function boot()
 - Eloquent 模型序列化
     - 將某種複雜的東西轉換成字串 toArray() toJson()
     - https://laravel.com/docs/5.5/eloquent-serialization
-## 9.用戶身分驗證與授權
-- php artisan make:auth
-- https://laravel.com/docs/5.5/authentication
-- 守衛
-    - config/auth.php
-    - auth()->guard('user')->user()
-- 授權 ACL
-    - in blade: can cannot allows denies
-    - can
-    - gete
-    - policy
-## 10.請求與回應
+
+## Request & Response
 - 請求生命週期
     - 每一個請求都會轉成 Illuminate Request 物件 經過middleware 過濾請求後進入controller 處理好後就產生 Illuminate Response
     - request
@@ -264,8 +252,7 @@ public function boot()
     - middleware
         - 每一個請求都會經過每一個middleware 最後進入應用程式，之後產生的回應會經過middleware回到用戶
 
-## 11.容器
-
+## Container
 - 相依注入
     - 每一個類別的相依關係都是從外面住入的 而不是在類別中實例化的
 - 控制反轉
@@ -273,7 +260,7 @@ public function boot()
 - 將類別綁定容器
     - 告知容器如果有人要求一個Logger 實例，則執行這段程式
 
-## 12.測試
+## Testing
 - Laravel 內建 PHPUnit、Behat、Mockery、Faker 等
 - 單元測試
     - 測試對象是小型、相對獨立的單位，通常是一個類別或方法
@@ -303,7 +290,7 @@ public function boot()
     - databasemigrations
     - databasetransactions
 
-## 13.編寫API
+## API
 - 類REST JSON API 基礎
     - 一種用來建構API 的架構格式
     - URL 可以獨特的表示一種資源
@@ -321,7 +308,7 @@ public function boot()
 - http://www.itread01.com/content/1496308818.html'
 - http://codingweb.tw/2016/12/23/laravel-5-3-api-%E8%AA%8D%E8%AD%89-authentication-passport/
 
-## 14.儲存與取出
+## Storage
 - 本地與雲端檔案管理器
 - config/filesystems.php
 - storage_path() 輔助函式
@@ -415,7 +402,7 @@ Revie::search('Llew')->get();
 > config/scout.php 把queue 設為true
 
 
-## 15.郵件與通知
+## Email
 - 郵件
 - https://laravel.com/docs/5.5/mail
 - config/mail.php
@@ -441,7 +428,7 @@ Mail::send(view,data,closure)
 - 通知 Notification
 - php artisan make:notification WorkoutAvailable
 
-## 16.佇列、工作、事件、廣播與排程器
+## Queue
 - 佇列可以將昂貴或緩慢的程序移出任何同步呼叫 ex.傳送郵件
 - config/queue.php
 
