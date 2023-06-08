@@ -19,3 +19,4 @@ If you don’t use pretty permalinks, use “?rest_route=” instead of “wp-js
 
 - https://www.yannyann.com/2018/09/wp-rest-api-create-new-post-and-upload-image/
 
+- [Wordpress Packagist](https://wpackagist.org)
