@@ -2,17 +2,26 @@
 sidebar_position: 3
 ---
 # Best Practice
-## 相關資源
-1. [Larvel News](https://laravel-news.com/)
-2. [Laravel Package](https://packalyst.com/)
-3. [[Packagist](https://packagist.org/)
-4. [語系列表](https://github.com/Laravel-Lang/lang)
----
-5. [Best Package](https://www.cloudways.com/blog/best-laravel-packages/)
-6. [Laravel 比較好得實踐](https://github.com/alexeymezenin/laravel-best-practices)
-7. [Laracast 教程](https://laracasts.com/)
-8. [更深層的laravel](https://divinglaravel.com/)
-9. [更有效率的laravel](https://serversforhackers.com/laravel-perf/course?email=r567tw@gmail.com)
+
+## Laravel 的中大型專案架構
+- [參考資料](http://oomusou.io/laravel/laravel-architecture/)
+- [laravel 優美架構](https://docs.google.com/presentation/d/1rOWNct6tu8u63Gss8hHwz8KncWkP3yI3BR8dsDs1-Sg/edit#slide=id.g22cf02b506_3_403)
+- 可用外掛
+    - https://github.com/Mombuyish/Laravel-Oh-Generators
+
+1.Model : 僅當成 Eloquent class。
+2.**Repository : 輔助 model，處理資料庫邏輯，然後注入到 service。**
+3.**Service : 輔助 controller，處理商業邏輯，然後注入到 controller。**
+4.Controller : 接收 HTTP request，調用其他 service。
+5.**Presenter : 處理顯示邏輯，然後注入到 view。**
+6.View : 使用 blade 將資料 binding 到 HTML。
+7.++Transformer :轉換顯示欄位(API)++
+8.++Formatter: 格式的統一顯示格式(API)++
+9.++Foundation: 獨立掛載功能++
+
+### 總結
+- 職責單一: 就是說每次修改都會有個地方變動而已，所以每個類別都只會有一種改變的理由
+- 跟夥伴們取得一個共識：讓他們知道這樣的設計和方法可以帶來時麼樣的好處，建立一個良好的溝通
 
 ## clean code
 - https://sohambanerjee.me/2020/06/26/clean-code-laravel/
@@ -63,3 +72,6 @@ sidebar_position: 3
 - Context matters
 - Use only what helps you and ignore everything else
 
+## 相關資源
+1. [Best Package](https://www.cloudways.com/blog/best-laravel-packages/)
+2. [Laravel 比較好得實踐](https://github.com/alexeymezenin/laravel-best-practices)

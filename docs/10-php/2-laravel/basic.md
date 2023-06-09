@@ -31,24 +31,22 @@ Route::get('/{name}',function(){
 })->where('name','[0-9]+')
 ```
 
-### 路由動詞
-- Get 
-- Post 
-- Put/Patch 更新
-- Delete 刪除
-- **any**
-```php
-Route::any('/',function(){})
-```
-- **match**
-```php
-Route::match(['get','post'],'/',function(){})
+- 路由模型綁定
+> 定義一個特定的參數名稱 如{task} 來指示路由解析器，他應該用那個的id 來尋找而不是傳統將id 傳入
+> 顯式與隱式
+
+- 路由快取
+> 壓榨載入時間的每毫秒
+```shell
+php artisan route:cache
+php artisan route:clear
 ```
 
 ## Middleware
 - 在進入controller 之前 過濾request 的條件和身分等
 - 有controller construct 和 route 定義兩種方式宣告
 - 回傳 response
+
 
 ## View
 - 使用視圖組件讓所有視圖共用變數
@@ -69,16 +67,7 @@ Route::match(['get','post'],'/',function(){})
 |update |post (put or patch)| tasks/{task}|
 |destroy|post (delete)| tasks/{task}|
 
-- 路由模型綁定
-> 定義一個特定的參數名稱 如{task} 來指示路由解析器，他應該用那個的id 來尋找而不是傳統將id 傳入
-> 顯式與隱式
 
-- 路由快取
-> 壓榨載入時間的每毫秒
-```shell
-php artisan route:cache
-php artisan route:clear
-```
 - 方法欺騙: method_field() 或者 input-name:_method
 - CSRF 
 - 轉址 redirect
@@ -334,6 +323,7 @@ public function boot()
     - directories()
     - allDirectories()
 
+## Session
 - Session
     - Laravel 的session 管理器支援：檔案、cookie、資料庫、Memcached、**Redis**
 
@@ -553,6 +543,13 @@ abort(404)  HTTP 例外錯誤代碼
 ## 上線清單
 - https://www.jishuwen.com/d/2EMv/zh-tw
 
+## 相關資源
+1. [Larvel News](https://laravel-news.com/)
+2. [Laravel Package](https://packalyst.com/)
+3. [Packagist](https://packagist.org/)
+4. [語系列表](https://github.com/Laravel-Lang/lang)
+5. [Laracast 教程](https://laracasts.com/)
+6. [更深層的laravel](https://divinglaravel.com/)
 
 <!-- ## Ref:
 - https://medium.com/@chewysalmon/laravel-docker-development-setup-an-updated-guide-72842dfe8bdf -->

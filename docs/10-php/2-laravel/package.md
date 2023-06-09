@@ -31,6 +31,18 @@ https://www.youtube.com/playlist?list=PL0wCC44AhrC3JHzcB5qmjYkm70OaoKegg
 ## GraphQL Related
 - https://tiagomichaelsousa.dev/articles/laragraph-laravel-and-graphql-part-1
 
+## Serverless
+## serverless
+- Bref
+    - https://medium.com/@azole/deploy-serverless-laravel-by-bref-6f28b1e0d53a
+    - https://medium.com/@azole/deploy-laravel-to-lambda-with-bref-by-aws-cdk-5a1ba8748014
+
+- https://medium.com/@azole/deploy-serverless-laravel-by-bref-6f28b1e0d53a
+
+
+### fargate
+https://silvermoonfox.github.io/2019/12/24/awsFargateNginxPHP/
+
 ## Livewire
 ### Component
 - https://github.com/jantinnerezo/livewire-alert
