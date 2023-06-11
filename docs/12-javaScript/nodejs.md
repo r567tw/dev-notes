@@ -20,6 +20,10 @@ console.log("Hello World")
 const fs = require("fs")
 fs.writeFileSync("sample.txt", "Hello World!")
 ```
+## Event Loop
+> 我們都知道Node.js出了名的輕巧高效來自於他只使用單執行緒與Event Loop(事件迴圈)的概念，將凡事有任何需要等待結果的、請求外部資源才能進行的函式，一律丟到Event Loop中等待。
+
+https://notes.andywu.tw/2020/%E5%AE%8C%E6%95%B4%E5%9C%96%E8%A7%A3node-js%E7%9A%84event-loop%E4%BA%8B%E4%BB%B6%E8%BF%B4%E5%9C%88/
 
 ## npm and basic
 - 兩者不可共用！
