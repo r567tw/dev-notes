@@ -10,17 +10,20 @@ sidebar_position: 2
 - fs
 - path
 - os
+
 ## First App
 
 ```javascript title="app.js"
 console.log("Hello World")
 ```
+
 - 使用`fs`
 ```javascript title="app.js"
 const fs = require("fs")
 fs.writeFileSync("sample.txt", "Hello World!")
 ```
 ## Event Loop
+
 > 我們都知道Node.js出了名的輕巧高效來自於他只使用單執行緒與Event Loop(事件迴圈)的概念，將凡事有任何需要等待結果的、請求外部資源才能進行的函式，一律丟到Event Loop中等待。
 
 ![nodejs](/img/nodejs.jpeg)
@@ -29,12 +32,16 @@ Ref: [連結](https://notes.andywu.tw/2020/%E5%AE%8C%E6%95%B4%E5%9C%96%E8%A7%A3n
 
 ## npm and basic
 - 兩者不可共用！
-    - module.exports ={}
-    - exports.data={}
+```javascript
+module.exports ={}
+exports.data={}
+```
 
-- Http.createServer
+## Http
+- createServer()
 ```javascript
 var http = require('http');
+
 http.createServer(function(request,response){
     response.writeHead(200,{"Content-Type":"text/plain"});
     response.write('hello');
@@ -42,30 +49,10 @@ http.createServer(function(request,response){
 }).listen(9999);
 ```
 
-- __dirname 目前目錄\ __filename 目前檔案
-- path module
-    - path.dirname('/xx/yy/zz.js') 回傳 /xx/yy 
-    - path.join(__dirname,'/xx')  回傳 前後路徑合併 
-    - path.basename('/xx/yy/zz.js')  回傳 zz.js 
-    - path.extname('/xx/yy/zz.js')  回傳 js 
-    - path.parse('/xx/yy/zz.js') 回傳 上述綜合物件 
-- NPM
-    - npm init :create package.json
-    - npm install 000 : install node module
-```
-    npm install module --save //node 應用程式會用的
-    npm install module --save-dev //開發測試的
-    npm install module -g //全域
-```
-
-- 版本號 ex. 主要版本號.次要版本號.修bug
-- ^ 主要版本號.x.x
-- ～ 主要版本號.次要版本號.x
-- latest 最新版本號
-
-- nodemon
+> nodemon : node hot reload 的工具
 
 ## express
+### Install
 - npm install express --save
 ```javascript
 var express = require('express')
@@ -79,6 +66,7 @@ app.get('/', function(req,res){
 app.listen(4000)
 ```
 
+### Route
 - params (url)
 ```javascript
 app.get('/user/:name', function(req,res){
@@ -95,7 +83,7 @@ app.get('/user', function(req,res){
 });
 ```
 
-## express middleware
+### Middleware
 ```javascript
 app.use(function (req,res,next){
     console.log('有人進來了');
@@ -134,13 +122,13 @@ app.get('/', login,function(req,res){
 });
 ```
 
-## express static and Ejs
-- static file
+### static and Ejs
+#### static file
 ```javascript
 app.use(express.static('public'))
 ```
 
-## EJS
+### EJS
 - npm install ejs-locals
 - http://www.embeddedjs.com/
 - http://ejs.co/
@@ -191,7 +179,7 @@ app.get('/',login,function(req,res){
     <%- content %>
 ```
 
-## body-parser
+### body-parser
 - npm install body-parser -save
 ```javascript
 //include and use
@@ -207,29 +195,6 @@ app.post('/search',function(req,res){
 });
 ```
 
-## router
-```
-// in router/user.js
-var express = require('express')
-
-var router = express.Router();
-
-router.get('/name/:name', function(req,res){
-    myname = req.params.name
-    res.send(myname)
-});
-
-router.get('/photo/:photo', function(req,res){
-    myname = req.params.name
-    res.send('photo')
-});
-
-module.exports = router
-
-// in app.js
-var user = require('./routers/user');
-app.use('/data',user);
-```
 
 ### 文件與安裝
 https://expressjs.com/en/starter/generator.html
@@ -240,44 +205,6 @@ https://expressjs.com/en/starter/generator.html
 > cd project && npm install
 > npm start（預設3000port）
 
-
-
-## new Date()
-- time.getTime()
-
-## express
-### NPM
-- npm install express --save
-### OPEN WEB
-```
-var express = require('express')
-var app = express()
-
-// console.log(app)
-app.get('/', function(req,res){
-    res.send('hello world')
-});
-
-app.listen(4000)
-```
-
-### params/query
-```
-app.get('/user/:name/:id', function (req, res) {
-    console.log(req.params) //user/abc/123 => { name: 'abc', id: '123' }
-    console.log(req.query)
-    var myName = req.params.name
-    res.send(myName)
-});
-
-app.get('/user', function (req, res) {
-    console.log(req.query) //user?name=123 => { name: '123' }
-    var myName = req.query.name
-    res.send(myName)
-});
-
-```
-
 ### express-generator
 - https://expressjs.com/en/starter/generator.html
 - npm install express-generator -g
@@ -285,7 +212,7 @@ app.get('/user', function (req, res) {
 - cd project && npm install
 - npm start
 
-## cookie & session
+### cookie & session
 ```
 document.cookie
 document.cookie="myname=tom;max-age=10;path=/"
@@ -350,7 +277,7 @@ app.use(session({
 
 res.session.屬性 = 值 
 
-## nodeMailer
+### nodeMailer
 - https://nodemailer.com/about/
 ```
 router.post('/post', csrfProtection, function (req, res) {
@@ -381,13 +308,13 @@ router.post('/post', csrfProtection, function (req, res) {
     })
 });
 ```
-## csurf
+### csurf
 - https://github.com/expressjs/csurf
 
-## dotenv
+### dotenv
 - https://www.npmjs.com/package/dotenv
 
-## connect-flash
+### connect-flash
 資料暫存
 - https://github.com/jaredhanson/connect-flash
 ```
@@ -409,10 +336,10 @@ req.flash('error', 'username is empty')
 ## 整合firebase 資料庫～
 ## heroku 部署
 ```
-## express-validator
+### express-validator
 https://express-validator.github.io/docs/
 
-## Promise
+### Promise
 - funciton
     - new promise
         - resolve
@@ -456,10 +383,10 @@ all: 全部回傳
 race: 回傳最快的response
 ```
 
-# firebase 筆記
+## Firebase
 https://console.firebase.google.com/
 
-## ref/set
+### ref/set
 ```
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
@@ -543,7 +470,7 @@ database.ref('restaurant').set(data)
 
 ```
 
-## once
+### once
 ```
 //once 讀取一次的資料
 database.ref('myName').once('value', function (snapshot) {
@@ -552,7 +479,7 @@ database.ref('myName').once('value', function (snapshot) {
 })
 ```
 
-## on
+### on
 ```
 //on 即時更新
 database.ref('myName').on('value', function (snapshot) {
@@ -570,14 +497,14 @@ database.ref('school').push({student3: {
     }})
 ```
 
-## remove/child
+##3 remove/child
 ```
 database.ref().child('school')
 // remove 刪除
 database.ref().child('school').remove()
 ```
 
-## for-in
+### for-in
 ```
 for(var item in items){
   console.log(item) //=>索引值
@@ -585,7 +512,7 @@ for(var item in items){
 }
 ```
 
-## debug
+### debug
 ```
 database.ref().on('value', function (snapshot) {
   //console.log(snapshot.val())
@@ -593,7 +520,7 @@ database.ref().on('value', function (snapshot) {
 })
 ```
 
-## 排序
+### 排序
 ```
 //orderByChild
 database.ref('school').orderByChild('weight').on('value', function (snapshot) {
@@ -609,7 +536,7 @@ database.ref().on('value', function (snapshot) {
 ```
 參考規則：https://firebase.google.com/docs/database/admin/retrieve-data?hl=zh-cn#orderbychild
 
-## startAt(), endAt() , equalTo()
+### startAt(), endAt() , equalTo()
 ```
 // 路徑>>排序('屬性')>>過濾>>讀取> forEach 依序撈出資料
 peopleRef.orderByChild('weight').equalTo(2500).once('value',function(snapshot){
@@ -621,7 +548,7 @@ peopleRef.orderByChild('weight').equalTo(2500).once('value',function(snapshot){
 })
 ```
 
-## limit
+### limit
 - limitTolast
 - limitToFirst
 ```
@@ -634,7 +561,7 @@ peopleRef.orderByChild('weight').limitlast(5).once('value',function(snapshot){
 })
 ```
 
-## 反轉
+### 反轉
 - reverse()
 ```
 todos.on('value',function(snapshot){
