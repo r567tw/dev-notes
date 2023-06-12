@@ -79,8 +79,6 @@ app.get('/', function(req,res){
 app.listen(4000)
 ```
 
-- 網址規則 http://domain/{query}
-
 - params (url)
 ```javascript
 app.get('/user/:name', function(req,res){
@@ -110,7 +108,6 @@ app.use(function (req,res,next){
 //放在最後
 app.use(function (req,res,next){
     res.status(404).send('你的頁面找不到');
-
 })
 ```
 - error
@@ -194,9 +191,6 @@ app.get('/',login,function(req,res){
     <%- content %>
 ```
 
-## postman
-- postman
-
 ## body-parser
 - npm install body-parser -save
 ```javascript
@@ -211,30 +205,6 @@ app.post('/search',function(req,res){
     res.send(req.body.searchText)
     // res.redirect('/search')
 });
-```
-
-- ajax
-```javascript
-var send = document.getElementById('send');
-var content = document.getElementById('content');
-
-send.addEventListener('click',function(e){
-    e.preventDefault();
-    var str = content.value;
-    var xhr = new XMLHttpRequest();
-    xhr.open('post','/searchAJAX');
-    //x-www-form
->    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
->    var data = 'content='+str;
-    //json
->    xhr.setRequestHeader("Content-type","application/json");
->    var data =  JSON.stringify({"content":str,"list":[1,2,3]});
-
-    xhr.send(data);
-    xhr.onload = function(){
-        console.log(xhr.responseText);
-    }
-})
 ```
 
 ## router
@@ -260,8 +230,6 @@ module.exports = router
 var user = require('./routers/user');
 app.use('/data',user);
 ```
-
-## express-
 
 ### 文件與安裝
 https://expressjs.com/en/starter/generator.html
@@ -308,122 +276,6 @@ app.get('/user', function (req, res) {
     res.send(myName)
 });
 
-```
-
-### express middleware
-```
-//順序很重要～如果在route之前會沒有作用！
-app.use(function (req,res,next){
-    console.log('有人進來了');
-    next(); //可以往下一個route 前後順序很重要
-})
-
-// 404 page 放在最後
-app.use(function (req,res,next){
-    res.status(404).send('你的頁面找不到');
-})
-
-// error
-app.use(function (err,req,res,next){
-    console.error(err.stack)
-    res.status(500).send('你的頁面有錯誤喔');
-})
-
-var login = function(req,res,next){
-    console.log('有人真的進來了');
-    next();
-}
-
-//寫法一:全域，之後的router都會應用
-app.use(login)
-
-//寫法2：只是單單使用到這個router
-app.get('/', login,function(req,res){
-    res.send('hello world')
-});
-
-```
-
-### static file
-```
-app.use(express.static('public'))
-
-app.get('/user', loginSecond, function (req, res) {
-    res.send("<img src='/test.jpg'></img>")
-});
-```
-
-### EJS
-
-#### 安裝
-> npm install ejs-locals
-
-#### 文件
-- http://www.embeddedjs.com/
-- http://ejs.co/
-
-#### Code
-```
-var engine = require('ejs-locals')
-app.engine('ejs',engine)
-app.set('views','./views')
-app.set('view engine','ejs')
-
-app.get('/',login,function(req,res){
-    res.render('index'); //views/index.ejs
-});
-```
-
-#### 載入參數與載入的內容種類
-```
-//app.js
-app.get('/',login,function(req,res){
-    res.render('index',{'title':'abc'});
-});
-
-// index.ejs
-<title><%= title %></title>
-<title><%- title %></title> //渲染html格式
-
-//if
-<% if (show){ %>
-<% } %>
-
-//for
-<ul>
-<% for(var i=0; i<supplies.length; i++) {%>
-   <li><%= supplies[i] %></li>
-<% } %>
-</ul>
-
-```
-
-#### layout
-```
-//layout.ejs
-<%- body %>
-
-//index.ejs
-<% layout('layout') %>
-<h1>hello world</h1>
-```
-
-### body-parser
-#### 安裝
-> npm install body-parser -save
-
-```
-//include and use
-var bodyParser = require('body-parser')
-app.use(bodyParser.json()); //決定可以接受json
-app.use(bodyParser.urlencoded({extended:false}));//決定可以接受urlencode
-
-// how to receive data
-app.post('/search',function(req,res){
-    console.log(req.body) //POST { searchText: 'ffff' }
-    res.send(req.body.searchText)
-    // res.redirect('/search')
-});
 ```
 
 ### express-generator
@@ -497,6 +349,7 @@ app.use(session({
 寫入 session
 
 res.session.屬性 = 值 
+
 ## nodeMailer
 - https://nodemailer.com/about/
 ```
