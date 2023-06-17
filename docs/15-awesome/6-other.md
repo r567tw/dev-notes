@@ -50,4 +50,7 @@ sidebar_position: 6
 
 Funning
 - https://github.com/torvalds/linux/tree/8bcab0346d4fcf21b97046eb44db8cf37ddd6da0
+
+WTFPL
+https://zh.wikipedia.org/zh-tw/WTFPL
 -->
