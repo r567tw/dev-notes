@@ -5,6 +5,11 @@ sidebar_position: 1
 
 ## Wordpress Packagist
 https://wpackagist.org
+
+## Wordpress CLI
+> 可以用 CLI interface 控制 Wordpress
+- https://wp-cli.org/
+
 ## Wordpress REST API
 <!-- 投影片：
 https://docs.google.com/presentation/d/1MIyX72XxbYfEI2ZDpuL8pe9VUhsC-AFRco7PEdtnipY/edit#slide=id.p -->
