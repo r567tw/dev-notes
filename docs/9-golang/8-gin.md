@@ -41,6 +41,7 @@ gin.SetMode(gin.DebugMode)
 Ref: https://blog.csdn.net/wohu1104/article/details/126689099
 
 ## csrf
+- https://blog.csdn.net/hg_zhh/article/details/122511079
 
 ## cors
 
