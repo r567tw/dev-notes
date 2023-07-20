@@ -60,3 +60,44 @@ services:
 
 ## Wordpress CICD
 - https://www.hostinger.com/tutorials/wordpress-continuous-integration-and-deployment
+
+## Wordpress MVC
+- http://wpmvc.org/documentation/routing/
+
+## Close PHP Notice & Mu-plugin
+- https://audilu.com/2020/11/12/wordpress-debug-log-turn-off-notice/
+```php
+# mu-plugin (Must use plugin) (wp-content/mu-plugins/debug_log_setting.php)
+<?php
+// debug_log_setting.php 裡只要放這行
+error_reporting(E_ALL &  ~( E_USER_NOTICE | E_NOTICE ));
+```
+
+## Wordpress Hook
+-  https://ithelp.ithome.com.tw/articles/10242112 
+-  https://wordpress.sig.tw/action_reference/
+```php
+do_action( '動作勾點名稱' );
+add_action( '動作勾點名稱', '函式名稱', '優先度 (整數，選填)', '接受參數 (整數，選填)' );
+
+apply_filters( '篩選器勾點名稱' );
+add_filter( '篩選器勾點名稱', '函式名稱', '優先度 (整數，選填)', '接受參數 (整數，選填)' );
+
+
+add_action( 'shutdown', function(){
+  foreach( $GLOBALS['wp_actions'] as $action => $count ){
+    printf( '%s (%d) <br/>' . PHP_EOL, $action, $count );
+  }
+});
+```
+
+
+
+<!-- 
+## Woocommerce
+https://ithelp.ithome.com.tw/articles/10268171 
+
+wordpress中wp_register_script与wp_enqueue_script的区别
+https://zhuanlan.zhihu.com/p/457976482
+
+-->
