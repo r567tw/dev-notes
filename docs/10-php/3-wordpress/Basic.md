@@ -91,6 +91,19 @@ add_action( 'shutdown', function(){
 });
 ```
 
+## Wordpress DB
+- https://ithelp.ithome.com.tw/articles/10239113?sc=rss.iron
+```php
+global $wpdb;
+$wpdb->query('query');
+$wpdb->get_row('query', output_type, row_offset);
+$wpdb->get_results('query', output_type);
+$wpdb->insert( $table, $data, $format );
+$wpdb->update( $table, $data, $where, $format = null, $where_format = null );
+$wpdb->delete($table, $where, $where_format = null );
+$sql = $wpdb->prepare( 'query' [, value_parameter, value_parameter ... ] );
+
+```
 
 
 <!-- 
