@@ -39,6 +39,8 @@ sidebar_position: 6
 ## Software
 - [這些不做-我就問你怎麼敏捷](https://medium.com/kuma%E8%80%81%E5%B8%AB%E7%9A%84%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E6%95%99%E5%AE%A4/%E9%80%99%E4%BA%9B%E4%B8%8D%E5%81%9A-%E6%88%91%E5%B0%B1%E5%95%8F%E4%BD%A0%E6%80%8E%E9%BA%BC%E6%95%8F%E6%8D%B7-3-7f7229649540)
 
+## NativePHP
+- https://nativephp.com/
 
 <!-- ## Jobs
 - 職涯諮詢：https://coach.taiwanjobs.gov.tw/wdaecPublic/ 
