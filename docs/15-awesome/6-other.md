@@ -62,4 +62,7 @@ https://today.line.me/tw/v2/article/9mYa6GV
 - 制定任務清單，把精力放在對的事情
 - 多關心自己，停止給自己設限
 - 多閱讀增廣見識，會思考就不會瞎焦慮
+
+開發 Line 貼圖
+https://deanlife.blog/create-line-stickers/
 -->
