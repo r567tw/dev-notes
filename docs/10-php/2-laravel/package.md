@@ -141,3 +141,6 @@ https://www.reddit.com/r/laravel/comments/tw5h9b/performance_of_relationship_que
 
 ## NativePHP
 - https://nativephp.com/
+
+## Laravel with Python
+- https://github.com/bhavingajjar/laravel-python
