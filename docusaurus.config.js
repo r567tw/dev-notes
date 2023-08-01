@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 (module.exports = {
   title: 'Jimmy の note',
   tagline: 'Notes for Output & Understand',
-  url: 'https://r567tw.github.io/dev-notes',
+  url: 'https://jimmynotes.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -53,8 +53,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             position: 'left',
             label: 'Documents',
           },
-          { to: '/blog', label: 'Post', position: 'left' },
-          { to: 'https://jimmycode.tw/', label: 'Main', position: 'left' }
+          { to: '/blog', label: 'Blog', position: 'left' },
+          { to: 'https://jimmycode.tw/', label: 'Site', position: 'left' },
+          { to: 'https://github.com/r567tw', label: 'Github', position: 'left' }
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',
@@ -106,7 +107,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         //   },
         // ],
         // copyright: `Copyright © ${new Date().getFullYear()} Dev Notes, Inc. Built with Docusaurus.`,
-        copyright: `Copyright © ${new Date().getFullYear()} Dev Notes`,
+        copyright: `Copyright © ${new Date().getFullYear()} Jimmy の note`,
       },
       prism: {
         theme: darkCodeTheme,
