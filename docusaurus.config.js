@@ -12,7 +12,22 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   favicon: 'img/favicon.ico',
   organizationName: 'r567tw', // Usually your GitHub org/user name.
   projectName: 'dev-notes', // Usually your repo name.
-
+  // headTags: [
+  //   {
+  //     tagName: 'script',
+  //     attributes: {
+  //       async,
+  //       crossorigin: "anonymous",
+  //       src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3916790298498531',
+  //     },
+  //   },
+  // ],
+  scripts: [
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3916790298498531',
+      async: true,
+    },
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
