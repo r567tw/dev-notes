@@ -22,12 +22,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   //     },
   //   },
   // ],
-  scripts: [
-    {
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3916790298498531',
-      async: true,
-    },
-  ],
+  // scripts: [
+  //   {
+  //     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3916790298498531',
+  //     async: true,
+  //   },
+  // ],
   presets: [
     [
       '@docusaurus/preset-classic',
