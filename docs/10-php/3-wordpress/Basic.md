@@ -105,6 +105,46 @@ $sql = $wpdb->prepare( 'query' [, value_parameter, value_parameter ... ] );
 
 ```
 
+## WP_Query Class
+```php
+$homepageEvents = new WP_Query(array(
+              "post_type" => "event",
+              "posts_per_page" => 2,
+            ));
+
+            while ($homepageEvents->have_posts()){
+              $homepageEvents->the_post();
+              $eventDate = get_field("event_date");
+              $evenDateObject = new DateTime($eventDate);
+            }
+```
+
+## WP Custom Post Type
+```php
+function university_post_type(){
+  register_post_type('event', array(
+    'supports' => array(
+      'title','editor','excerpt','custom-fields'
+    ),
+    'public' => true,
+    'show_in_rest' => true,
+    'rewrite' => array('slug' => "events"),
+    'has_archive' => true,
+    'labels' => array(
+      'name' => 'Events',
+      'add_new_item' => 'Add New Event',
+      'edit_item'    => 'Edit Event',
+      'all_items'     => 'All Events',
+      'singular_name' => 'Event',
+      'add_new'       => 'Add New Event'
+    ),
+    // https://developer.wordpress.org/resource/dashicons/#sos
+    'menu_icon' =>  'dashicons-calendar'
+  ));
+
+}
+add_action("init","university_post_type");
+```
 
 <!-- 
 ## Woocommerce
