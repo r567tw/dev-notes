@@ -56,6 +56,11 @@ services:
 ```
 - https://dev.to/daniloab/how-to-run-wordpress-woocommerce-locally-with-docker-42cd
 
+```bash
+# 可以用以下這個指令進入 wordpress container 做 shell 操作
+docker-compose exec -it wordpress /bin/bash
+```
+
 <!-- https://cloudwp.pro/  -->
 
 ## Wordpress CICD
