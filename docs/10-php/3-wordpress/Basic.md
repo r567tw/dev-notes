@@ -154,4 +154,9 @@ wordpress中wp_register_script与wp_enqueue_script的区别
 https://zhuanlan.zhihu.com/p/457976482
 
 https://irvinglab.com/blog/wordpress-plugins/
+
+CPU 使用率
+https://magazine.cartals.com/articles/2543/22%E5%80%8B%E7%84%A1%E9%9C%80%E5%8D%87%E7%B4%9A%E7%B6%B2%E9%A0%81%E5%AF%84%E5%AD%98%E8%A8%88%E5%8A%83%E5%B0%B1%E8%83%BD%E9%99%8D%E4%BD%8Ewordpress-cpu%E4%BD%BF%E7%94%A8%E7%8E%87%E7%9A%84%E5%A5%BD/
+
+https://studio.mack-j.com/cloudways-cpu-usage-high/
 -->
