@@ -124,6 +124,9 @@ $homepageEvents = new WP_Query(array(
             }
 ```
 
+- post_type 可以放array : ex `post_type => array('post','page')`
+- 如果要查詢可以加一個`s`參數
+
 ## WP Custom Post Type
 ```php
 function university_post_type(){
