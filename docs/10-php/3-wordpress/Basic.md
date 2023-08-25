@@ -154,6 +154,12 @@ function university_post_type(){
 add_action("init","university_post_type");
 ```
 
+## Wordpress Optimization
+- https://gtmetrix.com/wordpress-optimization-guide.html
+
+## Wordpress Frontend
+- https://frontity.org/
+
 <!-- 
 ## Woocommerce
 https://ithelp.ithome.com.tw/articles/10268171 

@@ -559,3 +559,6 @@ abort(404)  HTTP 例外錯誤代碼
 
 <!-- ## Ref:
 - https://medium.com/@chewysalmon/laravel-docker-development-setup-an-updated-guide-72842dfe8bdf -->
+
+## With Elasticsearch
+- https://rezakhademi.medium.com/using-elasticsearch-with-laravel-80e8fd8dbc3b

@@ -119,3 +119,8 @@ Apache 的配置文件通常比較複雜，需要更多的管理和維護工作�
  -->
 
 - Websocket 雙向的：允許Client&Server 雙向通信、基於WS協議,TCP協議
+
+
+## HTTP/2 & HTTP/3
+- https://tools.keycdn.com/http2-test
+- https://totoroliu.medium.com/http-2-%E6%98%AF%E4%BB%80%E9%BA%BC-d7de699bdbae
