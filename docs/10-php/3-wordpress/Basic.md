@@ -165,6 +165,11 @@ add_action("init","university_post_type");
 > 這實在是太狂了，居然有這種 Wordpress Plugin ~
 - https://wpclouddeploy.com/screen-shots-and-videos/ 
 
+## Serverless Wordpress
+> 放在之後來研究～
+- https://blog.ymirapp.com/serverless-wordpress-aws/
+
+
 <!-- 
 ## Woocommerce
 https://ithelp.ithome.com.tw/articles/10268171 
