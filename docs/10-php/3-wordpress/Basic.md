@@ -158,7 +158,12 @@ add_action("init","university_post_type");
 - https://gtmetrix.com/wordpress-optimization-guide.html
 
 ## Wordpress Frontend
+> headless cms , use WP REST API + Frontity
 - https://frontity.org/
+
+## Use Wordpress Deploy Server
+> 這實在是太狂了，居然有這種 Wordpress Plugin ~
+- https://wpclouddeploy.com/screen-shots-and-videos/ 
 
 <!-- 
 ## Woocommerce
