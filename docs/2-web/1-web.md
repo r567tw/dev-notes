@@ -125,3 +125,20 @@ Apache 的配置文件通常比較複雜，需要更多的管理和維護工作�
 - https://tools.keycdn.com/http2-test
 - https://totoroliu.medium.com/http-2-%E6%98%AF%E4%BB%80%E9%BA%BC-d7de699bdbae
 - https://ihower.tw/blog/archives/8489
+
+## HTML
+### Link Rel 屬性
+- https://zhuanlan.zhihu.com/p/150231042
+```
+<link rel="prefetch" href="/style.css" as="style" />
+<link rel="preload" href="/style.css" as="style" />
+<link rel="preconnect" href="https://example.com" />
+<link rel="dns-prefetch" href="https://example.com" />
+<link rel="prerender" href="https://example.com/about.html" />
+```
+
+- preload (紧急下载内容)
+- prefetch (使用低优先级策略下载内容)
+- preconnect (连接到服务器)
+- dns-prefetch (解析域名)
+- prerender (在后台渲染页面)
