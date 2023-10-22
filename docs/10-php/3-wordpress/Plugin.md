@@ -15,6 +15,11 @@ https://rapidapi.com/blog/how-to-call-an-api-from-wordpress/
 ## Plugin: WP Memory Usage
 - https://www.minwt.com/website/wordpress/23579.html
 
+## Unit Testing
+> 正在研究中...
+- https://wp-mock.gitbook.io/documentation/getting-started/introduction
+
 ## Ref:
 - https://ithelp.ithome.com.tw/articles/10236734
 - https://blog.yuyansoftware.com.tw/2017/11/wordpress-plugin-development/
+
