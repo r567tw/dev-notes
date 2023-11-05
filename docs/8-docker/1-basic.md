@@ -8,11 +8,20 @@ sidebar_position: 1
 Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應用、交付應用、執行應用。 Docker允許使用者將基礎設施中的應用單獨分割出來，形成更小的顆粒，從而提高交付軟體的速度。 Docker容器與虛擬機器類似，但二者在原理上不同。 (維基百科)
 :::
 
-## Engine
+- Docker 是一個可隔離資料、程式的工具
+
+## Container & Docker Engine
+- Container：容器
+
+
+### Engine
 為 C/S 架構
 - Server
 - REST API
 - Client (Docker CLI)
+
+## Image & Docker Engine
+- Docker Engine 建立容器時，會由 Image 的容器要素來建立！
 
 ## Overview
 - `images`  相當於物件導向程式語言裡面的`class`,是run container的核心與映像檔
@@ -20,6 +29,94 @@ Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應�
 - `container` 相當於物件導向程式語言裡面的`object`、`object = new class()`, 是實際跑在機器上的實際單位
 - 快速QA: https://www.ithome.com.tw/news/91847
 - `Repository` 集中存放image 的場所。分public/private兩種
+- `Server`: 提供某種服務的裝置- Serve Service
+
+## 運作機制
+- 作業系統得先安裝 Docker,在上面運行容器：類 Linux 系統
+- 容器是建立用完即捨棄...容器的生命週期
+- 可隔離容器是最根本的性質
+- 向全員提供一致的開發環境、方便測試新的版本、容易建置多個相同的伺服器
+
+## By Linux 方便 Tip
+```
+- sudo systemctl start docker
+- sudo systemctl stop docker
+- sudo systemctl enable docker # 設定自動啟動 Docker
+```
+
+## 容器的基本操作
+> docker 指令 對象
+
+```
+docker version
+docker container start/stop/create/run/rm/exec/ls/cp/commit
+docker image pull/rm/ls/build
+docker volume create/inspect/ls/prune/rm
+docker network connect/disconnect/create/inspect/ls/prune/rm
+
+docker checkpoint
+docker node
+docker plugin
+docker secret
+docker service
+docker stack
+docker swarm
+docker system
+```
+
+- `-i`、`-t`: 如果容器需要有鍵盤輸入時
+- `-d`: 在背後執行
+
+```
+docker ps : 顯示運行中的容器清單
+docker ps -a 顯示存在的容器清單
+```
+
+## 以建立 Apache 為例
+```
+docker run --name apa000ex1 -d httpd
+docker ps
+docker ps -a
+docker stop apa000ex1
+docker rm apa000ex1
+```
+
+## 常見的 images
+```
+- ubuntu
+- centos
+- debian
+- fedora
+- busybox => BizyBox
+- alpine
+- httpd => apache
+- nginx
+- mysql
+- postgres
+- mariadb
+- obenjdk : Java
+- python : Python
+- php
+- ruby
+- perl
+- gcc C/C++ 編譯器
+- node
+- registry : Docker Registry
+- wordpress
+- nextcloud
+- redmine
+```
+
+## 其他例子
+```
+docker run --name mysql000ex7 -itd -e MYSQL_ROOT_PASSWORD=root mysql
+```
+
+## 刪除 image
+```
+docker image rm
+docker image ls
+```
 
 ## Commands
 - image related
