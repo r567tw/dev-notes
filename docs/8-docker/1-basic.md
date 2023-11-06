@@ -118,7 +118,22 @@ docker image rm
 docker image ls
 ```
 
-## Commands
+## 建立 WordPress ＆ MySQL 容器
+```
+docker network create wordpressNet1
+# MySQL
+docker run --name wpdb -itd --net=wordpressNet1 -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=wordpress -e MYSQL_USER=user -e MYSQL_PASSWORD=user mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+
+# WordPress
+docker run --name wp -itd --net=wordpressNet1 -p 8085:80 -e WORDPRESS_DB_HOST=wpdb -e WORDPRESS_DB_NAME=wordpress -e WORDPRESS_DB_USER=user -e WORDPRESS_DB_PASSWORD=user wordpress
+
+# Redmine
+docker run -itd --name redmine000ex --network wordpressNet1 -p 8086:3000 -e REDMINE_DB_MYSQL=wpdb -e REDMINE_DB_DATABASE=redmine -e REDMINE_DB_USERNAME=redmine -e REDMINE_DB_PASSWORD=user redmine
+
+
+```
+
+<!-- ## Commands
 - image related
     - docker images
     - docker image ls/rm
@@ -179,7 +194,7 @@ Ref：
 - https://www.hwchiu.com/docker-network-model.html
 - https://www.hwchiu.com/docker-network-model-lab.html
 - https://www.hwchiu.com/docker-network-model-snat.html
-- https://www.hwchiu.com/docker-network-model-lab-dnat.html
+- https://www.hwchiu.com/docker-network-model-lab-dnat.html -->
 
 <!-- 
 最好能照上面, 實作操作過
