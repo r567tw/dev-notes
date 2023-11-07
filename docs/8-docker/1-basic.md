@@ -38,7 +38,7 @@ Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應�
 - 向全員提供一致的開發環境、方便測試新的版本、容易建置多個相同的伺服器
 
 ## By Linux 方便 Tip
-```
+```shell
 - sudo systemctl start docker
 - sudo systemctl stop docker
 - sudo systemctl enable docker # 設定自動啟動 Docker
@@ -47,7 +47,7 @@ Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應�
 ## 容器的基本操作
 > docker 指令 對象
 
-```
+```shell
 docker version
 docker container start/stop/create/run/rm/exec/ls/cp/commit
 docker image pull/rm/ls/build
@@ -67,13 +67,13 @@ docker system
 - `-i`、`-t`: 如果容器需要有鍵盤輸入時
 - `-d`: 在背後執行
 
-```
+```shell
 docker ps : 顯示運行中的容器清單
 docker ps -a 顯示存在的容器清單
 ```
 
 ## 以建立 Apache 為例
-```
+```shell
 docker run --name apa000ex1 -d httpd
 docker ps
 docker ps -a
@@ -82,7 +82,7 @@ docker rm apa000ex1
 ```
 
 ## 常見的 images
-```
+```shell
 - ubuntu
 - centos
 - debian
@@ -108,18 +108,18 @@ docker rm apa000ex1
 ```
 
 ## 其他例子
-```
+```shell
 docker run --name mysql000ex7 -itd -e MYSQL_ROOT_PASSWORD=root mysql
 ```
 
 ## 刪除 image
-```
+```shell
 docker image rm
 docker image ls
 ```
 
-## 建立 WordPress ＆ MySQL 容器
-```
+## 建立 WordPress & Redmine ＆ MySQL 容器
+```shell
 docker network create wordpressNet1
 # MySQL
 docker run --name wpdb -itd --net=wordpressNet1 -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=wordpress -e MYSQL_USER=user -e MYSQL_PASSWORD=user mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
@@ -129,34 +129,74 @@ docker run --name wp -itd --net=wordpressNet1 -p 8085:80 -e WORDPRESS_DB_HOST=wp
 
 # Redmine
 docker run -itd --name redmine000ex --network wordpressNet1 -p 8086:3000 -e REDMINE_DB_MYSQL=wpdb -e REDMINE_DB_DATABASE=redmine -e REDMINE_DB_USERNAME=redmine -e REDMINE_DB_PASSWORD=user redmine
-
-
 ```
 
-<!-- ## Commands
-- image related
-    - docker images
-    - docker image ls/rm
-- how to find Docker image
-    - from registry
-        - `docker pull <Name>`
-    - from dockfile
-        - DockFile
-            - https://www.jinnsblog.com/2018/12/docker-dockerfile-guide.html
-            - https://peihsinsu.gitbooks.io/docker-note-book/content/docker-build.html
-        - docker build
-```shell=
-docker build -t="${tag name}" .
-docker build .
+## 複製
+```shell
+docker cp 主機端 容器：容器端路徑
+docker cp 容器：容器端路徑 主機端
+docker cp 複製源頭 複製目的地
 ```
-- Docker Container (`container` 關鍵字可以省略)
-    - `docker container create <docker image name>`
-    - `docker container ls (-a)`
-    - `docker container rm <container id>`
-    - `docker container start <container name> (<sh -c "command">)`
-    - `docker container run <container name> -d (相當於 create + start)`
-    - `docker container run <container name> -rm`: (container 掛掉之後就自動remove)
 
+以 Apache 為例
+```shell
+docker run --name apa000ex19 -d -p 8089:80 httpd
+docker cp /User/user/Documents/index.html apa000ex19:/usr/local/apache2/htdocs/
+docker cp apa000ex19:/usr/local/apache2/htdocs/index.html /User/user/Documents/
+```
+
+## Volume
+- 卷宗掛載(無法直接操作,適合臨時資料) v.s 繫結掛載(需要頻繁使用的資料)
+三種差異：簡不簡單、可不可由底層電腦操作、想不想排除對系統環境的依賴
+
+> 還有另外一種暫存檔案系統(tmpfs)掛載，對象不是磁碟而是記憶體...隨著Engine、主機重開而消滅
+
+```shell
+# 卷宗掛載
+docker volume create 卷宗名稱
+docker volume rm 卷宗名稱
+docker volume inspect 卷宗名稱
+docker run -v 卷宗名稱:容器的儲存空間
+
+# 繫結掛載
+docker run -v 實際儲存空間:容器的儲存空間
+docker run --name apa000ex20 -d -p 8090:80 -v /user/user/documents/apa:/usr/local/apache2/htdocs httpd 
+```
+
+## 容器建立 Image
+- Commit
+```shell
+docker commit 容器名稱 映像檔名稱
+```
+- Dockerfile
+```shell
+docker build -t 建立的映像檔 材料資料夾
+```
+
+## 搬運映像檔
+```shell
+docker save -o 檔案名稱.tar 映像檔名稱
+docker load 檔案名稱.tar
+```
+
+## 改造容器
+```shell
+docker exec 選項 容器名稱 /bin/sh
+docker exec -it apa000ex23 /bin/bash
+
+docker run --name apa000ex23 -it -p 8089:80 httpd /bin/bash
+```
+> 為何啟動 bash 就會停用 apache: 因為啟動bash 之後視同已經運行了bash這個軟體無法在運行apache這個軟體了。
+
+## Docker hub
+```shell
+docker tag apa000ex22 zoozoo.coomm/nyapacchi:13
+docker push zoozoo.coomm/nyapacchi:13
+
+docker run -d -p 5000:5000 registry
+```
+
+<!-- 
 ## Docker-Compose
 - `docker-compose.yaml`    
 - `docker-compose up -d`
@@ -194,7 +234,7 @@ Ref：
 - https://www.hwchiu.com/docker-network-model.html
 - https://www.hwchiu.com/docker-network-model-lab.html
 - https://www.hwchiu.com/docker-network-model-snat.html
-- https://www.hwchiu.com/docker-network-model-lab-dnat.html -->
+- https://www.hwchiu.com/docker-network-model-lab-dnat.html --> 
 
 <!-- 
 最好能照上面, 實作操作過
