@@ -189,27 +189,15 @@ docker run --name apa000ex23 -it -p 8089:80 httpd /bin/bash
 > 為何啟動 bash 就會停用 apache: 因為啟動bash 之後視同已經運行了bash這個軟體無法在運行apache這個軟體了。
 
 ## Docker hub
-```shell
+ 
+```bash
 docker tag apa000ex22 zoozoo.coomm/nyapacchi:13
 docker push zoozoo.coomm/nyapacchi:13
 
 docker run -d -p 5000:5000 registry
 ```
 
-<!-- 
-## Docker-Compose
-- `docker-compose.yaml`    
-- `docker-compose up -d`
-- `docker-compose ps`
-
-## Clean
-```
-$ docker system prune --volumes
-```
-
-
-## Docker Networking (Single host)
-
+<!-- ## Docker Networking (Single host)
 :::info
 Docker 網路類型 
 - None
@@ -234,7 +222,7 @@ Ref：
 - https://www.hwchiu.com/docker-network-model.html
 - https://www.hwchiu.com/docker-network-model-lab.html
 - https://www.hwchiu.com/docker-network-model-snat.html
-- https://www.hwchiu.com/docker-network-model-lab-dnat.html --> 
+- https://www.hwchiu.com/docker-network-model-lab-dnat.html  -->
 
 <!-- 
 最好能照上面, 實作操作過
