@@ -197,6 +197,70 @@ docker push zoozoo.coomm/nyapacchi:13
 docker run -d -p 5000:5000 registry
 ```
 
+## Docker Compose
+> k8s 是 「管理容器」的工具，而 docker-compose 是創建容器
+
+```bash
+docker-compose up 
+docker-compose down
+# docker-compose.yaml
+```
+
+### os Linux
+```bash
+sudo apt install -y python3 python3-pip
+sudo pip3 install docker-compose
+```
+
+### docker-compose.yaml
+```yaml
+version:
+services:
+networks:
+volumes:
+```
+
+- 以 WordPress 為例
+```yaml
+version: "3"
+services:
+    mysql:
+        image: mysql:5.7
+        networks: 
+            - net1
+        volumes:
+            - vol1:/var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: wordpress
+            MYSQL_PASSWORD: wordpress
+    wordpress:
+        depends_on:
+            - mysql
+        image: wordpress
+        networks:
+            - net1
+        volumes:
+            - vol2:/var/www/html
+        ports:
+            - 8085:80
+        restart: always
+        environment:
+            WORDPRESS_DB_HOST: mysql
+            WORDPRESS_DB_NAME: wordpress
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpress
+networks:
+    net1:
+volumes:
+    vol1:
+    vol2:
+```
+
+
+
 <!-- ## Docker Networking (Single host)
 :::info
 Docker 網路類型 
