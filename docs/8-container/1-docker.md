@@ -10,9 +10,22 @@ Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應�
 
 - Docker 是一個可隔離資料、程式的工具
 
+```sh
+$ docker info
+```
+
 ## Container & Docker Engine
 - Container：容器
+- Container 的執行本質上可以被視為進程（process），一個 Docker 容器可以被視為一個或多個運行在隔離環境中的進程
+```
+1. 隔離性: Docker 容器利用 Linux 核心的特性，如 cgroups 和 namespaces，來實現操作系統層級的隔離。這意味著每個容器都在自己的隔離環境中運行，擁有獨立的檔案系統、網絡配置、進程空間等。
+2. 進程運行: 當你啟動一個 Docker 容器時，你實際上是在啟動一個主進程（通常是你指定的應用程序或服務）。這個進程運行在其隔離的環境中。從操作系統的角度來看，這個進程與宿主機上的其他進程沒有本質上的不同。
+3. 資源管理: Docker 透過 cgroups 控制容器可以使用多少系統資源（如 CPU、記憶體）。雖然容器內可以運行多個進程，但它們都屬於同一個 cgroup，並共享分配給該容器的資源。
+```
 
+> 然而，這種觀點可能過於簡化了 Docker 的強大功能和它所提供的廣泛特性集。Docker 容器提供了比單個進程更豐富的功能，例如映像管理、網絡設置、存儲卷、以及跨多個容器的協作。這些功能超出了傳統進程所能提供的範疇。
+
+- Container 其實是一個 Linux 上的技術, 對於 Mac和Windows而言, desktop 通常會替他們加入一個輕量化的虛擬機
 
 ### Engine
 為 C/S 架構
@@ -109,6 +122,7 @@ docker rm apa000ex1
 
 ## 其他例子
 ```shell
+docker run -it alpine ash
 docker run --name mysql000ex7 -itd -e MYSQL_ROOT_PASSWORD=root mysql
 ```
 

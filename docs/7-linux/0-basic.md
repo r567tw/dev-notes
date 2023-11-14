@@ -3,36 +3,22 @@ sidebar_position: 1
 ---
 # Basic
 ## 快速導覽
-- root 系統管理員家目錄
-- boot 核心映像檔
-- etc 系統設定檔
-- home 使用者家目錄
-- mnt 一班裝置掛載點
-- proc 核心程序
-- sys 系統硬體相關資訊
-- dev 特定裝置檔案
-- bin , sbin 二進位
-- lib 函式庫
-- /usr => /usr/sbin, /usr/bin ,/usr/lib
+```
+📁 root: 系統管理員家目錄
+📁 boot: 核心映像檔
+📁 etc: 系統設定檔
+📁 home: 使用者家目錄
+📁 mnt: 裝置掛載點
+📁 proc: 核心程序
+📁 sys: 系統硬體相關資訊
+📁 dev: 特定裝置檔案
+📁 bin、sbin : 二進位檔案
+📁 lib: 函式庫
+📁 usr: 使用者相關設定檔 `/usr/sbin`,`/usr/bin`,`/usr/lib`
+```
 
-## 基本指令
-- whoami
-- pwd
-- cd
-- locate
-- whereis
-- which
-- find
-- grep
-- cat
-- touch
-- mkdir
-- rmdir
-- rm
-- head less tail nl more
-- patch : 撰寫 patch 檔案以修改原檔
+<!-- aircrack-ng 無線破解工具 -->
 
-aircrack-ng 無線破解工具
 ## 套件
 - apt-get install/upgrade/remove
 - /etc/apt/source.list
@@ -41,16 +27,6 @@ aircrack-ng 無線破解工具
 - chown
 - chgrp
 - chmod
-
-## 程序管理
-- ps -aux
-<!-- ps -aux thread 測底搞懂 program , process ,thread https://www.796t.com/content/1527709011.html
-https://totoroliu.medium.com/program-process-thread-%E5%B7%AE%E7%95%B0-4a360c7345e5 -->
-- top
-- nice
-- kill
-- & 和 fg
-
 
 ## 管理使用者環境變數
 - `env` , `set |more`
@@ -128,6 +104,8 @@ unzip myfiles.zip -dmydir
 - apt-get install rcconf
 - rcconf
 
+## 其他
+
 好用的sed
 參考： https://officeguide.cc/linux-sed-delete-first-last-specific-line-tutorial-examples/
 
@@ -136,25 +114,3 @@ unzip myfiles.zip -dmydir
 
 time
 https://www.runoob.com/linux/linux-comm-time.html
-
-## ssh
-https://codecharms.me/posts/security-ssh 
-https://liedward.com/create-ssh-keys/ 
-
-ssh-copy-id -i ~/.ssh/id_rsa.pub {USER}@{SERVER}
-
-### 讓 SSH 變得更方便拉
-Host             {{NAME}}
-Hostname         x.x.x.x
-Port             22
-User             admin
-
-## 其他
-```
-passwd //改密碼
-date 
-timedatectl
-ntpdate clock.stdtime.gov.tw
-```
-
-alias enter-nas="sshpass -p password ssh -t {{NAME}}"
