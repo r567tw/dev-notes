@@ -15,7 +15,7 @@ $ docker info
 ```
 
 ## Container & Docker Engine
-- Container：容器
+### Container：容器
 - Container 的執行本質上可以被視為進程（process），一個 Docker 容器可以被視為一個或多個運行在隔離環境中的進程
 ```
 1. 隔離性: Docker 容器利用 Linux 核心的特性，如 cgroups 和 namespaces，來實現操作系統層級的隔離。這意味著每個容器都在自己的隔離環境中運行，擁有獨立的檔案系統、網絡配置、進程空間等。
