@@ -26,6 +26,9 @@ $ docker info
 > 然而，這種觀點可能過於簡化了 Docker 的強大功能和它所提供的廣泛特性集。Docker 容器提供了比單個進程更豐富的功能，例如映像管理、網絡設置、存儲卷、以及跨多個容器的協作。這些功能超出了傳統進程所能提供的範疇。
 
 - Container 其實是一個 Linux 上的技術, 對於 Mac和Windows而言, desktop 通常會替他們加入一個輕量化的虛擬機
+```
+例如：Docker Desktop 使用的 HyperKit for macOS 或 WSL 2 for Windows
+```
 
 ### Engine
 為 C/S 架構
