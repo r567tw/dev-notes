@@ -42,10 +42,10 @@ sidebar_position: 1
 ```
 打包壓縮與解壓縮
 //tar 指令
-tar -cvf data.tar * //將目錄下所有檔案包蟲data.tar
+tar -cvf data.tar * // 將目錄下所有檔案包蟲 data.tar
 tar -cvzf data.tar.gz *
-tar -tvf data.tar // 檢視data.tar 有哪些檔案
-tar -xvf data.tar //解壓縮
+tar -tvf data.tar// 檢視 data.tar 有哪些檔案
+tar -xvf data.tar// 解壓縮
 
 //zip 指令
 zip myfiles *.txt
@@ -104,9 +104,13 @@ unzip myfiles.zip -dmydir
 - apt-get install rcconf
 - rcconf
 
+## RootFS
+- root file system
+
+
 ## 其他
 
-好用的sed
+好用的 sed
 參考： https://officeguide.cc/linux-sed-delete-first-last-specific-line-tutorial-examples/
 
 好用的 Xargs 指令

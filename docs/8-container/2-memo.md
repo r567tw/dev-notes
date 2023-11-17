@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 # Memo
 :::info
-這裡記錄幾個我工作中會常用的指令Memo用，我就不愛背東西...
+這裡記錄幾個我工作中會常用的指令 Memo 用，我就不愛背東西...
 :::
 
 ## Clean
@@ -13,14 +13,18 @@ $ docker system prune --volumes
 
 ## Tips
 ```bash
-# 使用 Docker 快速架設DB
+# 使用 Docker 快速架設 DB
 docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name mysql mysql
 # 啟動 composer install
 docker run --rm -v $(pwd):/app composer "composer install"
+
+# 移除很多沒有用的 container
+docker container prune
+docker rm $(docker ps --filter status=exited -q)
 ```
 
 ## Docker-Compose tips
-> 使用 Docker-compose 快速架設 mongodb、redis、mysql，因為就懶得使用手動下載安裝, 用docker比較快
+> 使用 Docker-compose 快速架設 mongodb、redis、mysql，因為就懶得使用手動下載安裝，用 docker 比較快
 
 ```yaml
 version:  '3.7'

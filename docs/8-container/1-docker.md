@@ -3,9 +3,9 @@ sidebar_position: 1
 ---
 # Docker
 
-## Docker是什麼
+## Docker 是什麼
 :::info
-Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應用、交付應用、執行應用。 Docker允許使用者將基礎設施中的應用單獨分割出來，形成更小的顆粒，從而提高交付軟體的速度。 Docker容器與虛擬機器類似，但二者在原理上不同。 (維基百科)
+Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應用、交付應用、執行應用。 Docker 允許使用者將基礎設施中的應用單獨分割出來，形成更小的顆粒，從而提高交付軟體的速度。 Docker 容器與虛擬機器類似，但二者在原理上不同。 (維基百科)
 :::
 
 - Docker 是一個可隔離資料、程式的工具
@@ -19,13 +19,13 @@ $ docker info
 - Container 的執行本質上可以被視為進程（process），一個 Docker 容器可以被視為一個或多個運行在隔離環境中的進程
 ```
 1. 隔離性: Docker 容器利用 Linux 核心的特性，如 cgroups 和 namespaces，來實現操作系統層級的隔離。這意味著每個容器都在自己的隔離環境中運行，擁有獨立的檔案系統、網絡配置、進程空間等。
-2. 進程運行: 當你啟動一個 Docker 容器時，你實際上是在啟動一個主進程（通常是你指定的應用程序或服務）。這個進程運行在其隔離的環境中。從操作系統的角度來看，這個進程與宿主機上的其他進程沒有本質上的不同。
+2. 進程運行：當你啟動一個 Docker 容器時，你實際上是在啟動一個主進程（通常是你指定的應用程序或服務）。這個進程運行在其隔離的環境中。從操作系統的角度來看，這個進程與宿主機上的其他進程沒有本質上的不同。
 3. 資源管理: Docker 透過 cgroups 控制容器可以使用多少系統資源（如 CPU、記憶體）。雖然容器內可以運行多個進程，但它們都屬於同一個 cgroup，並共享分配給該容器的資源。
 ```
 
 > 然而，這種觀點可能過於簡化了 Docker 的強大功能和它所提供的廣泛特性集。Docker 容器提供了比單個進程更豐富的功能，例如映像管理、網絡設置、存儲卷、以及跨多個容器的協作。這些功能超出了傳統進程所能提供的範疇。
 
-- Container 其實是一個 Linux 上的技術, 對於 Mac和Windows而言, desktop 通常會替他們加入一個輕量化的虛擬機
+- Container 其實是一個 Linux 上的技術，對於 Mac 和 Windows 而言，desktop 通常會替他們加入一個輕量化的虛擬機
 ```
 例如：Docker Desktop 使用的 HyperKit for macOS 或 WSL 2 for Windows
 ```
@@ -36,20 +36,38 @@ $ docker info
 - REST API
 - Client (Docker CLI)
 
-## Image & Docker Engine
+## Docker Image
+```bash
+docker image ls
+```
+- `read-only` template
 - Docker Engine 建立容器時，會由 Image 的容器要素來建立！
 
+### Layer
+```bash
+docker image inspect ...
+
+# custom layer
+docker container run -it --name nginx-a nginx /bin/bash
+# 裡面的操作之後...
+docker container commit nginx-a mynginx:A
+```
+
+### OverlayFS
+- 使用 UnionFS 的技術將許多 layer 聯合
+
+
 ## Overview
-- `images`  相當於物件導向程式語言裡面的`class`,是run container的核心與映像檔
-    - `Dockerfile` 是`Docker`用來build檔案,如果單純的`docker pull` 無法滿足你的需求, 你可以在`Dockerfile`裡面撰寫一行一行的指令將`image` 建立起來,從而建立容器。
-- `container` 相當於物件導向程式語言裡面的`object`、`object = new class()`, 是實際跑在機器上的實際單位
-- 快速QA: https://www.ithome.com.tw/news/91847
-- `Repository` 集中存放image 的場所。分public/private兩種
-- `Server`: 提供某種服務的裝置- Serve Service
+- `images`  相當於物件導向程式語言裡面的 `class`, 是 run container 的核心與映像檔
+    - `Dockerfile` 是 `Docker` 用來 build 檔案，如果單純的 `docker pull` 無法滿足你的需求，你可以在 `Dockerfile` 裡面撰寫一行一行的指令將 `image` 建立起來，從而建立容器。
+- `container` 相當於物件導向程式語言裡面的 `object`、`object = new class ()`, 是實際跑在機器上的實際單位
+- 快速 QA: https://www.ithome.com.tw/news/91847
+- `Repository` 集中存放 image 的場所。分 public/private 兩種
+- `Server`: 提供某種服務的裝置 - Serve Service
 
 ## 運作機制
-- 作業系統得先安裝 Docker,在上面運行容器：類 Linux 系統
-- 容器是建立用完即捨棄...容器的生命週期
+- 作業系統得先安裝 Docker, 在上面運行容器：類 Linux 系統
+- 容器是建立用完即捨棄... 容器的生命週期
 - 可隔離容器是最根本的性質
 - 向全員提供一致的開發環境、方便測試新的版本、容易建置多個相同的伺服器
 
@@ -163,20 +181,20 @@ docker cp apa000ex19:/usr/local/apache2/htdocs/index.html /User/user/Documents/
 ```
 
 ## Volume
-- 卷宗掛載(無法直接操作,適合臨時資料) v.s 繫結掛載(需要頻繁使用的資料)
+- 卷宗掛載 (無法直接操作，適合臨時資料) v.s 繫結掛載 (需要頻繁使用的資料)
 三種差異：簡不簡單、可不可由底層電腦操作、想不想排除對系統環境的依賴
 
-> 還有另外一種暫存檔案系統(tmpfs)掛載，對象不是磁碟而是記憶體...隨著Engine、主機重開而消滅
+> 還有另外一種暫存檔案系統 (tmpfs) 掛載，對象不是磁碟而是記憶體... 隨著 Engine、主機重開而消滅
 
 ```shell
 # 卷宗掛載
 docker volume create 卷宗名稱
 docker volume rm 卷宗名稱
 docker volume inspect 卷宗名稱
-docker run -v 卷宗名稱:容器的儲存空間
+docker run -v 卷宗名稱：容器的儲存空間
 
 # 繫結掛載
-docker run -v 實際儲存空間:容器的儲存空間
+docker run -v 實際儲存空間：容器的儲存空間
 docker run --name apa000ex20 -d -p 8090:80 -v /user/user/documents/apa:/usr/local/apache2/htdocs httpd 
 ```
 
@@ -203,7 +221,7 @@ docker exec -it apa000ex23 /bin/bash
 
 docker run --name apa000ex23 -it -p 8089:80 httpd /bin/bash
 ```
-> 為何啟動 bash 就會停用 apache: 因為啟動bash 之後視同已經運行了bash這個軟體無法在運行apache這個軟體了。
+> 為何啟動 bash 就會停用 apache: 因為啟動 bash 之後視同已經運行了 bash 這個軟體無法在運行 apache 這個軟體了。
 
 ## Docker hub
  
@@ -306,8 +324,8 @@ Ref：
 - https://www.hwchiu.com/docker-network-model-lab-dnat.html  -->
 
 <!-- 
-最好能照上面, 實作操作過
-按照順序看這 1~4篇
+最好能照上面，實作操作過
+按照順序看這 1~4 篇
 
 特別是第 2 篇
 要有能力按照步驟做完且完全理解
@@ -318,7 +336,7 @@ Ref：
 把 vethx 綁定到剛建立的 bridge
 設定 container IP
 
-另外,第 3 篇一樣重要
+另外，第 3 篇一樣重要
 
 要了解封包 從 container -> host ethx -> 外部網路 的原因
 也要了解封包 從外部網路 -> host ethx -> 轉進 container 內 的原因 -->
@@ -327,5 +345,5 @@ Ref：
 - [鐵人賽](https://ithelp.ithome.com.tw/users/20103456/ironman/1320)
 - https://askie.today/docker-dockerfile-dockercompose-intro/
 - [cheat-sheet](https://swissarmydevops.com/wp-content/uploads/2020/11/Docker_Cheat_Sheet-1.pdf)
-- [Docker Network參考網址](https://hwchiu.com/docker-network-model.html)
+- [Docker Network 參考網址](https://hwchiu.com/docker-network-model.html)
 - Ref: https://renehernandez.io/snippets/cleaning-local-docker-cache/
