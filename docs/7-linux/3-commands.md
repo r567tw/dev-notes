@@ -57,6 +57,9 @@ mount -t type device dir
 ### 概念：pipe
 - 例如：`ps aux|grep ash`
 - 通常用 `|` 表示
+- jobs
+- fg
+- bg
 
 ### ps 
 ```

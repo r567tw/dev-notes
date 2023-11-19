@@ -9,6 +9,7 @@ Docker 是一個開放原始碼軟體，是一個開放平台，用於開發應�
 :::
 
 - Docker 是一個可隔離資料、程式的工具
+- Container 兩大核心：`namespace`: 隔離，`cgroups`: 資源限制
 
 ```sh
 $ docker info
@@ -55,7 +56,6 @@ docker container commit nginx-a mynginx:A
 
 ### OverlayFS
 - 使用 UnionFS 的技術將許多 layer 聯合
-
 
 ## Overview
 - `images`  相當於物件導向程式語言裡面的 `class`, 是 run container 的核心與映像檔
@@ -294,7 +294,12 @@ volumes:
     vol2:
 ```
 
-
+## Networks
+- bridge
+- none
+- container:name|id
+- host
+- network-name | network-id
 
 <!-- ## Docker Networking (Single host)
 :::info

@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## Debug
 - [Laravel-tracy](https://packagist.org/packages/recca0120/laravel-tracy)
-    - [vscode-handler](https://github.com/shengyou/vscode-handler):使用vs-code一鍵開檔
+    - [vscode-handler](https://github.com/shengyou/vscode-handler): 使用 vs-code 一鍵開檔
 - [laravel debugbar](https://github.com/barryvdh/laravel-debugbar) 
 
 ## Code-Analysis
@@ -20,12 +20,12 @@ Test coverage
 - laravel dusk (瀏覽器測試)
 
 ## 開發相關
-- [laravel-model-generator](https://github.com/ignasbernotas/laravel-model-generator):生成laravel model
-- [laravel-oh-generators](https://github.com/Mombuyish/Laravel-Oh-Generators):生成優美laravel 架構
+- [laravel-model-generator](https://github.com/ignasbernotas/laravel-model-generator): 生成 laravel model
+- [laravel-oh-generators](https://github.com/Mombuyish/Laravel-Oh-Generators): 生成優美 laravel 架構
 - laravelcollective HTML
 - Infyom laravel generator
 https://www.youtube.com/playlist?list=PL0wCC44AhrC3JHzcB5qmjYkm70OaoKegg
-- laravel-fractal (創建api)
+- laravel-fractal (創建 api)
 - doctrine DBAL (更優的數據表操作)
 
 ## GraphQL Related
@@ -58,26 +58,26 @@ https://silvermoonfox.github.io/2019/12/24/awsFargateNginxPHP/
 - [yajra datatables](https://github.com/yajra/laravel-datatables)
 - [laravel-jsvalidation](https://github.com/proengsoft/laravel-jsvalidation):Laravel 和前端的規則可以共用
 
-## 權限/多重使用者認證
-- [laravel-entrust](https://github.com/Zizaco/entrust):使用者權限劃分
+## 權限 / 多重使用者認證
+- [laravel-entrust](https://github.com/Zizaco/entrust): 使用者權限劃分
 - https://bitfumes.github.io/laravel-multiauth/
 
 ## 管理後台
-- 管理後台平台外掛 類似Django 自帶後台?
+- 管理後台平台外掛 類似 Django 自帶後台？
     - http://labs.infyom.com/laravelgenerator/
     - LARAVEL-ADMIN
         - http://www.ctolib.com/article/comments/21786
         - http://laravel-admin.org/
 
 ## Ruby on rail Scaffold
-- Laravel 類似Ruby on rail 的scaffole 指令
+- Laravel 類似 Ruby on rail 的 scaffole 指令
     - https://github.com/appzcoder/crud-generator/
 
 ## Notification 通知
 - laravel flash
 - [sweet-alert](https://github.com/uxweb/sweet-alert)
 - [Sweetalert-laravel](https://github.com/RaymondWilkinson/Sweetalert-Laravel)
-- [更好用的sweet-alert](https://github.com/realrashid/sweet-alert)
+- [更好用的 sweet-alert](https://github.com/realrashid/sweet-alert)
     - 介紹影片：https://www.youtube.com/watch?v=4kLXsjmcFV4 
 
 ## Log
@@ -86,7 +86,7 @@ https://silvermoonfox.github.io/2019/12/24/awsFargateNginxPHP/
 https://www.youtube.com/watch?v=XWFXikdTFcw
 https://github.com/spatie/laravel-activitylog
 
-## 辦公室/Office
+## 辦公室 / Office
 - laravel dom-pdf
 - [phpword](https://github.com/PHPOffice/PHPWord)
     -  可以幫助產生報表、office 文件等，好用
@@ -103,7 +103,7 @@ https://github.com/ash-jc-allen/laravel-exchange-rates
 
 ## 圖片
 - [圖床](https://github.com/Mombuyish/Laravel-Imgur)
-- [intervention image(用於修改及創造圖片)](http://image.intervention.io/)
+- [intervention image (用於修改及創造圖片)](http://image.intervention.io/)
 
 ## websocket
 - Laravel Websocket
@@ -144,3 +144,6 @@ https://www.reddit.com/r/laravel/comments/tw5h9b/performance_of_relationship_que
 
 ## Laravel with Python
 - https://github.com/bhavingajjar/laravel-python
+
+## Laravel Pulse
+- https://laravel-news.com/laravel-pulse

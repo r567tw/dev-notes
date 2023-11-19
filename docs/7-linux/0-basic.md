@@ -107,6 +107,17 @@ unzip myfiles.zip -dmydir
 ## RootFS
 - root file system
 
+## Process
+> 一個在執行中的程式：a program in execution
+
+- process life cycle
+```
+- new
+- ready
+- running
+- waiting
+- terminated
+```
 
 ## 其他
 
