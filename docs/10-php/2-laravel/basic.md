@@ -38,7 +38,7 @@ Route::get('/{name}',function(){
 ```
 
 - 路由模型綁定
-> 定義一個特定的參數名稱 如{task} 來指示路由解析器，他應該用那個的id 來尋找而不是傳統將id 傳入
+> 定義一個特定的參數名稱 如 {task} 來指示路由解析器，他應該用那個的 id 來尋找而不是傳統將 id 傳入
 > 顯式與隱式
 
 - 路由快取
@@ -49,8 +49,8 @@ php artisan route:clear
 ```
 
 ## Middleware
-- 在進入controller 之前 過濾request 的條件和身分等
-- 有controller construct 和 route 定義兩種方式宣告
+- 在進入 controller 之前 過濾 request 的條件和身分等
+- 有 controller construct 和 route 定義兩種方式宣告
 - 回傳 response
 
 
@@ -74,7 +74,7 @@ php artisan route:clear
 |destroy|post (delete)| tasks/{task}|
 
 
-- 方法欺騙: method_field() 或者 input-name:_method
+- 方法欺騙: method_field () 或者 input-name:_method
 - CSRF 
 - 轉址 redirect
 - 中止請求
@@ -82,7 +82,7 @@ php artisan route:clear
     - abort_if(condition,403)
     - abort_unless(condition,403)
 - 回應 response
-    - response()->make() 建立一個http 回應
+    - response ()->make () 建立一個 http 回應
     - response()->json()
     - response()->download()
 
@@ -97,7 +97,7 @@ php artisan route:clear
  @include 
  @extends
 ```
-- 自動blade 指令
+- 自動 blade 指令
 - 全域共用變數
 ```php
 # in App\Providers\AppServiceProvider.php
@@ -125,7 +125,7 @@ public function boot()
     - all()
     - except() or only()
     - has() or exist()
-    - input() 提供第二個參數是預設值
+    - input () 提供第二個參數是預設值
     - json()
     - 路由資料
         - segment()
@@ -137,7 +137,7 @@ public function boot()
         - getClientOriginalName()
         - getClientOriginalExtension()
         - isValid()
-        - .....其他(p.102)
+        - ..... 其他 (p.102)
 - 驗證
     - \$this->validate($request,[rules]);
     - 表單請求 php artisan make:request Arequest
@@ -151,17 +151,17 @@ public function boot()
 
 ## Artisan 與 Tinker
 > php artisan make:command action
-> #可以同時生成model 和migration 和controller
+> #可以同時生成 model 和 migration 和 controller
 > php artisan make:model [name] -m -r
 
 ## Eloquent
 - Laravel 的 ActiveRecord ORM
 - config/database.php
 - migration 資料庫遷移
-    - 系統會依據日期執行他的up/down方法
+    - 系統會依據日期執行他的 up/down 方法
     - 定義 migration
-        - up() 作他的migration
-        - down() 恢復他
+        - up () 作他的 migration
+        - down () 恢復他
     - 建立 migration
         ```shell=
             php artisan make:migration create_users_table
@@ -173,8 +173,8 @@ public function boot()
     - 撰寫 migration [請參考文件](https://laravel.com/docs/5.5/migrations)
     - seeder
     ```shell
-        php artisan migrate --seed #與migrate 一起
-        php artisan migrate:refresh --seed #與migrate 一起
+        php artisan migrate --seed #與 migrate 一起
+        php artisan migrate:refresh --seed #與 migrate 一起
         php artisan db:seed #分別執行
         php artisan db:seed --class=VotesTableSeeder #分別執行
         php artisan make:seeder ContactsTableSeeder
@@ -188,15 +188,15 @@ public function boot()
         $this->call(ContactsTableSeeder::class)
     }
     ```
-    - 撰寫seeder 請參考[文件](https://laravel.com/docs/5.5/seeding)
+    - 撰寫 seeder 請參考 [文件](https://laravel.com/docs/5.5/seeding)
 - 查詢產生器
     - 任何一種資料庫的功能核心都是查詢產生器
-    - 原生DB 靜態介面寫法
+    - 原生 DB 靜態介面寫法
     ```php
         DB::statement('drop table users')
         DB::select('select * from student where id=?',[1])
         $users=DB::table('users')->get()
-        #....其他如join where insert 等 略
+        #.... 其他如 join where insert 等 略
     ```
         - 限制方法
             - select()
@@ -212,11 +212,11 @@ public function boot()
             - orderBy groupbY having() havingRaw()
             - skip() take()
             - latest() oldest()
-            - inRandomOrder() 隨機排序結果
+            - inRandomOrder () 隨機排序結果
         - 結束回傳方法
             - get()
             - first() firstOrFail()
-            - value() 拉出某個欄位
+            - value () 拉出某個欄位
             - count()
             - min() max()
             - sum() avg()
@@ -228,32 +228,32 @@ public function boot()
             - update()
             - delete()
         - json 的操作
-         如果你的資料有json 格式可以這樣寫
-         //查詢
+         如果你的資料有 json 格式可以這樣寫
+         // 查詢
          DB:table('users')->where('options->isAdmin',true)->get()
-        //更新
+        // 更新
         DB:table('users')->update(['options->isAdmin',true])
-- Eloquent 模型[請參考文件](https://laravel.com/docs/5.5/eloquent)
-> Eloquent 雖有獨有all 方法，但本書建議不要使用~
+- Eloquent 模型 [請參考文件](https://laravel.com/docs/5.5/eloquent)
+> Eloquent 雖有獨有 all 方法，但本書建議不要使用～
 - Eloquent 模型序列化
-    - 將某種複雜的東西轉換成字串 toArray() toJson()
+    - 將某種複雜的東西轉換成字串 toArray () toJson ()
     - https://laravel.com/docs/5.5/eloquent-serialization
 
 ## Request & Response
 - 請求生命週期
-    - 每一個請求都會轉成 Illuminate Request 物件 經過middleware 過濾請求後進入controller 處理好後就產生 Illuminate Response
+    - 每一個請求都會轉成 Illuminate Request 物件 經過 middleware 過濾請求後進入 controller 處理好後就產生 Illuminate Response
     - request
     - resonse
     - middleware
-        - 每一個請求都會經過每一個middleware 最後進入應用程式，之後產生的回應會經過middleware回到用戶
+        - 每一個請求都會經過每一個 middleware 最後進入應用程式，之後產生的回應會經過 middleware 回到用戶
 
 ## Container
 - 相依注入
     - 每一個類別的相依關係都是從外面住入的 而不是在類別中實例化的
 - 控制反轉
-- app() 全域輔助函式
+- app () 全域輔助函式
 - 將類別綁定容器
-    - 告知容器如果有人要求一個Logger 實例，則執行這段程式
+    - 告知容器如果有人要求一個 Logger 實例，則執行這段程式
 
 ## Testing
 - Laravel 內建 PHPUnit、Behat、Mockery、Faker 等
@@ -267,14 +267,14 @@ public function boot()
 - 在根目錄執行 .\vendor\bin\phpunit
 - [文件](https://laravel.com/docs/5.5/testing)
 - php artisan make:test GreetTest
-    - 在feature 資料夾裡面增加一個GreetTest.php 繼承TestCase
-    - phpunit 會跑feature 和unit 裡的每一個測試
+    - 在 feature 資料夾裡面增加一個 GreetTest.php 繼承 TestCase
+    - phpunit 會跑 feature 和 unit 裡的每一個測試
     - $this->visit(url)
     - $this->call(method,url,params,cookies,file,server,content)
     - $this->get/post/put/patch/delete
     - $this->json
     - $this->followRedirects
-- 各種的asset 測試方法
+- 各種的 asset 測試方法
     - [文件](https://laravel.com/docs/5.5/http-tests#available-assertions)
 - [自我練習](https://github.com/r567tw/laravel-playground/commit/7478b7b94ed1e1d9742987d03464c92d932e0223)
 - Browser Tests (Laravel Dusk)
@@ -286,31 +286,31 @@ public function boot()
     - databasetransactions
 
 ## API
-- 類REST JSON API 基礎
-    - 一種用來建構API 的架構格式
+- 類 REST JSON API 基礎
+    - 一種用來建構 API 的架構格式
     - URL 可以獨特的表示一種資源
-    - 使用HTTP動詞來和資源互動
+    - 使用 HTTP 動詞來和資源互動
 - CRUD
 - Laravel Passport 作 API 身分驗證
     - https://laravel.com/docs/5.5/passport
 > composer require laravel/passport
 
-> 在config/app.php providers 加入 Laravel\PassportServiceProvider::class
+> 在 config/app.php providers 加入 Laravel\PassportServiceProvider::class
 
 > php artisan passport:install
 
-> 將HasApiTokens 的trait 加入 App\user
+> 將 HasApiTokens 的 trait 加入 App\user
 - http://www.itread01.com/content/1496308818.html'
 - http://codingweb.tw/2016/12/23/laravel-5-3-api-%E8%AA%8D%E8%AD%89-authentication-passport/
 
 ## Storage
 - 本地與雲端檔案管理器
 - config/filesystems.php
-- storage_path() 輔助函式
+- storage_path () 輔助函式
 
 > php artisan storage:link
 
-- 使用Storage 靜態介面
+- 使用 Storage 靜態介面
 - Storage::disk('s3')->get('file.jpg')
     - get()
     - put()
@@ -318,20 +318,20 @@ public function boot()
     - exists()
     - copy(old,new)
     - move(old,new)
-    - prepend() 在前面加
-    - append() 在後面加
+    - prepend () 在前面加
+    - append () 在後面加
     - delete()
     - deleteDirectory()
     - size()
     - lastModified
     - files(dir)
-    - allFiles(dir) +子目錄內的
+    - allFiles (dir) + 子目錄內的
     - directories()
     - allDirectories()
 
 ## Session
 - Session
-    - Laravel 的session 管理器支援：檔案、cookie、資料庫、Memcached、**Redis**
+    - Laravel 的 session 管理器支援：檔案、cookie、資料庫、Memcached、**Redis**
 
 ```php
 #取出
@@ -345,8 +345,8 @@ session->push(key,value)
 #全部
 session()->all()
 #移除
-session()->forget(key) #移除一個
-session()->flush() #移除每一個
+session ()->forget (key) #移除一個
+session ()->flush () #移除每一個
 ```
 
 - Flash session 儲存
@@ -357,11 +357,11 @@ session()->flush() #移除每一個
 session()->flash(key,value)
 
 session()->reflash() / session()->keep(key)
-#讓前一個網頁的flash session 繼續使用
+#讓前一個網頁的 flash session 繼續使用
 ```
 
 - 快取
-- 快取中的資料是為每一個應用程式儲存的；而session 中的資料是為每一個用戶儲存的
+- 快取中的資料是為每一個應用程式儲存的；而 session 中的資料是為每一個用戶儲存的
 - config/cache.php
 - https://laravel.com/docs/5.5/cache
     - cache()->get(key,fallbackvalue)
@@ -378,16 +378,16 @@ session()->reflash() / session()->keep(key)
 - https://laravel.com/docs/5.5/requests#cookies
 
 - Laravel Scout 作全文搜尋
-    - 可為Eloquent 模型加入全文搜尋
-    - Algolia預設驅動程式
-    - 要改成elasticsearch 請另外找辦法
+    - 可為 Eloquent 模型加入全文搜尋
+    - Algolia 預設驅動程式
+    - 要改成 elasticsearch 請另外找辦法
 
 > composer require laravel/scout
-> 加到config/app.php
+> 加到 config/app.php
 > php artisan vendor:publish
 > composer require algolia/algoliasearch-client-php
 
-> 在模型內 加入Laravel\Scout\Searchable
+> 在模型內 加入 Laravel\Scout\Searchable
 > toSearchableArray()
 > searchableAs()
 
@@ -395,7 +395,7 @@ session()->reflash() / session()->keep(key)
 Revie::search('Llew')->get();
 ```
 
-> config/scout.php 把queue 設為true
+> config/scout.php 把 queue 設為 true
 
 
 ## Email
@@ -414,10 +414,10 @@ Mail::send(view,data,closure)
 - Mailable
 > php artisan make:mail Assignment
 > 會創造一個 Assignment class (extend mailable)
-> build 方法裡面 return $this->view('view.name')
+> build 方法裡面 return $this->view ('view.name')
 
 本地開發
-- log驅動程式
+- log 驅動程式
 - Mailtrap.io 
 - Universal to
 
@@ -425,7 +425,7 @@ Mail::send(view,data,closure)
 - php artisan make:notification WorkoutAvailable
 
 ## Queue
-- 佇列可以將昂貴或緩慢的程序移出任何同步呼叫 ex.傳送郵件
+- 佇列可以將昂貴或緩慢的程序移出任何同步呼叫 ex. 傳送郵件
 - config/queue.php
 
 > php artisan make:job CrunchReports
@@ -439,27 +439,27 @@ Mail::send(view,data,closure)
 - 監聽事件
     - php artisan make:listener jobname --event=UserSubscribed 
 
-- 將事件廣播到WebSocket 與 Laravel Echo
+- 將事件廣播到 WebSocket 與 Laravel Echo
 - 排程器 
     - cron job in linux
     - app\console\kernel.php
     - $schedule
-> php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1 (in linux:將唯一的cron 項目啟動)
+> php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1 (in linux: 將唯一的 cron 項目啟動)
 
 ## helpers & Collection
 - https://laravel.com/docs/5.5/helpers
 - https://laravel.com/docs/5.5/collections
 
 陣列
-- array_except() 排除陣列指定鍵值資料
-- array_forget() 移除陣列指定鍵值資料
-- array_get() 取得陣列指定鍵值資料
-- array_has() 陣列是否有指定鍵值
-- array_only() 限制取得指定鍵值資料
-- array_pluck() 整理陣列清單指定鍵值資料
+- array_except () 排除陣列指定鍵值資料
+- array_forget () 移除陣列指定鍵值資料
+- array_get () 取得陣列指定鍵值資料
+- array_has () 陣列是否有指定鍵值
+- array_only () 限制取得指定鍵值資料
+- array_pluck () 整理陣列清單指定鍵值資料
 
 字串
-- e() 跳脫html字元
+- e () 跳脫 html 字元
 - str_limit($string,10)
 - str_contains($string,'kj')
 
@@ -475,9 +475,9 @@ Mail::send(view,data,closure)
 - dump()
 - dd()
 - now()
-- collect() 將陣列轉換成collection 資料集合物件
+- collect () 將陣列轉換成 collection 資料集合物件
 
-### Collection資料集合物件
+### Collection 資料集合物件
 - all()
 - toArray()
 - toJson()
@@ -495,23 +495,23 @@ $filterCollection = $collection->filter(function($value,$key){
 ```
 - first()
 - last()
-- flip() 翻轉鍵值與數值資料
+- flip () 翻轉鍵值與數值資料
 - forget()
 - forPage($page,$row_per_page)
 - get()
-- implode() 合併指定鍵值數值資料為字串
-- map() 運算所有鍵值資料
-- pluck() 整理指定鍵值資料為新資料集
-- pop() 取出最後一個元素資料
-- shift() 取出第一個元素資料
-- prepend() 加入資料到資料集第一個位置
-- pull() 取得指定鍵值資料並移除資料及鍵值資料
-- push() 加入資料到資料集最後位置
-- put() 加入鍵值資料到資料集
-- random() 隨機取得元素資料
-- reverse() 反轉資料及資料順序
-- search() 搜尋指定資料
-- shuffle() 隨機排序資料集資料
+- implode () 合併指定鍵值數值資料為字串
+- map () 運算所有鍵值資料
+- pluck () 整理指定鍵值資料為新資料集
+- pop () 取出最後一個元素資料
+- shift () 取出第一個元素資料
+- prepend () 加入資料到資料集第一個位置
+- pull () 取得指定鍵值資料並移除資料及鍵值資料
+- push () 加入資料到資料集最後位置
+- put () 加入鍵值資料到資料集
+- random () 隨機取得元素資料
+- reverse () 反轉資料及資料順序
+- search () 搜尋指定資料
+- shuffle () 隨機排序資料集資料
 - sort()
 - sortBy()
 - take()
@@ -536,14 +536,14 @@ $filterCollection = $collection->filter(function($value,$key){
 
 錯誤檔案紀錄方式
 ```
-//檔名位置 config/app.php
+// 檔名位置 config/app.php
 return [
     'log' => env('APP_LOG‘,'single');//single,daily
     'log_max_files' => 30
 ]
 ```
 
-abort(404)  HTTP 例外錯誤代碼
+abort (404)  HTTP 例外錯誤代碼
 
 
 ## 上線清單
@@ -555,10 +555,16 @@ abort(404)  HTTP 例外錯誤代碼
 3. [Packagist](https://packagist.org/)
 4. [語系列表](https://github.com/Laravel-Lang/lang)
 5. [Laracast 教程](https://laracasts.com/)
-6. [更深層的laravel](https://divinglaravel.com/)
+6. [更深層的 laravel](https://divinglaravel.com/)
 
 <!-- ## Ref:
 - https://medium.com/@chewysalmon/laravel-docker-development-setup-an-updated-guide-72842dfe8bdf -->
 
 ## With Elasticsearch
 - https://rezakhademi.medium.com/using-elasticsearch-with-laravel-80e8fd8dbc3b
+
+## Deploy
+- https://www.vultr.com/docs/how-to-install-laravel-7-on-ubuntu-20-04-with-nginx-and-mariadb/
+
+## Laravel & WebSocket
+- https://roy.usongrat.tw/article/56
