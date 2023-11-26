@@ -119,6 +119,43 @@ unzip myfiles.zip -dmydir
 - terminated
 ```
 
+## Host a static page on Ubuntu
+```sh
+sudo apt update
+sudo apt install nginx
+# 啟動 Nginx 服務
+sudo systemctl start nginx
+
+# 設定 Nginx 隨系統啟動
+sudo systemctl enable nginx 
+sudo ufw allow 'Nginx Full'
+
+# 以上指令就有 Nginx 基本 設定
+
+# 以下指令客製資料夾
+mkdir -p /var/www/mywebsite
+vim /etc/nginx/sites-available/mywebsite
+ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled/
+nginx -t
+systemctl reload nginx
+```
+
+- 在 nginx.conf 裡
+```
+server {
+    listen 80;
+    server_name example.com;
+
+    root /var/www/mywebsite;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+```
+
 ## 其他
 
 好用的 sed
