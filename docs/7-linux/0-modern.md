@@ -48,3 +48,38 @@ uname -srm  # 顯示核心名稱、釋出和硬體名稱，獲取系統基本信
 ```
 - 核心元件：程序管理、記憶體管理、網路功能、檔案系統、管理字元裝置與其驅動程式
 - 使用者領域 和核心元件之介面: `syscall`
+
+## Shells 與 Scripting
+- 對自動化的諷刺(https://oreil.ly/GSKUb)
+
+### Basic
+#### Terminal
+#### Shells
+```
+file -h /bin/sh
+echo $0
+echo $SHELL
+```
+#### I/O
+- stdin
+- stdout
+- stderr
+```
+curl https://example.com &> /dev/null
+curl https://example.com > /tmp/content.txt 2>/tmp/curl-status
+```
+
+- 特殊字元：`&` 放在背景端執行、`\` 延續下一行命令、`|` 管線，把一個程序的stdout 串接道下一個程序的stdin
+```
+curl https://example.com 2> /dev/null | \
+wc -l 
+```
+- 變數：環境變數、Shell變數
+```
+set MY_VAR=42
+set
+env
+```
+
+### Scripting
+- 良好的實務習慣：盡快清楚地回報故障、敏感資訊、糾正輸入、檢查相依性、錯誤處理、文件、版本控管、測試
