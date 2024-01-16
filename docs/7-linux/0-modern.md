@@ -51,6 +51,7 @@ uname -srm  # 顯示核心名稱、釋出和硬體名稱，獲取系統基本信
 
 ## Shells 與 Scripting
 - 對自動化的諷刺(https://oreil.ly/GSKUb)
+- https://xkcd.com/1319/
 
 ### Basic
 #### Terminal
@@ -83,3 +84,37 @@ env
 
 ### Scripting
 - 良好的實務習慣：盡快清楚地回報故障、敏感資訊、糾正輸入、檢查相依性、錯誤處理、文件、版本控管、測試
+
+## 存取控制
+> ownership 所有權
+
+### 基礎
+- 資源和所有權
+```
+使用者->啟動->程序->使用->檔案 使用者->擁有->檔案
+```
+- 系統使用者/系統帳號(程式提供的服務也是這種,像是mysql、sshd) 和 一般使用者
+```
+UID 0 root
+UID 1 to 999 系統使用者
+UID 65534 nobody
+UID 1000 ~ 65533 , 65533 到 4294967294 一般使用者
+
+$ id -u
+```
+
+### 在本地端管理使用者
+- /etc/passwd 使用者資料庫
+- /etc/group 群組資料庫
+- /etc/shadow 使用者密碼
+- /etc/gshadow 群組密碼
+```
+sudo adduser mh9
+```
+
+### 權限
+- 使用者、群組、其他
+- 讀取、寫入、執行
+```
+chmod +x /tmp/masktest
+```
