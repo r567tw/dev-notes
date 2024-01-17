@@ -118,3 +118,16 @@ sudo adduser mh9
 ```
 chmod +x /tmp/masktest
 ```
+
+## 檔案系統
+- 一切皆檔案
+```
+lsblk --exclude 7
+findmnt -D -t nosquashfs
+stat myfile
+ln myfile somealias
+ln -s myfile somealias
+```
+
+- VFS 虛擬檔案系統
+- LVM 邏輯卷冊管理工具
