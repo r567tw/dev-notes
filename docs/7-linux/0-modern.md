@@ -131,3 +131,10 @@ ln -s myfile somealias
 
 - VFS 虛擬檔案系統
 - LVM 邏輯卷冊管理工具
+
+## 應用程式、套件管理與容器
+- 開機流程
+- systemd、systemctl
+- Linux 應用程式供應鏈
+- 套件與套件管理工具
+- namespaces、cgroups
