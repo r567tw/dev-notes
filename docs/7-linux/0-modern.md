@@ -138,3 +138,57 @@ ln -s myfile somealias
 - Linux 應用程式供應鏈
 - 套件與套件管理工具
 - namespaces、cgroups
+
+## 網路功能
+### 基礎
+- 使用者空間：瀏覽器、ip、ssh、dig、ping、arp、email
+- 核心空間：sockets、TCP/UDP、IP、ICMP、驅動程式
+- 硬體：網路卡、無線
+
+### TCP/IP
+- 封包：header 加 header
+- 連結層、網際網路層、傳輸層、應用層
+```
+ifconfig
+ip link show
+ip addr show
+ping mhausenblas.info
+sudo route -n
+traceroute mhausenblas.info
+```
+- CIDR 表示法、ipv4、ipv6
+
+- 保留位址
+```
+127.0.0.0
+169.254.0.0/16 (169.254.0.0~169.254.255.255)
+224.0.0.0/24 (224.0.0.0 ~ 239.255.255.255)
+```
+
+- 私有位址
+```
+10/8 (10.0.0.0 ~ 10.255.255.255)
+172.16/12 (172.16.0.0 ~ 172.31.255.255)
+192.168/16 (192.168.0.0.0 ~ 192.168.255.255)
+```
+
+- DNS
+
+## 可觀測性
+- 找出程序消耗多少記憶體
+- 磁碟空間多快耗盡
+- 基於安全事件、對某個自訂事件示警
+
+### 策略
+- OODA 觀察、定向、決策、行動
+```
+ls -al /var/log
+uptime
+free -h
+vmstat 1
+```
+
+
+
+## 其他
+- Lima: https://github.com/lima-vm/lima
