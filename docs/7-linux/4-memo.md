@@ -36,3 +36,5 @@ User             admin
 
 alias enter-nas="sshpass -p password ssh -t {{NAME}}"
 
+- ssh-keygen -t rsa -b 4096 > ssh-copy-id 用戶名@遠端伺服器IP地址
+- ssh-copy-id 

@@ -96,6 +96,7 @@ docker service
 docker stack
 docker swarm
 docker system
+docker system prune --volumes
 ```
 
 - `-i`、`-t`: 如果容器需要有鍵盤輸入時

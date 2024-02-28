@@ -147,3 +147,7 @@ https://www.reddit.com/r/laravel/comments/tw5h9b/performance_of_relationship_que
 
 ## Laravel Pulse
 - https://laravel-news.com/laravel-pulse
+
+## Laravel Bagisto 
+- https://bagisto.com/en/
+- laravel 商務

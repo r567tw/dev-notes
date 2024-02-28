@@ -25,3 +25,7 @@ XML路徑語言（XML Path Language），它是一種用來確定XML檔案中某
 
 <!-- Ref: https://www.letswrite.tw/html-capture/ -->
 ```
+
+## Mail Tester
+Mail-tester 一鍵測試你的 E-Mail 信箱寄信後，被認定垃圾郵件評分高低
+https://www.kocpc.com.tw/archives/370812
