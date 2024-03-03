@@ -1,7 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 10
 ---
-# 演算法筆記
+# Algorithm
 
 ## 二元搜尋法
 ```python=
