@@ -16,14 +16,18 @@ LAN(區域網路,自行架設) vs WAN(廣域網路,業者)
 ## OSI 七層篇
 介面層(實體層：路由,switch)->網路層(IP)->傳輸層(TCP/UDP)->應用層(HTTP)
 
-1.實體層 乙太網路硬體
-2.資料鏈結層 乙太網路控制模組
-3.網路層 IP
-4.傳送層 TCP/UDP
-5.會談層
-6.表現層
-7.應用層
-應用程式：會談、表現、應用
+7 Layers each describe a specific networking component
+● Layer 7 - Application - HTTP/FTP/gRPC
+● Layer 6 - Presentation - Encoding, Serialization
+● Layer 5 - Session - Connection establishment, TLS
+● Layer 4 - Transport - UDP/TCP
+● Layer 3 - Network - IP
+● Layer 2 - Data link - Frames, Mac address Ethernet
+● Layer 1 - Physical - Electric signals, fiber or radio waves
+
+### IP
+- a.b.c.d/x (a.b.c.d are integers) x is the network bits and remains are host
+- Subnet mask is used to determine whether an IP is in the same subnet
 
 ## TCP/IP 篇
 - 網路介面層：乙太網路 ARP RARP MAC位址 WIFI PPP PPPoE=> 實體＋資料鏈結
@@ -238,7 +242,14 @@ res.set({
 ## Server
 ### Nginx
 
-> Source: https://www.youtube.com/watch?v=sCJcusORiE8
+#### What is Nginx
+- Web Server
+  - Serves web content
+- Reverse Proxy
+  - Load Balancing
+  - Backend Routing
+  - Caching
+  - API Gateway
 
 #### 安裝
 - 套件管理器安裝
@@ -267,6 +278,8 @@ nginx -s {signal: quit,stop,reload}
 - master: 管理文件、worker協同
 - worker: 實際處理請求
 
+#### Ref
+> Source: https://www.youtube.com/watch?v=sCJcusORiE8
 
 #### 與 Apache 的比較
 Apache 和 Nginx 都是流行的 Web 服務器軟件，它們的主要作用是接收客戶端的 HTTP 請求，並向客戶端發送 HTTP 響應。它們之間的比較可以從以下幾個方面進行：
