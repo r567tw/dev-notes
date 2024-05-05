@@ -20,6 +20,23 @@ sidebar_position: 6
 - https://ithelp.ithome.com.tw/articles/10237380 
 
 
+## HTML
+### Link Rel 屬性
+- https://zhuanlan.zhihu.com/p/150231042
+```
+<link rel="prefetch" href="/style.css" as="style" />
+<link rel="preload" href="/style.css" as="style" />
+<link rel="preconnect" href="https://example.com" />
+<link rel="dns-prefetch" href="https://example.com" />
+<link rel="prerender" href="https://example.com/about.html" />
+```
+
+- preload (紧急下载内容)
+- prefetch (使用低优先级策略下载内容)
+- preconnect (连接到服务器)
+- dns-prefetch (解析域名)
+- prerender (在后台渲染页面)
+
 ## Frontend
 ### QWik
 - https://www.readfog.com/a/1672334005931970560
@@ -46,32 +63,16 @@ sidebar_position: 6
 - https://w3techs.com/technologies/history_overview/content_management/all
 
 
-## 直播
+## 直播研究中
 - https://hitorigs.live/irl-server-setting-up/#google_vignette
 
-<!-- ## Jobs
+## 職涯
 - 職涯諮詢：https://coach.taiwanjobs.gov.tw/wdaecPublic/ 
-## 資訊相關
 - [軟體業界現況與職涯](https://m.gamer.com.tw/forum/C.php?bsn=60076&page=&snA=5444020&last=&fbclid=IwAR3J1m7dDAEjorusk2oUoKCJsHABLjIobixv_WBYgsam1DkCBNix-9UUviI)
 - https://hackmd.io/QK5OvYLxStC5Zhw2SVRXxw?fbclid=IwAR3eNJnAZWTWrzAtyKJ4jpDQbGQjViTNoYPoh7qRSu7nWHZRxA6X08zfyCQ
 - [你要coding多久呢](https://kevintsengtw.blogspot.com/2015/03/coding.html)
 - 六角學院諮詢：https://docs.google.com/forms/d/e/1FAIpQLScHDDwlT-emKc6Ng0ibkyI1HZ2SKpiZ8GqcE3n2CtwzaWpAvg/viewform
 
-Funning
-- https://github.com/torvalds/linux/tree/8bcab0346d4fcf21b97046eb44db8cf37ddd6da0
+## Funning
+- WTFPL: https://zh.wikipedia.org/zh-tw/WTFPL
 
-WTFPL
-https://zh.wikipedia.org/zh-tw/WTFPL
-
-與自己和解的 6 種方法
-https://today.line.me/tw/v2/article/9mYa6GV
-- 從不同思維角度看問題
-- 不要光想不行動
-- 減少對事對人的過分敏感，不要活在別人眼裡
-- 制定任務清單，把精力放在對的事情
-- 多關心自己，停止給自己設限
-- 多閱讀增廣見識，會思考就不會瞎焦慮
-
-開發 Line 貼圖
-https://deanlife.blog/create-line-stickers/
--->
