@@ -46,6 +46,9 @@ sidebar_position: 6
 - https://w3techs.com/technologies/history_overview/content_management/all
 
 
+## 直播
+- https://hitorigs.live/irl-server-setting-up/#google_vignette
+
 <!-- ## Jobs
 - 職涯諮詢：https://coach.taiwanjobs.gov.tw/wdaecPublic/ 
 ## 資訊相關
