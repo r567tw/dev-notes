@@ -67,7 +67,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             label: 'Documents',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
-          { to: 'https://r567tw.github.io/', label: 'Site', position: 'left' },
+          { to: 'https://r567tw.cc', label: 'Site', position: 'left' },
           { to: 'https://github.com/r567tw', label: 'Github', position: 'left' }
         ],
       },
