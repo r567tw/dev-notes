@@ -1,12 +1,13 @@
 ---
-sidebar_position: 9
+sidebar_position: 1
 ---
 # WEB3
 
 ## 主旨在於「去中心化」
 - Web 1.0、Web 2.0 : 應用層比重大、傳輸協定層比重小
 - Web 3.0: 應用層比重小、傳輸協定層比重大(區塊鏈、以太坊)
-- DApp、DAO(去中心化自治組織)、DeFi(去中心化金融)
+- DApp、DAO (去中心化自治組織)、DeFi (去中心化金融)
+- 但往往被導用到 代幣經濟、NFT
 
 ## 各時期的特色與顛覆、打破
 - Web 1.0 顛覆了原本傳統媒體業和廣告業界、電子商務、入口網站興起
@@ -14,9 +15,7 @@ sidebar_position: 9
 - Web 3.0 關鍵在於「去中心化」，使用者自己就是老大！顛覆了「平台」。
 - Web 4.0 更強調元宇宙、強調 XR/VR 應用、物聯網
 
-## 代幣經濟、NFT
-
 ## ipfs 星際檔案系統
 缺點：可能很慢
 優點：安全性、保證不可竄改性
-https://blockcast.it/2019/10/16/let-me-tell-you-what-is-ipfs/
+- https://blockcast.it/2019/10/16/let-me-tell-you-what-is-ipfs/
