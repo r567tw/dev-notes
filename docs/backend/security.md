@@ -1,13 +1,6 @@
 ---
-title: 資安學習手札
-type: post
-date: 2024-06-23T11:49:35+00:00
-categories:
-  - learning
-tags:
-  - security
-toc: true
-url: posts/security-complete
+title: Security
+sidebar_position: 2
 ---
 
 > 其中需要`分清楚XSS和CSRF的差別`

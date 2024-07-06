@@ -1,15 +1,8 @@
 ---
-title: Redis筆記
-type: post
-date: 2021-03-13T04:00:00+00:00
-categories:
-  - learning
-tags:
-  - redis
-url: posts/redis
+title: Redis
+sidebar_position: 999
 ---
-最近在玩Redis, 記錄起來才不會忘！
-# 關於 Redis 的簡介
+## Intro
 一種 in-memory 的 nosql 資料庫。常作為cache或queue做使用。
 因為是用記憶體作為處理，所以處理速度當然會比較快。
 

@@ -1,13 +1,6 @@
 ---
-title: 基礎概念筆記
-type: post
-date: 2024-06-08T01:49:35+00:00
-categories:
-  - learning
-tags:
-  - architecture
-toc: true
-url: posts/architecture-complete
+title: Computer Science
+sidebar_position: 1
 ---
 
 ## Concurrency

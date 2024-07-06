@@ -1,13 +1,6 @@
 ---
-title: How To Develop Progam
-type: post
-date: 2024-09-23T11:49:35+00:00
-categories:
-  - laravel
-tags:
-  - laravel
-toc: false
-draft: true
+title: Linux
+sidebar_position: 4
 ---
 ## 快速導覽
 ```

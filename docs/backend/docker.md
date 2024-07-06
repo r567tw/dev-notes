@@ -1,14 +1,6 @@
 ---
 title: Docker
-type: post
-date: 2024-09-23T11:49:35+00:00
-categories:
-  - learning
-tags:
-  - docker
-toc: true
-url: posts/docker
-draft: true
+sidebar_position: 5
 ---
 # Docker
 

@@ -1,13 +1,6 @@
 ---
-title: AWS 筆記
-type: post
-date: 2024-09-23T11:49:35+00:00
-categories:
-  - learning
-tags:
-  - aws
-toc: true
-url: posts/aws
+title: AWS
+sidebar_position: 999
 ---
 <!-- 可以和 AWS Step Function 一起結合 -->
 

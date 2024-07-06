@@ -1,13 +1,6 @@
 ---
 title: Database
-type: post
-date: 2024-09-23T11:49:35+00:00
-categories:
-  - laravel
-tags:
-  - laravel
-toc: false
-draft: true
+sidebar_position: 6
 ---
 
 ## ACID
