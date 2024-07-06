@@ -1,6 +1,6 @@
 ---
 title: Security
-sidebar_position: 2
+sidebar_position: 5
 ---
 
 > 其中需要`分清楚XSS和CSRF的差別`
