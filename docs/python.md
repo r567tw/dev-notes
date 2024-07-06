@@ -1,5 +1,5 @@
 ---
-title: Laravel Dev Notes
+title: Python
 type: post
 date: 2024-09-23T11:49:35+00:00
 categories:
@@ -152,7 +152,6 @@ urlpatterns =[
 // name='news-year-archive' in template
 <a href="{% url 'news-year-archive' 2019 %}">show the post</a>
 ```
-
 ## 6.Template 深入探討
 ```
 {% if 條件 %}{% endif %}
@@ -1077,7 +1076,7 @@ set()
 - | / union() 取得聯集
 - `-` / difference : 取得差集（屬於第一個而非第二個）
 -  ^ / symmetric_difference() 互斥
-- <= / issubset() 子集合
+- `<=` / issubset() 子集合
 
 ## Control Flow
 - if / elif / else

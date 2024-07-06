@@ -150,12 +150,12 @@ public function boot()
     - 規則可以看文件
 - Eloquent 模型的大量賦值
     - $fillable in model
-- {{ ... }} v.s {!! ... !!}
+- `{{ ... }}` v.s `{!! ... !!}`
 
 ## Artisan 與 Tinker
-> php artisan make:command action
-> #可以同時生成 model 和 migration 和 controller
-> php artisan make:model [name] -m -r
+`- php artisan make:command action`
+`- #可以同時生成 model 和 migration 和 controller`
+`- php artisan make:model [name] -m -r`
 
 ## Eloquent
 - Laravel 的 ActiveRecord ORM

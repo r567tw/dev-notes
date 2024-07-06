@@ -144,7 +144,7 @@ $ cdk destroy
 之前工作用到一些工具，使用到AWS step function , 因此在這裡也筆記一下...
 也在公司後端組例會分享了一下（以下就是我分享的PPT ）：
 
-<https://www.slideshare.net/ssusereb2ee2/aws-stepfunction>
+<!-- <https://www.slideshare.net/ssusereb2ee2/aws-stepfunction> -->
 
 其實我覺得我用的情境很簡單，只是用Map 的方式啟動lambda . 這個 lambda 就是我用來處理下載與上傳到s3指定位置... 說真的應用的情境真的很不多... 還有更多著墨的空間。
 

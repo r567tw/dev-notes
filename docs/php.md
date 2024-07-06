@@ -1,13 +1,5 @@
 ---
-title: WordPress Dev Notes
-type: post
-date: 2024-09-23T11:49:35+00:00
-categories:
-  - laravel
-tags:
-  - laravel
-toc: false
-draft: true
+title: PHP
 ---
 
 
@@ -128,7 +120,7 @@ class myclass{
 ## Namespace
 > 提供一種組織程式碼的方法，確保你的類別名稱不會與別人的類別名稱衝突
 
-- 緊接<?php 標籤之後，如果要用別的namespace就可以使用`use` 關鍵字
+- 緊接`<?php` 標籤之後，如果要用別的namespace就可以使用`use` 關鍵字
 - Alias: 不用輸入完整的namespace 落落長的名稱
 ```php
 #不用
@@ -296,7 +288,7 @@ foreach (getRows('data.csv') as $row){
 
 ### PSR-0 已棄用，由PSR-4 取代
 ### PSR-1:基本程式碼風格
-    - PHP 標籤 你要用PHP 標籤<?php ?> 或 <?= ?>包覆PHP 程式碼
+    - PHP 標籤 你要用PHP 標籤`<?php ?>` 或 `<?= ?>`包覆PHP 程式碼
     - 編碼：必須以沒有位元順序標記的utf-8字元編碼
     - 目的：每個php檔案可以用來定義符號或執行一個有作用的動作
     - 自動載入: 你的名稱空間和類別必須支援psr-4 自動載入器標準

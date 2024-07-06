@@ -1,4 +1,4 @@
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+// const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -66,7 +66,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             position: 'left',
             label: 'Documents',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
           { to: 'https://r567tw.cc', label: 'Site', position: 'left' },
           { to: 'https://github.com/r567tw', label: 'Github', position: 'left' }
         ],
@@ -74,10 +73,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} Jimmy の note`,
-      },
-      prism: {
-        theme: darkCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
+      }
     }),
 });

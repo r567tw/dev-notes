@@ -607,6 +607,7 @@ req.cookies.yourCookieName;
 
 
 Node.js express-session 設定
+```
 app.use(session({
  secret: 'keyboard cat',
  resave: true,
@@ -614,6 +615,7 @@ app.use(session({
  cookie:{}
 // 設定 Cookie 設定
 }))
+```
 寫入 session
 
 res.session.屬性 = 值 
