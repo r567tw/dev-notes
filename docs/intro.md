@@ -11,8 +11,6 @@ Welcome to Jimmy notes ! ❤️❤️❤️
 也為了讓初新者可以藉由這個網站學習新技能點、將我所懂的可以被傳承、被分享。
 :::
 
-另外，本網站之前有關「網路」與「程式語言」相關的內容，將搬到我的個人部落格[`Jimmy's Code`](https://r567tw.cc)
-
 ## 如果有內容的錯誤，請不吝指教
 歡迎以`Email`聯絡我：`r567tw@gmail.com`
 
@@ -24,3 +22,5 @@ Welcome to Jimmy notes ! ❤️❤️❤️
 
 ## 關於我
 一名普通的上班族、信仰上帝、跟隨基督，只會寫一點點程式而已、正學習如何做名為『人類』這個物種 😂
+
+npm create cloudflare@latest my-docusaurus-app -- --framework=docusaurus
