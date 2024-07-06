@@ -1,19 +1,19 @@
 ---
 title: PHP
+sidebar_position: 1
 ---
-
-
-# Basic
 :::info
 - 內容整理 From `PHP學習手冊` & `現代PHP` ＆ `工作經驗`
 :::
 
 ## Intro
-- php 是一個直譯式的伺服器端腳本語言
+- 後端語言
 - php 引擎是一個可以解析、直譯和執行php 程式碼的程式
-    - Zend Engine or HHVM
+    - Zend Engine
+    - HHVM 和 HACK
     - PHP-FPM 作為 Zend Engine 和 Web Server 的中間層
         - 服務啟動時建立 Master 跟數個 Workers，管理 PHP Process
+        - 優化：- https://geekflare.com/php-fpm-optimization/
 - [PHP 如何運作](https://hackmd.io/@Burgess/S1HL_7fov)
 - 開始標籤與結束標籤: `<?php`、`?>`
 - 註解
@@ -26,14 +26,14 @@ title: PHP
 - 文字: 單引號或者雙引號皆可
 - 數字
 - 布林：true 和 false
-- function
+<!-- - function
     - trim()
     - strlen()
     - strcasecmp 不分大小寫的字串比較
     - printf()
     - strtolower()
     - strtoupper()
-    - len()
+    - len() -->
 
 ## Control Flow
 - if elseif else
@@ -59,14 +59,14 @@ $closure = function ($name){
     return sprintf('hello %s',$name);
 }
 
-echo $closure('josh') # output=> 'hello josh'
+echo $closure('josh') ## output=> 'hello josh'
 
 $numberplusone=array_map(function ($number){
     return $number+1;
 },[1,2,3]);
 
 print_r($numberplusone);
-# output=>[2,3,4]
+## output=>[2,3,4]
 ```
 - 繫結狀態
     - [參考文章](https://ithelp.ithome.com.tw/articles/10132747)
@@ -81,7 +81,7 @@ function enclosePerson($name){
 
 $clay=enclosePerson('Clay');
 echo $clay('get me sweet tea!');
-# output=> 'Clay get me sweet tea!'
+## output=> 'Clay get me sweet tea!'
 ```
 
 ## Object
@@ -99,7 +99,6 @@ echo $clay('get me sweet tea!');
     #$person->name
     #$person::walk()/static
     #$person->walk() /no static
-    
 ```
 ### extends
 ### interface
@@ -178,7 +177,7 @@ print $p->format('m/d/y');
 - Swift Mailer
 
 ```php
-# composer require swiftmailer/swiftmailer
+## composer require swiftmailer/swiftmailer
 requrie "vendor/autoload.php"
 $transport=Swift_SmtpTransport::newInstance('smtp.example.com',25);
 $mailer = Swift_Mailer::newInstance($transport);
@@ -188,7 +187,7 @@ $message->setFrom('a@example.com');
 $message->setTo(array('b@example.com'=>'james bard'));
 $message->setSubject('example');
 $message->setBody('example');
-# 如果要寄HTML $message->setBody('example',"text/html");               
+## 如果要寄HTML $message->setBody('example',"text/html");               
 ```
 ## Multilingual
 - 文字處理
@@ -203,6 +202,7 @@ $message->setBody('example');
 
 ## Database
 - PDO
+- Mysqli
 
 ## File
 - file_get_contects()
@@ -309,11 +309,14 @@ foreach (getRows('data.csv') as $row){
     - 實做php 記錄器
 ### PSR-4:自動載入器
 
-### Summary
+:::tip
+Summary:
+
 - [文章連結](https://www.ccc.tc/article/php-standards-recommendations#)
 - PHP標準建議編號1(PSR-1)，基本編碼標準. 像是類別(Class)名稱必需宣告為StudlyCaps，方法(Method)的名稱需宣告為camelCase..等
 - PHP標準建議編號2(PSR-2)，則是PSR-1的擴充，規範了PHP編碼風格，像是extends或是implements必需與class名稱同一行...等。
 - PHP標準建議編號4(PSR-4)，則定義了自動載入(Autoloader標準)
+:::
 
 ## Optimize
 - php.ini
@@ -343,59 +346,4 @@ foreach (getRows('data.csv') as $row){
     - 用於開發階段
     - 用於產品階段
 - Xdebug
-- XHProf
 - New Relic 剖析器
-- Blackfire 剖析器
-
-## HHVM 和 HACK
-- HHVM
-    - PHP 引擎
-    - 已經最佳化應用程式但是需要更高效能的開法者
-- HACK 語言
-```php
-<?hh
-echo "I'm Hack";
-```
-- 靜態型別
-    - 編譯
-- 動態型別
-    - 一直到執行階段才被檢查
-- HACK 同時實做了靜態與動態~
-
-## Interview
-1. 列出sql語法優化的注意事項
-2. 資料型態char 和varchar的差別
-3. null , false , 0 , ''
-4. echo , print, print_r 的差別
-5. 找出質數
-6. 1+2-3+4-5......+M-N
-7. 為什麼喜歡使用laravel?
-https://learnku.com/laravel/t/3593/why-i-choose-laravel
-
-- 社群活絡
-- 命名與代碼可讀性，因為Laravel的作者創建的哲學是為了幫助開發者提高效率，有很多方便可易用的magic 方法
-- 核心設計：service container，實現了依賴注入原則，有效解決組件耦合依賴問題、提高測試性
-- 利於團體協作：引入migration
-- 全能式框架：提高開發效率
-    - queue
-    - Localization
-    - task Scheduling
-    
-
-## Future
-- 2017 的php 工程師
-    - https://zhuanlan.zhihu.com/p/26090126
-- PHP程式設計師大概能幹多久？
-```
-原文網址：https://kknews.cc/tech/o2bgb6.html
-
-第一：國外的大牛，基本上都是30歲-50歲的，編碼行業博大精深，比其他行業更需要很長久的經驗積累。
-第二：國內網際網路界剛起步15年，預計還有30年的飛速成長期，所以對於人才的需求同比 增長，在20年內，仍舊會遠遠大於其他任何行業。需求越大，越需要技術前輩去帶動後輩。
-第三：歲數大的程式設計師，到一定程度，往往都到架構師、需求分析師、技術總監、CTO的層面，這個時候對代碼的控制效率的要求，就反而變小了。對綜合技術能力的考量，卻越來越大；而綜合技術能力，沒有5-10年的浸淫，絕對達不到一定高度的。
-第四：在任何一個技術型行業，跑在前面的人才，永遠都是在前面。除非你放棄了。因為任何一門技術，都是增量模式的。一個新人站在了前輩的肩膀上，固然可以飛速成長。但是當他想達到和你真正一樣的高度，照樣需要花費和你差不多的時間。
-``` 
-
-
-## PHP-FPM
-- https://geekflare.com/php-fpm-optimization/
-

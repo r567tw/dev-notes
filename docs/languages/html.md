@@ -1,8 +1,9 @@
 ---
 title: HTML
+sidebar_position: 999
 ---
-## HTML
-- input: capture 屬性，可以使用環境照相
+
+## capture
 ```html
 <!-- 開啟 前鏡頭 錄影、拍照 -->
 <input type="file" capture="user" accept="video/*"/>
@@ -15,7 +16,7 @@ title: HTML
 <!-- Ref: https://www.letswrite.tw/html-capture/ -->
 ```
 
-### Link Rel 屬性
+## Link Rel 
 - https://zhuanlan.zhihu.com/p/150231042
 ```
 <link rel="prefetch" href="/style.css" as="style" />

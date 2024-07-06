@@ -1,20 +1,13 @@
 ---
-title: Ruby 筆記
-type: post
-date: 2020-11-04T13:35:43+00:00
-categories:
-  - learning
-tags:
-  - ruby
-url: posts/ruby
+title: Ruby
+sidebar_position: 998
 ---
-# Ruby基礎
+## Ruby基礎
 - [Ruby 的註解方式][1]
 - `#`單行註解
 - Hello.rb
 
-# 變數與輸入輸出
-
+## 變數與輸入輸出
 ```ruby
 puts 'Hello World' #output Hello World
 puts 20+2 #output 22
@@ -38,12 +31,12 @@ print 'Hello world' #不會換行 output Hello World
 > `\==` 比較是否相等  
 > `!=` 比較是否不相等 
 
-# irb
+## irb
 - irb 是一個ruby 的命令介面，可以即時執行ruby 結果
 - control+l 清空
 - exit 離開
 
-# if ...else...end
+## Control Flow
 ```ruby
 #number =8
 number = Random.rand(9)
@@ -59,7 +52,7 @@ else
   puts '猜錯了!'
 end
 ```
-## while...end
+## Loop
 ```ruby
 #上一個的進階版
 number = Random.rand(14)+1
@@ -80,7 +73,7 @@ while true
 end
 ```
 
-# Array
+## Array
 ```ruby
 scores= [80,100,90,99] #定義一個名為scores 的array
 scores.each do |score|
@@ -95,7 +88,7 @@ print(scores.pop) # 將最後一個叫出來 [99]
 print(scores.sort) # 排序 [80,90,99,100]
 ```
 
-# 成績管理程式-綜合應用
+## Sample
 
 ```ruby
 # 1=>檢視成績 2 新增成績 3 刪除成績 4 結束成績
@@ -125,7 +118,7 @@ while true
 end
 ```
 
-# Hash
+## Hash
 
 ```ruby
 record={'name'=>'john','score'=>90}
@@ -143,7 +136,7 @@ record.each do |key,value|
 end
 ```
 
-# Method
+## Method
 ```ruby
 def greet
   puts 'hello'
