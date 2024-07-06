@@ -2,6 +2,7 @@
 title: Linux
 sidebar_position: 4
 ---
+
 ## 快速導覽
 ```
 📁 root: 系統管理員家目錄
@@ -68,7 +69,7 @@ unzip myfiles.zip -dmydir
 - locate rsyslog
 - logrotate
 - /etc/rsyslog.conf /etc/logrotate.conf
-- shred {{file}} shred -f -n 10 /var/log/auth.log.*
+- shred `{{file}}` shred -f -n 10 /var/log/auth.log.*
 - service rsyslog stop
 
 ## 服務
@@ -492,7 +493,7 @@ true > .vscode/logs/log
 ```bash
 sudo visudo # = vi /etc/sudoers
 # 在 /etc/sudoers 增加一行
-{ username } ALL=(ALL) NOPASSWD:ALL
+`{ username } ALL=(ALL) NOPASSWD:ALL`
 
 # Ref: https://linuxhint.com/setup-sudo-no-password-linux/
 # Ref: https://dchesmis.blogspot.com/2018/05/visudosudo.html
@@ -500,12 +501,13 @@ sudo visudo # = vi /etc/sudoers
 
 ## 讓 SSH 變得更方便拉
 - 修改`.ssh/config`檔案
+```
 Host             {{NAME}}
 Hostname         x.x.x.x
 Port             22
 User             admin
-
-alias enter-nas="sshpass -p password ssh -t {{NAME}}"
+```
+alias enter-nas="sshpass -p password ssh -t `{{NAME}}`"
 
 - ssh-keygen -t rsa -b 4096 > ssh-copy-id 用戶名@遠端伺服器IP地址
 - ssh-copy-id 
