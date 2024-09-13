@@ -22,6 +22,13 @@ function HomepageHeader() {
             Enter
           </Link>
         </div>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="https://r567tw.github.io/resume">
+            Resume
+          </Link>
+        </div>
       </div>
     </header>
   );
