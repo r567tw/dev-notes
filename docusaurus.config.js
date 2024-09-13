@@ -5,7 +5,7 @@
 (module.exports = {
   title: 'Jimmy の note',
   tagline: 'Notes for Output & Understand',
-  url: 'https://jimmynotes.netlify.app',
+  url: 'https://notes.r567tw.cc',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -66,7 +66,7 @@
             position: 'left',
             label: 'Documents',
           },
-          { to: 'https://r567tw.cc', label: 'Site', position: 'left' },
+          { to: 'https://r567tw.cc', label: 'Blog', position: 'left' },
           { to: 'https://github.com/r567tw', label: 'Github', position: 'left' }
         ],
       },
