@@ -16,18 +16,7 @@ Welcome to Jimmy notes ! ❤️❤️❤️
 ## 如果有內容的錯誤，請不吝指教
 歡迎以`Email`聯絡我：`r567tw@gmail.com`
 
-## 關於產能
+## Inspire
 > 在《Programming Perl》中，Larry Wall鼓勵程式人應培養三種美德：「懶惰（Laziness）、沒耐性（Impatience）與驕傲（Hubris）」。
 
-## Code Review
-:::tip
-Code Review 同樣可以用心理學的馬斯洛需求層次理論去應用...
-:::
-[https://www.dein.fr/posts/2015-02-18-maslows-pyramid-of-code-review](https://www.dein.fr/posts/2015-02-18-maslows-pyramid-of-code-review)
-
-- Correct 正確性 => 基本生理
-- Secure 安全 => 安全
-- Readable 可讀性 => 愛與歸屬的需求
-- Elegant 優雅 => 尊嚴
-- Altruist 是否能幫助他人(利他主義者) => 自我實現
-
+> hack（駭客）本意就是改變一件事情、一個系統的品質，我們既然就是在做 hack 的事情，那為什麼不能 hack 我們自己的工作模式？
