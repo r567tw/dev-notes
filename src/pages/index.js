@@ -22,7 +22,6 @@ function HomepageHeader() {
             Enter
           </Link>
         </div>
-        <div style="height: 10px"></div>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
