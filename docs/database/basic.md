@@ -63,3 +63,31 @@ unexpected ending => ROLLBACK
 - Unique Index（唯一索引）
 - Full-Text Index（全文索引）
 - Composite Index（複合索引）
+
+### Partitioning
+Database partitioning 是一種將大型資料表或資料庫分割成更小的、可管理的資料區塊的方法，以提升查詢效率和操作效能。它透過把數據劃分成邏輯或物理上的區段來減少資料庫的負擔，並優化資料存取速度。常見的分割方法有以下幾種：
+
+1. **範圍分割（Range Partitioning）**  
+   依照特定範圍（如日期、數字等）來將資料分成不同的區塊。例如，以日期為基準，每月或每年存成一個分區。
+
+2. **清單分割（List Partitioning）**  
+   使用特定的清單值來決定每個分區包含的資料，例如，將不同國家的資料放在不同的分區中。
+
+3. **哈希分割（Hash Partitioning）**  
+   對某個欄位進行哈希運算，並根據哈希值把資料分散到不同的分區，這樣可以使資料分佈更為均勻，減少單一分區的負擔。
+
+4. **複合分割（Composite Partitioning）**  
+   結合多種分割方法，例如先使用範圍分割，再進行哈希分割，以達到更精細的分區效果。
+
+#### Partitioning 的優勢
+- **性能優化**：分割後的資料更小、更易於查詢，有效減少 I/O 負擔。
+- **高效維護**：分區可以獨立維護，清理或備份其中一個分區不影響其他分區。
+- **更好的擴展性**：隨著資料量的增長，可以輕鬆新增分區，減少資料庫壓力。
+
+#### 適用場景
+- 大型資料庫，尤其是資料量持續增長且查詢操作頻繁的情況。
+- 特定分區會進行大量讀寫操作（例如報表生成、統計數據等）。
+  
+透過正確的分割策略，Database Partitioning 可以顯著提升資料庫的效能和穩定性。
+
+Ref: https://cola.workxplay.net/mysql-partitioning-for-performance-optimization/
