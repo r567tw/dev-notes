@@ -144,3 +144,5 @@ Ref: https://cola.workxplay.net/mysql-partitioning-for-performance-optimization/
 ### Database Cursor
 > 在資料庫引擎 (Database Engine)中，讓開發人員或資料庫管理員可以遍歷、瀏覽檢索結果的資料列(稱為資料查詢結果集, Result set)，是主要用於在結果集中移動到某一資料列(row)的控制結構。游標可以被看作是指向一組列中，代表某一列的指針。游標一次只能參照一列，但可以根據需要移動到結果集的其他列。
 
+### SQL vs NoSQL
+> 數據庫不在只是儲存Table,Row,Column....
