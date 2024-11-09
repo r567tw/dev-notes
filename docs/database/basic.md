@@ -131,3 +131,16 @@ Ref: https://cola.workxplay.net/mysql-partitioning-for-performance-optimization/
 #### vs 分割（Sharding）的區別
 - Database Replication: 是將整個資料集複製到多個伺服器，用於備援、讀取分流和提高可用性。
 - Database Sharding: 是將資料集分成多個分區，每個分區分配到不同伺服器，用於支持大規模數據量和提升效能。這兩者可以相互結合。
+
+### Database Engine
+> 在資料庫中進行創建、讀取、更新和刪除（CRUD）數據的底層軟體組件。
+
+1. MyISAM
+2. InnoDB
+3. PostgreSQL
+4. SQLite
+
+
+### Database Cursor
+> 在資料庫引擎 (Database Engine)中，讓開發人員或資料庫管理員可以遍歷、瀏覽檢索結果的資料列(稱為資料查詢結果集, Result set)，是主要用於在結果集中移動到某一資料列(row)的控制結構。游標可以被看作是指向一組列中，代表某一列的指針。游標一次只能參照一列，但可以根據需要移動到結果集的其他列。
+
