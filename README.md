@@ -37,3 +37,5 @@ https://github.com/zakirullin/cognitive-load/blob/main/README.zh-cn.md
 
 假设我们被要求对一个完全不熟悉的项目进行修复工作。并被告知在此之前，有一位非常聪明的开发人员在项目中编写了代码。采用了许多复杂高级的架构、花哨的库和先进的技术。换句话说，项目的前任开发者给我们带来了很高的认知负荷。
 ```
+- 研讀 laravel 源碼
+https://blog.turn.tw/?page_id=796
