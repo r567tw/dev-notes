@@ -2,14 +2,15 @@
 
 URL: https://notes.r567tw.cc
 
-
 - This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 - This website is deployed using [Netlify](https://www.netlify.com/)
 
 ## vultr
+
 唯二不推薦「Regular Cloud Compute (畫面這個)」和「Intel High Performance」
 
 ## Code Review
+
 :::tip
 Code Review 同樣可以用心理學的馬斯洛需求層次理論去應用...
 :::
@@ -21,10 +22,9 @@ Code Review 同樣可以用心理學的馬斯洛需求層次理論去應用...
 - Elegant 優雅 => 尊嚴
 - Altruist 是否能幫助他人(利他主義者) => 自我實現
 
-
-
 - 认知负荷才是最重要的
-https://github.com/zakirullin/cognitive-load/blob/main/README.zh-cn.md
+  https://github.com/zakirullin/cognitive-load/blob/main/README.zh-cn.md
+
 ```
 这世上有如此多的“流行语”和“最佳实践”，但是让我们把注意力转向更基础的方面。即——开发人员在浏览代码时所感受到的“困惑程度”。
 
@@ -37,5 +37,43 @@ https://github.com/zakirullin/cognitive-load/blob/main/README.zh-cn.md
 
 假设我们被要求对一个完全不熟悉的项目进行修复工作。并被告知在此之前，有一位非常聪明的开发人员在项目中编写了代码。采用了许多复杂高级的架构、花哨的库和先进的技术。换句话说，项目的前任开发者给我们带来了很高的认知负荷。
 ```
+
 - 研讀 laravel 源碼
-https://blog.turn.tw/?page_id=796
+  https://blog.turn.tw/?page_id=796
+
+## 最低 Laravel host 規格
+
+https://laracasts.com/discuss/channels/laravel/what-is-the-minimum-memory-to-host-laravel-project
+
+1 核, 1GB , 25GB 應該夠
+
+## 尋找離職的理由
+
+https://www.518.com.tw/article/871
+https://www.businessweekly.com.tw/careers/blog/3017396
+
+「因為不太能適應前公司的企業文化、大家相處太冷漠了，彼此間也很少溝通說話，與你自己喜歡與人接觸的個性不符。」
+「想接受更多挑戰」
+「如果你之前公司的財務狀況比較不穩定，常因營運不佳而裁員，我認為這個離職原因完全無可厚非；還可以讓面試主管了解到，你對工作的需求和追求穩定的價值觀，進而得出會認真對待這份新工作的結論。」
+
+## 12 個有趣 API
+
+https://codelove.tw/@tony/post/Ja6JaO
+
+- Open Weather
+- {JSON} Placeholder
+- Rest Countries
+
+## NodeJS 練習
+
+https://yuhsien.notion.site/179caa9730284da48b0a6df66886a447
+https://github.com/codecrafters-io/build-your-own-x
+
+## 想買毛巾
+
+https://twreporter.waca.ec/product/detail/2071973
+
+bref php
+native php
+
+https://magnetic-clavicle-9c4.notion.site/19f59ca1ff4f80789b1cc841b6a41c67
