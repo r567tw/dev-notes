@@ -2,12 +2,15 @@
 title: AWS
 sidebar_position: 999
 ---
+
 <!-- 可以和 AWS Step Function 一起結合 -->
 
 # EC2
+
 ## How to deploy laravel project to ec2
 
 ### Pre-requirement
+
 ```bash
 apt-get update && apt-get upgrade
 apt-get install nginx
@@ -18,7 +21,9 @@ apt-get install php-curl
 apt-get install php-sqlite3
 apt-get install composer
 ```
+
 ### In Laravel Project Foder
+
 ```bash
 #! Ready Laravel App (git clone or ftp upload...etc)
 $ chown -R www-data:www-data ./
@@ -32,17 +37,17 @@ $ ln -s  /etc/nginx/sites-available/laravelapp.conf /etc/nginx/sites-enabled
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
- 
+
     root /var/www/html/open-course/public;
 
     index index.php index.html;
- 
+
     server_name _;
- 
+
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
- 
+
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
 
@@ -55,145 +60,164 @@ server {
 ```
 
 ### Nginx Command
+
 ```bash
-#! command about nginx command 
+#! command about nginx command
 $ sudo service nginx start/stop/restart
 #! test nginx configuration command
 $ nginx -t
 ```
 
 ### REF
+
 https://www.clickittech.com/tutorial/deploy-laravel-on-aws-ec2/
 
 # CDK
+
 ## Intro
+
 - `#IaC`
 - `#TypeScript` (also use Python,Golang)
 
 ## Installation
+
 ```bash
 $ npm install -g aws-cdk
 #! check cdk installation
-$ cdk --version 
+$ cdk --version
 ```
+
 ## Pre-requirement
+
 - Ready AWS Account
 - Give Right Permission to Account
 
 ## Init
+
 ```bash
 $ cdk bootstraap aws://{account}/{region}
 ```
 
 ## Create CDK Project
+
 ```bash
 $ cdk init --language typescript
 ```
 
 - **Key File: `lib/cdk-workshop-stack.ts`**
 - For example: create a simple lambda
+
 ```typescript title="lib/cdk-workshop-stack.ts"
-import * as cdk from 'aws-cdk-lib';
-import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as cdk from "aws-cdk-lib";
+import * as lambda from "aws-cdk-lib/aws-lambda";
 
 export class CdkWorkshopStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     // defines an AWS Lambda resource
-    const firstLambda = new lambda.Function(this, 'HelloHandler', {
-      runtime: lambda.Runtime.NODEJS_14_X,    
-      code: lambda.Code.fromAsset('lambda'),  
-      handler: 'hello.handler'               
+    const firstLambda = new lambda.Function(this, "HelloHandler", {
+      runtime: lambda.Runtime.NODEJS_14_X,
+      code: lambda.Code.fromAsset("lambda"),
+      handler: "hello.handler",
     });
   }
 }
 ```
 
 Create lambda/hello.js
+
 ```javascript title="lambda/hello.js"
 exports.handler = async function (event) {
-    // console.log("request:", JSON.stringify(event, undefined, 2));
-    return {
-        statusCode: 200,
-        headers: { "Content-Type": "text/plain" },
-        body: `Hello, CDK!\n`
-    };
+  // console.log("request:", JSON.stringify(event, undefined, 2));
+  return {
+    statusCode: 200,
+    headers: { "Content-Type": "text/plain" },
+    body: `Hello, CDK!\n`,
+  };
 };
 ```
 
 ## CDK Command
+
 ```bash
 #! Deploy
 $ cdk deploy
 #! Destroy / Delete
-$ cdk destroy 
+$ cdk destroy
 ```
 
 ## Ref
+
 - https://cdkworkshop.com/
 
 # Step Function
-之前工作用到一些工具，使用到AWS step function , 因此在這裡也筆記一下...
-也在公司後端組例會分享了一下（以下就是我分享的PPT ）：
+
+之前工作用到一些工具，使用到 AWS step function , 因此在這裡也筆記一下...
+也在公司後端組例會分享了一下（以下就是我分享的 PPT ）：
 
 <!-- <https://www.slideshare.net/ssusereb2ee2/aws-stepfunction> -->
 
-其實我覺得我用的情境很簡單，只是用Map 的方式啟動lambda . 這個 lambda 就是我用來處理下載與上傳到s3指定位置... 說真的應用的情境真的很不多... 還有更多著墨的空間。
+其實我覺得我用的情境很簡單，只是用 Map 的方式啟動 lambda . 這個 lambda 就是我用來處理下載與上傳到 s3 指定位置... 說真的應用的情境真的很不多... 還有更多著墨的空間。
 
-另外，自己同時也針對此寫了兩個版本，用SAM 和 用 CDK 的版本...
+另外，自己同時也針對此寫了兩個版本，用 SAM 和 用 CDK 的版本...
 
 一、CDK 的版本
+
 ```typescript
-import * as cdk from '@aws-cdk/core';
-import * as lambda from "@aws-cdk/aws-lambda"
-import * as stepfunctions from "@aws-cdk/aws-stepfunctions"
-import * as tasks from "@aws-cdk/aws-stepfunctions-tasks"
-import * as logs from "@aws-cdk/aws-logs"
-import * as s3 from "@aws-cdk/aws-s3"
-import * as ec2 from "@aws-cdk/aws-ec2"
-import * as dotenv from 'dotenv';
+import * as cdk from "@aws-cdk/core";
+import * as lambda from "@aws-cdk/aws-lambda";
+import * as stepfunctions from "@aws-cdk/aws-stepfunctions";
+import * as tasks from "@aws-cdk/aws-stepfunctions-tasks";
+import * as logs from "@aws-cdk/aws-logs";
+import * as s3 from "@aws-cdk/aws-s3";
+import * as ec2 from "@aws-cdk/aws-ec2";
+import * as dotenv from "dotenv";
 
 export class CdkLambdaStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     // 將裡面比較敏感的資訊用env 包起來, 注意後面的path 要正確
-    dotenv.config({path:__dirname+'/../.env'})
-    
+    dotenv.config({ path: __dirname + "/../.env" });
+
     // 我要上傳音檔的S3 目標 arn:aws:s3:::test 為虛構（我忘了把這個也包env了哈哈）
-    const bucket = s3.Bucket.fromBucketArn(this,"test","arn:aws:s3:::test")
+    const bucket = s3.Bucket.fromBucketArn(this, "test", "arn:aws:s3:::test");
 
     // 負責前面呼叫step function 的 lambda
-    const downloadAudioLambda = new lambda.Function(this, "downloadAudioLambda", {
-      runtime: lambda.Runtime.NODEJS_12_X,
-      timeout: cdk.Duration.seconds(25),
-      handler: "index.handler",
-      code: lambda.Code.fromAsset("lambda/downloadAudioLambda")
+    const downloadAudioLambda = new lambda.Function(
+      this,
+      "downloadAudioLambda",
+      {
+        runtime: lambda.Runtime.NODEJS_12_X,
+        timeout: cdk.Duration.seconds(25),
+        handler: "index.handler",
+        code: lambda.Code.fromAsset("lambda/downloadAudioLambda"),
+      }
+    );
+
+    bucket.grantPut(downloadAudioLambda);
+
+    const downloadAudioJob = new tasks.LambdaInvoke(this, "Calllambda", {
+      lambdaFunction: downloadAudioLambda,
+      outputPath: "$.Payload",
     });
 
-    bucket.grantPut(downloadAudioLambda)
-
-    const downloadAudioJob = new tasks.LambdaInvoke(this,'Calllambda',{
-      lambdaFunction: downloadAudioLambda,
-      outputPath: "$.Payload"
-    })
-
-    const map = new stepfunctions.Map(this, 'ExampleMapState');
+    const map = new stepfunctions.Map(this, "ExampleMapState");
     map.iterator(downloadAudioJob);
 
-    const logGroup = new logs.LogGroup(this, 'StepFunctionLogs')
+    const logGroup = new logs.LogGroup(this, "StepFunctionLogs");
 
-    const stateMachine = new stepfunctions.StateMachine(this, 'StateMachine', {
-        definition: map,
-        logs: {
-          destination: logGroup,
-          level: stepfunctions.LogLevel.ERROR
-        }
+    const stateMachine = new stepfunctions.StateMachine(this, "StateMachine", {
+      definition: map,
+      logs: {
+        destination: logGroup,
+        level: stepfunctions.LogLevel.ERROR,
+      },
     });
 
-    const testVpc = ec2.Vpc.fromLookup(this,"vpc-dev",{
-      vpcId: process.env.VPCID
+    const testVpc = ec2.Vpc.fromLookup(this, "vpc-dev", {
+      vpcId: process.env.VPCID,
     });
 
     const processorLambda = new lambda.Function(this, "processorLambda", {
@@ -203,24 +227,26 @@ export class CdkLambdaStack extends cdk.Stack {
       code: lambda.Code.fromAsset("lambda/processor"),
       vpc: testVpc,
       environment: {
-        ENDPOINT: process.env.ENDPOINT ?? 'localhost',
-        DATABASE: process.env.DATABASE ?? 'db',
-        DBUSERNAME: process.env.DBUSERNAME ?? 'root',
-        PASSWORD: process.env.PASSWORD ?? 'password',
-        NODE_ENV: process.env.NODE_ENV ?? 'test',
-        statemachine_arn: stateMachine.stateMachineArn
-      }
+        ENDPOINT: process.env.ENDPOINT ?? "localhost",
+        DATABASE: process.env.DATABASE ?? "db",
+        DBUSERNAME: process.env.DBUSERNAME ?? "root",
+        PASSWORD: process.env.PASSWORD ?? "password",
+        NODE_ENV: process.env.NODE_ENV ?? "test",
+        statemachine_arn: stateMachine.stateMachineArn,
+      },
     });
 
-    stateMachine.grantStartExecution(transferLambda)
+    stateMachine.grantStartExecution(transferLambda);
   }
 }
 ```
-總之，上面我就是用CDK先創建我的lambda , 然後把那個要放到state machine 的建立"task", 給予我另外一個lambda 有 startExecution 的權限.... 簡單完成！
+
+總之，上面我就是用 CDK 先創建我的 lambda , 然後把那個要放到 state machine 的建立"task", 給予我另外一個 lambda 有 startExecution 的權限.... 簡單完成！
 
 二、SAM 的版本
 
-總之，有些原因，我另外又學習怎麼用SAM製作 state machine XDD
+總之，有些原因，我另外又學習怎麼用 SAM 製作 state machine XDD
+
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
@@ -270,6 +296,5 @@ Resources:
         - StepFunctionsExecutionPolicy:
             StateMachineName: !GetAtt ProcessAudioFileStateMachine.Name
 ```
-其實說真的CDK 和 SAM 沒有多大差別，只是CDK你可以用比較程式化的去做那個state machine language （就是sam 裡面要包的那個json 啦！），像我，實在懶得去構想那個json 怎麼寫（啊我就不是JSON工程師啊～），所以先用CDK 產生state machine , 然後上AWS控制台上面把那一串json 抓下來，放到我的sam 這裏... 整理一下，CDK detroy 一下，sam 的template.yaml 調整一下，一個下午搞定啦！（不過我好像忘了在sam 裡面宣吿log 去接state machine 啦 XDDD 之後再研究吧！）
 
-> 小君曰：還有很多成長的空間
+其實說真的 CDK 和 SAM 沒有多大差別，只是 CDK 你可以用比較程式化的去做那個 state machine language （就是 sam 裡面要包的那個 json 啦！），像我，實在懶得去構想那個 json 怎麼寫（啊我就不是 JSON 工程師啊～），所以先用 CDK 產生 state machine , 然後上 AWS 控制台上面把那一串 json 抓下來，放到我的 sam 這裏... 整理一下，CDK detroy 一下，sam 的 template.yaml 調整一下，一個下午搞定啦！（不過我好像忘了在 sam 裡面宣吿 log 去接 state machine 啦 XDDD 之後再研究吧！）
