@@ -64,16 +64,39 @@ https://codelove.tw/@tony/post/Ja6JaO
 - {JSON} Placeholder
 - Rest Countries
 
-## NodeJS 練習
-
-https://yuhsien.notion.site/179caa9730284da48b0a6df66886a447
-https://github.com/codecrafters-io/build-your-own-x
-
-## 想買毛巾
-
-https://twreporter.waca.ec/product/detail/2071973
+## PHP
 
 bref php
 native php
 
-https://magnetic-clavicle-9c4.notion.site/19f59ca1ff4f80789b1cc841b6a41c67
+## Goravel
+
+https://www.goravel.dev/
+
+## MCP
+
+https://www.ibest.com.tw/news-detail/what-is-mcp/
+
+## Docker be LLM
+
+https://codelove.tw/@tony/post/3r12lx
+
+## Native PHP
+
+https://nativephp.com/docs/desktop/1/getting-started/introduction
+
+https://growonairtw.withgoogle.com/events/digitaleducation
+https://growonairtw.withgoogle.com/events/digitaleducation?tab=google-cloud
+
+## Laravel 入門 投影片
+
+- https://docs.google.com/presentation/d/1CJkY0xO3VViBmViWHz_bphsxGTYGOY0aLI5BSA2Rc7U/edit?slide=id.p#slide=id.p
+
+## N8N
+
+https://drive.google.com/file/d/10Txuls1-PgLdcYMGMl85MKljJP7CTngd/view
+短網址系統
+
+## 考 AWS 證照
+
+https://www.dcard.tw/f/exam/p/240801516
