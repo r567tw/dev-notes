@@ -1,6 +1,10 @@
-# php
+# PHP
 
-## 變數
+## Installation
+
+- https://php.new : 使用在 dev 環境當中，production 請使用`docker`或者`LAMP Steak`
+
+## Variables
 
 |            | empty($x) |
 | ---------- | --------- |
@@ -11,8 +15,11 @@
 | $x = "0"   | true      |
 | $x = []    | true      |
 
+> 盡量別使用 empty() 這個 function
+
+### 常數
+
 ```php
-# 常數
 defined('CONST');
 define('CONST', 5);
 
@@ -20,14 +27,22 @@ class foo
 {
     const MY_CONST = 5;
 }
+```
 
-# 可變變數
+### 可變變數
+
+```php
 $red = '#f00';
 $color = 'red';
 echo $$color;
 echo ${$color}
+```
 
-# 交換變數
+> 勉強可用, 但盡量少用, 感覺做法太騷...
+
+### 交換變數
+
+```php
 // list()
 [$blue, $green] = [$green, $blue];
 
@@ -42,10 +57,6 @@ $address = ['123 S Main St.','Anywhere','NY','10001','USA'];
 [,,,,$country] = $address;
 ```
 
-## 安裝環境
-
-- 開發環境用：https://php.new/
-
 ## Laravel Security
 
 https://www.laravel-enlightn.com/docs/getting-started/installation.html
@@ -53,3 +64,16 @@ https://www.laravel-enlightn.com/docs/getting-started/installation.html
 ```bash
 composer require enlightn/enlightnpro
 ```
+
+## Study PHP original code
+
+- https://github.com/php/php-src
+
+## NativePHP Package
+
+- https://www.youtube.com/watch?v=TY21MRVNxSo
+
+## Serverless Laravel
+
+- Vapor: https://vapor.laravel.com
+- Bref: https://bref.sh/
