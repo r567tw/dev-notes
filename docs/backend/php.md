@@ -57,6 +57,44 @@ $address = ['123 S Main St.','Anywhere','NY','10001','USA'];
 [,,,,$country] = $address;
 ```
 
+## Operator
+
+- 邏輯計算
+  | | |
+  | ---------- | --------- |
+  | $x && $y   | and |
+  | $x \|\| $y | or |
+  | !$x | not |
+
+- 位元計算
+  | | |
+  | ---------- | --------- |
+  | $x & $y  | 位元和 |
+  | $x \| $y | 位元或 |
+  | $x ^ $y  | 位元互斥或(xor:其中之一為true則結果為true,但不能同時為true) |
+  | ~$x | 反轉 |
+  | $x << $y | 左移 |
+  | $x >> $y | 右移 |
+
+- 比較計算
+  | | |
+  | ---------- | --------- |
+  | $x == $y   | 相等 |
+  | $x === $y  | 恆等(考慮型別) |
+  | $x <=> $y  | 三路比較：數值相等return 0,$x 較大 return 1,$y 較大 return -1 |
+
+### 三元運算符號代替 if-else
+
+```php
+$username = isset($_GET['username']) ? $_GET['username'] : 'default';
+```
+
+### 合併潛在 null 值
+
+```php
+$username = $_GET['username'] ?? 'not log in';
+```
+
 ## Laravel Security
 
 https://www.laravel-enlightn.com/docs/getting-started/installation.html
