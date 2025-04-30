@@ -178,8 +178,10 @@ echo add_numbers(1,2); //3
 | string   | string                                                 |
 | iterable | 必須是陣列或實作 Traversable 的物件                    |
 | mixed    | any                                                    |
-| void     | 表示不回傳數值                                         |
+| void     | 表示不回傳數值, 允許`return;`                          |
 | never    | 表示不回傳數值, 有兩種可能行為：`exit()`或刻意無限迴圈 |
+
+- void can have return; but never can't.
 
 ### 定義具有可變引數數量的函數
 
