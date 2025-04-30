@@ -1,4 +1,7 @@
-# PHP
+---
+title: PHP
+sidebar_position: 1
+---
 
 ## Installation
 
@@ -98,23 +101,8 @@ $username = isset($_GET['username']) ? $_GET['username'] : 'default';
 $username = $_GET['username'] ?? 'not log in';
 ```
 
-## Laravel Security
-
-https://www.laravel-enlightn.com/docs/getting-started/installation.html
-
-```bash
-composer require enlightn/enlightnpro
-```
+## PHP 的記憶體機制
 
 ## Study PHP original code
 
 - https://github.com/php/php-src
-
-## NativePHP Package
-
-- https://www.youtube.com/watch?v=TY21MRVNxSo
-
-## Serverless Laravel
-
-- Vapor: https://vapor.laravel.com
-- Bref: https://bref.sh/
