@@ -258,6 +258,67 @@ $anon = fn($add) => $outer+$add;
 $anon(5); //47
 ```
 
+## String
+
+### 存取字串中的子字串
+
+```php
+if (strpos($url, '/secret/') !== false){
+
+}
+
+//計算所有子字串出現次數
+function count_occurrences($haystack, $needle)
+{
+    $occurrences = 0;
+    $offset = 0;
+    $pos = 0;
+
+    do {
+        $pos = strpos($haystack ,$needle,$offset);
+
+        if ($pos !== false) {
+            $occurrences += 1;
+            $offset = $pos + 1;
+        }
+    } while ($pos !== false);
+
+    return $occurrences;
+}
+
+$str = 'How much wood would a woodchuck chuck if a woodchuck could chuck wood';
+print count_occurrences($str , 'wood');
+```
+
+### 從字串中抓取子字串
+
+```php
+substr('phpcookbook', 3); //cookbook
+substr('phpcookbook', 0,3); //php
+substr('phpcookbook', -2); // ok
+substr('phpcookbook', -8,4); //cook
+```
+
+### 替換部分字串
+
+```php
+// 知道其index 和 length: 使用 substr_replace
+$string = '555-123-4567';
+$replace = 'xxx-xxx';
+
+$obfuscated = substr_replace($string,$replace, 0, 7);
+
+// 不知道其index 和 length: 使用 str_replace
+$string = 'How much wood would a woodchuck chuck if a woodchuck could chuck wood';
+$beaver = str_replace('woodchuck','beaver',$string);
+```
+
+### 在字串中插入變數
+
+```php
+echo "There are {$cats} cats and {$dogs} dogs outside.";
+```
+
 ## PHP 的記憶體機制
 
 ## Study PHP original code
