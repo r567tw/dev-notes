@@ -319,6 +319,101 @@ $beaver = str_replace('woodchuck','beaver',$string);
 echo "There are {$cats} cats and {$dogs} dogs outside.";
 ```
 
+## Number
+
+### 驗證變數中的數字
+
+```php
+echo is_numeric(22);
+```
+
+### 浮點數的四捨五入
+
+```php
+echo round(15.31415,1); // 15.3 四捨五入
+echo ceil(15.31415); //16 無條件進位到最接近的整數
+echo floor(15.31415); //15 無條件捨去到最接近的整數
+echo round(1.5, mode: PHP_ROUND_HALF_UP);
+```
+
+| mode                | description                      |
+| ------------------- | -------------------------------- |
+| PHP_ROUND_HALF_UP   | 在一半時，將數值進位             |
+| PHP_ROUND_HALF_DOWN | 在一半時，將數值捨去             |
+| PHP_ROUND_HALF_EVEN | 在一半時，將四捨五入最接近的偶數 |
+| PHP_ROUND_HALF_ODD  | 在一半時，將四捨五入最接近的奇數 |
+
+### 產生真正的隨機變數
+
+```php
+$rand_number = random_int(10,255);
+```
+
+### 產生可預測的隨機變數
+
+```php
+mt_srand(42); // 利用名為梅森旋轉的演算法
+$rand_number = mt_rand(0,100);
+```
+
+### 依照權重產生隨機變數
+
+```php
+$choices = [
+    'Tony' => 10,
+    'Steve' => 2,
+    'Peter' => 1,
+    'Wanda' => 4,
+    'Carol' => 6
+];
+
+function weighted_random_choice(array $choices): string
+{
+    arsort($choices);
+
+    $total_weight = array_sum(array_values($choices));
+    $selection = random_int(1,$total_weight);
+
+    $count = 0;
+    foreach ($choices as $choice => $wight){
+        $count += $weight;
+        if ($count >= $selection){
+            return $choice;
+        }
+    }
+
+    throw new Exception('Unable to make a choice !');
+}
+```
+
+### 對數、指數的計算
+
+```php
+$log = log(5); //1.6... 以 e 為底數
+$log2 = log(16,2); //4
+$power = pow(2,5); //32
+```
+
+### 將數字格式化字串(加入千分位符號)
+
+```php
+$number = 25519;
+print number_format($number); // 25,519
+```
+
+### 處理非常大或非常小的數字
+
+```php
+$sum = gmp_pow(4096,100);
+print gmp_strval($sum);
+```
+
+### 在不同進制之間轉換數字
+
+```php
+$hex = base_convert(240,10,16);
+```
+
 ## PHP 的記憶體機制
 
 ## Study PHP original code
