@@ -414,6 +414,60 @@ print gmp_strval($sum);
 $hex = base_convert(240,10,16);
 ```
 
+## Datetime
+
+### 取得目前的日期時間
+
+```php
+$now = date('r');
+$now = (new DateTime())->format('r');
+```
+
+### 將日期和時間轉為 Unix Timestamp
+
+```php
+(new DateTime('2023-11-03T12:15:00-0700'))->format('U');
+```
+
+### Unix Timestamp 轉換成日期時間
+
+```php
+getdate(1688472300);
+```
+
+### 計算兩個日期之間的差值
+
+```php
+$firstDate = new DateTime('2016-01-10');
+$secondDate = new DateTime('2016-01-13');
+
+$interval = $secondDate->diff($firstDate);
+print $interval->format('%y years %d days %m months');
+```
+
+### 從任意字串中解析日期和時間
+
+```php
+$entry = strtotime('last Wednesday');
+$parsed = new DateTime("@{$entry}");
+date_parse();
+```
+
+### 驗證日期
+
+```php
+checkdate()
+```
+
+### 增加或減去日期
+
+```php
+$date = new DateTime('December 25, 2023');
+
+$date->add(new DateInterval('P12D'));
+$date->sub(new DateInterval('P12D'));
+```
+
 ## PHP 的記憶體機制
 
 ## Study PHP original code
