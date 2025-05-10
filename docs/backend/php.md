@@ -468,6 +468,51 @@ $date->add(new DateInterval('P12D'));
 $date->sub(new DateInterval('P12D'));
 ```
 
+## Array
+
+### 透過數字範圍初始化
+
+```php
+$array = range(1,10);
+$array = range('A','Z');
+```
+
+### 修改陣列的大小、將一個陣列附加到另一個陣列
+
+```php
+array_push($array , 'grape');
+array_splice($array, 1, 2);
+$merged = array_merge($first,$second);
+$merged = [...$first,...$second];
+```
+
+### 從現有陣列的片段建立陣列
+
+```php
+$slice = array_slice($array, 7,4);
+```
+
+### 字串和陣列轉換
+
+```php
+$array = str_split($string);
+$string = join('',$array)
+```
+
+### 反轉陣列、排序
+
+```php
+array_reverse($array);
+sort($states);
+usort($bonds.'sorter');
+```
+
+### 隨機打亂陣列中的元素
+
+```php
+shuffle($array);
+```
+
 ## PHP 的記憶體機制
 
 ## Study PHP original code
