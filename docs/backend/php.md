@@ -513,6 +513,51 @@ usort($bonds.'sorter');
 shuffle($array);
 ```
 
+### **將函數套用於陣列中的每個元素**
+
+```php
+array_walk($values, function(&$value, $key){
+    $value *= $value;
+});
+
+array_walk_recursive()
+
+$mutated = array_map(function($value){
+    return $value * $value;
+}, $values)
+```
+
+- `array_walk` 希望陣列在前、函數在後; `array_map` 希望函數在前、陣列在後
+- `array_walk` 回傳 Boolean ; `array_map` 回傳 Array
+- `array_map` 不會將鍵值傳到函數中、不會將額外的引數給函數
+- `array_map` 沒有遞迴
+
+### 將陣列簡化為單一數值
+
+```php
+array_reduce($value, function($carry, $item){
+    return $carry+ $item;
+});
+```
+
+### 透過重複疊代來替換無限或龐大的陣列
+
+```php
+function numbers() {
+    for ($i = 1; $i <= 3; $i++) {
+        yield $i;
+    }
+}
+
+foreach (numbers() as $num) {
+    echo $num . PHP_EOL;
+}
+
+$ns = numbers();
+$ns->current();
+$ns->next();
+```
+
 ## PHP 的記憶體機制
 
 ## Study PHP original code
