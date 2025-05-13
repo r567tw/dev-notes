@@ -3,6 +3,10 @@ title: PHP
 sidebar_position: 1
 ---
 
+## Intro
+
+- 多重範式 (multiparadigm)
+
 ## Installation
 
 - https://php.new : 使用在 dev 環境當中，production 請使用`docker`或者`LAMP Steak`
@@ -557,6 +561,120 @@ $ns = numbers();
 $ns->current();
 $ns->next();
 ```
+
+## Class & Object
+
+### 從自訂類別實體化物件
+
+```php
+class pet
+{
+    public function __construct(
+        public string $name,
+        public string $species
+    ){}
+}
+
+$dog = new Pet('Fido', 'golden retriever');
+```
+
+### 定義唯讀屬性
+
+- readonly 不可以有預設值
+
+```php
+class Book
+{
+    public function __construct(public readonly string $title){}
+}
+```
+
+### 擴充、強制類別表現出特定行為、建立抽象基礎類別、防止修改類別
+
+- extends
+- interface
+- abstract class
+- final
+
+### 靜態方法
+
+- static
+
+### 列舉在物件中的私有屬性或方法
+
+```php
+$reflected = new ReflectionClass('SuperSecretClass');
+
+$methods = $reflected->getMethods();
+$properties = $reflected->getProperties();
+```
+
+### 在類別之間重複使用任意程式碼
+
+- trait
+
+## 安全與加密
+
+- mcrypt
+- sodium
+
+### 過濾、驗證和清理使用者輸入
+
+```php
+filter_var($email, FILTER_VALIDATE_EMAIL);
+```
+
+### 將敏感憑證排除在應用程式之外
+
+```php
+$db = new PDO($database_connection, getenv('DB_USER'), getenv('DB_PASS'));
+```
+
+- Virtualhost 的 SetEnv
+- location 區塊裡 fastcgi_param
+
+### 雜湊和驗證密碼
+
+```php
+$hash = password_hash($password, PASSWORD_DEFAULT);
+if (password_verify($password, $hash)){
+
+}
+```
+
+### 加密與解密資料
+
+- sodium_crypto_secretbox()
+- sodium_crypto_secretbox_open()
+
+#### 對稱式加密
+
+```php
+# 加密
+$message = '這是機密資料';
+$key = sodium_crypto_secretbox_keygen(); // 產生安全的 key
+$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES); // 加密用的唯一 nonce
+
+$ciphertext = sodium_crypto_secretbox($message, $nonce, $key);
+
+# 解密
+$plaintext = sodium_crypto_secretbox_open($ciphertext, $nonce, $key);
+if ($plaintext === false) {
+    echo "解密失敗，可能資料被竄改。";
+} else {
+    echo "原始訊息：$plaintext";
+}
+```
+
+### 補充 Sodium
+
+> 從 PHP 7.2 開始內建的密碼學函式庫，基於 Libsodium，提供現代、安全的加密功能。
+
+1. 對稱式加密/解密（Secret-Key Encryption）
+2. 非對稱式加密/解密（Public-Key Encryption）
+3. 數位簽章（Signing）
+4. 雜湊（Hashing）
+5. 密碼雜湊（Password Hashing）
 
 ## PHP 的記憶體機制
 
