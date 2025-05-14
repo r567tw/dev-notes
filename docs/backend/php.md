@@ -676,6 +676,34 @@ if ($plaintext === false) {
 4. 雜湊（Hashing）
 5. 密碼雜湊（Password Hashing）
 
+## File
+
+### 建立或開啟、讀入
+
+```php
+$fp = fopen('document.txt', 'r');
+$config = file_get_contents('config.json');
+```
+
+### 同時寫入多個檔案
+
+```php
+$fps = [
+    fopen('data.txt','w'),
+    fopen('php://stdout', 'w')
+];
+
+foreach($fps as $fp){
+    fwrite($fp,'The wheels on the bus go round and round.');
+}
+```
+
+### 鎖定檔案以防止其他行程存取或修改
+
+```php
+flock()
+```
+
 ## PHP 的記憶體機制
 
 ## Study PHP original code
