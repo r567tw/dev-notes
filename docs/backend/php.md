@@ -704,6 +704,129 @@ foreach($fps as $fp){
 flock()
 ```
 
+## Streams (串流)
+
+| wrapper | description                                  |
+| ------- | -------------------------------------------- |
+| file:// | 存取本機檔案                                 |
+| http:// | 透過 http(s) 存取遠端 URL                    |
+| ftp://  | 透過 ftp 存取遠端檔案系統                    |
+| php://  | 存取各種本機 I/O 串流(記憶體, stdin, stdout) |
+| zlib:// | 壓縮                                         |
+| data:// | 原始資料                                     |
+| glob:// | 尋找與樣式相符的路徑名稱                     |
+| phar:// | 操作 php 檔案                                |
+| ssh2:// | 透過 ssh 連線                                |
+| rar://  | rar 壓縮                                     |
+| ogg://  | 音頻串流                                     |
+
+```php
+stream_filter_register('str.*', 'StringFilter');
+
+$fp = fopen('document.txt' , 'w');
+stream_filter_append($fp , 'str.toupper');
+
+fwrite($fp, 'Hello');
+fwrite($fp , 'wordld');
+
+fclose($fp);
+
+echo file_get_contents('document.txt');
+```
+
+### 資料串流與暫存檔案之間的傳輸
+
+```php
+$fp = fopen('php://temp', 'rw');
+
+while(true){
+    fputs($fp , $data);
+
+    if ($endOfData){
+        break;
+    }
+}
+```
+
+### 從 php 輸入串流讀取資料
+
+```php
+$stdin = fopen('php://stdin', 'r');
+```
+
+### 寫入 php 輸出串流
+
+```php
+$stdout = fopen('php://stdout','w');
+fputs($stdout, 'Hello, World');
+
+```
+
+### 從一個串流讀取並寫入另一個串流
+
+```php
+$source = fopen('document1.txt', 'r');
+$destination = fopen('destination.txt', 'w');
+
+stream_copy_to_stream($source, $destination)
+```
+
+### 將不同處理串流的方法組合再一起
+
+```php
+$fp = fopen('compressed.txt', 'r');
+stream_filter_append($fp , 'covert.base64-decode');
+stream_filter_append($fp , 'zlib.inflate');
+
+echo fread($fp, 1024);
+```
+
+### 撰寫自訂串流包裝器
+
+> 建立一個遵循以 streamWrapper 的自訂類別
+
+```php
+if (!in_array('var', stream_get_wrappers())){
+    stream_wrapper_register('VariableStream');
+}
+
+$varContainer = '';
+
+$fp = fopen('var://varContainer', 'w');
+
+fwrite($fp , 'Hello');
+fwirte($fp, 'World');
+
+fclose($fp);
+
+echo $varContainer;
+```
+
+## Error Handling
+
+### 建立和處理自訂例外
+
+- try/catch
+- 擴充 Exception 類別，implement Throwable 介面
+
+### 向使用者隱藏錯誤訊息
+
+```ini
+# php.ini
+error_reporting = Off
+display_errors = Off
+```
+
+- 錯誤報告等級常數
+
+### 使用自訂錯誤處理函式
+
+- set_error_handler()
+
+### 將錯誤記錄到外部串流
+
+- error_log()
+
 ## PHP 的記憶體機制
 
 ## Study PHP original code
