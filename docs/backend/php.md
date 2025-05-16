@@ -846,6 +846,179 @@ display_errors = Off
 
 - error_log()
 
+## Debug and Testing
+
+### php-xdebug
+
+```bash
+$ sudo apt install php-xdebug
+```
+
+### phpunit
+
+### 使用靜態程式碼分析
+
+- phpstan
+
+```bash
+$ composer equire --dev phpstan/phpstan
+$ ./vendor/bin/phpstan analyze src tests
+```
+
+### 使用內建的 web 伺服器功能快速執行應用程式
+
+```bash
+$ php -S localhost:8000
+```
+
+### 使用 git-bisect 版本控制專案進行回歸的單元測試
+
+## Optimize 效能調教
+
+### 函數執行時間的評估
+
+```php
+$start = hrtime(true);
+
+$totalTime = hrtime(true) - $start / 1e+9;
+```
+
+### 對程式的效能進行基準測試
+
+- PHPBench
+
+### 使用操作碼快取加速應用程式
+
+- Opcache
+
+## Package 套件與擴充功能
+
+### 定義 Composer 專案
+
+```bash
+$ composer init --name ericmann/cookbook --type project --license MIT
+```
+
+### 尋找 Composer 套件
+
+- Packagist (https://packagist.org)
+
+### 安裝與更新 Composer 軟體套件
+
+```bash
+composer require "vendor/package:1.0"
+```
+
+## Database
+
+- 關聯資料庫 (relational): mysql , sqlite
+- 鍵值資料庫 (key-value): redis, dynamoDB
+- 圖形資料庫 (graph): neo4j
+- 文件資料庫 (document): mongodb
+
+### 連線到 SQLite
+
+```php
+class Database extends SQLite3
+{
+    public function __construct(string $databasePath){
+        $this->open($databasePath);
+    }
+
+    public function __destruct(){
+        $this->close();
+    }
+}
+
+$db = new Database('example.sqlite');
+
+$db->exec($query);
+
+$results = $db->query($query);
+while ($row = $results->fetchArray()){
+
+}
+```
+
+### 使用 PDO 連線到外部資料庫
+
+- extends PDO
+
+```php
+parent::__construct($dsn,$username,$password);
+
+$db = new Database();
+
+$db->exec($query);
+
+foreach ($db->query($query) as $row){
+
+}
+
+$statement = $db->prepare()
+$statement->execute()
+$statement->fetch()
+```
+
+### 使用 Eloquent ORM 查詢 SQL 資料庫
+
+- Doctrine ORM
+- Eloquent ORM
+
+## Async PHP
+
+### 相關概念
+
+- Promise :非同步操作的函數回傳物件
+- Coroutine : 一個可以中斷並允許另一個操作繼續執行的函數
+
+### 相關函式庫
+
+- AMPHP
+- ReactPHP
+- Open Swoole
+- RoadRunner
+- Octane
+- Fiber
+
+## PHP 命令列
+
+### 解析程式引數
+
+```php
+if ($argc !== 2) {
+    die();
+}
+
+$name = htmlspecialchars($argv[1]);
+echo "Hello {$name}";
+```
+
+> php script.php World
+
+### 讀取互動式的使用者輸入
+
+```php
+echo 'Enter your name';
+$name = trim(fgets(STDIN, 1024));
+
+echo "Hello {$name}";
+```
+
+### 替控制台的輸出文字添加顏色
+
+- `\e[{foreground};{background}]m`
+
+```php
+echo "\e[0;34;41mHappy Independence Day!\e[0m"
+```
+
+### 啟動 PHP 原生的 REPL
+
+```bash
+$ php -a
+```
+
 ## PHP 的記憶體機制
 
 ## Study PHP original code
