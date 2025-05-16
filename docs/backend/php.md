@@ -981,6 +981,36 @@ $statement->fetch()
 - Octane
 - Fiber
 
+### 從遠端 API 非同步取得資料
+
+- 使用 AMPPHP 的 http-client
+
+```php
+use Amp\Http\Client\HttpClientBuilder;
+use Amp\Http\Client\Request;
+
+use function Amp\Promise\all;
+use function Amp\Promise\wait;
+
+$client = HttpClientBuilder::buildDefault();
+$promises = [];
+
+$apiUrls = ["https://github.com","https://gitlab.com","https://bitbucket.org"];
+
+foreach ($apiUrls as $url){
+    $promises[$url] = Amp\call(static function() use ($client,$url){
+        $request = new Request($url);
+
+        $response = yield $client->request($request);
+        $body = yield $response->getBody()->buffer();
+
+        return $body;
+    });
+}
+
+$responses = wait(all($promises));
+```
+
 ## PHP 命令列
 
 ### 解析程式引數
