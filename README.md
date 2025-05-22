@@ -9,6 +9,10 @@ URL: https://notes.r567tw.cc
 
 唯二不推薦「Regular Cloud Compute (畫面這個)」和「Intel High Performance」
 
+## AI & Design
+
+- Stitch
+
 ## Code Review
 
 :::tip
@@ -100,3 +104,15 @@ https://drive.google.com/file/d/10Txuls1-PgLdcYMGMl85MKljJP7CTngd/view
 ## 考 AWS 證照
 
 https://www.dcard.tw/f/exam/p/240801516
+
+## AI
+
+- huggingface taide
+
+## 架設測試 Mailpit 好東西
+
+https://mailpit.axllent.org/
+
+## K6
+
+https://blog.miniasp.com/post/2023/08/01/Getting-Started-with-Grafana-k6-Load-testing-tool#google_vignette
