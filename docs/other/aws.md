@@ -1,6 +1,6 @@
 ---
 title: AWS
-sidebar_position: 999
+sidebar_position: 1
 ---
 
 <!-- 可以和 AWS Step Function 一起結合 -->

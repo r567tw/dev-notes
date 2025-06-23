@@ -1,13 +1,16 @@
 ---
 title: Ruby
-sidebar_position: 998
+sidebar_position: 2
 ---
-## Ruby基礎
+
+## Ruby 基礎
+
 - [Ruby 的註解方式][1]
 - `#`單行註解
 - Hello.rb
 
 ## 變數與輸入輸出
+
 ```ruby
 puts 'Hello World' #output Hello World
 puts 20+2 #output 22
@@ -20,23 +23,26 @@ name=gets.chomp #get user input
 puts 'Hello'+name #output Hello John
 print 'Hello world' #不會換行 output Hello World
 ```
+
 - puts 印出資料 (換行)
 - print 印出資料(不換行)
 - gets.chomp 取得輸入
-- `+`將兩個文字串接 
+- `+`將兩個文字串接
 - boolean: true 和 false
 
 > Tips:  
 > `\=` 指派相等  
 > `\==` 比較是否相等  
-> `!=` 比較是否不相等 
+> `!=` 比較是否不相等
 
 ## irb
-- irb 是一個ruby 的命令介面，可以即時執行ruby 結果
+
+- irb 是一個 ruby 的命令介面，可以即時執行 ruby 結果
 - control+l 清空
 - exit 離開
 
 ## Control Flow
+
 ```ruby
 #number =8
 number = Random.rand(9)
@@ -52,7 +58,9 @@ else
   puts '猜錯了!'
 end
 ```
+
 ## Loop
+
 ```ruby
 #上一個的進階版
 number = Random.rand(14)+1
@@ -74,6 +82,7 @@ end
 ```
 
 ## Array
+
 ```ruby
 scores= [80,100,90,99] #定義一個名為scores 的array
 scores.each do |score|
@@ -137,6 +146,7 @@ end
 ```
 
 ## Method
+
 ```ruby
 def greet
   puts 'hello'

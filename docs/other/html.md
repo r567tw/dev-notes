@@ -1,23 +1,26 @@
 ---
 title: HTML
-sidebar_position: 999
+sidebar_position: 3
 ---
 
 ## capture
+
 ```html
 <!-- 開啟 前鏡頭 錄影、拍照 -->
-<input type="file" capture="user" accept="video/*"/>
-<input type="file" capture="user" accept="image/*"/>
+<input type="file" capture="user" accept="video/*" />
+<input type="file" capture="user" accept="image/*" />
 
 <!-- 開啟 後鏡頭 錄影、拍照 -->
-<input type="file" capture="environment" accept="video/*"/>
-<input type="file" capture="environment" accept="image/*"/>
+<input type="file" capture="environment" accept="video/*" />
+<input type="file" capture="environment" accept="image/*" />
 
 <!-- Ref: https://www.letswrite.tw/html-capture/ -->
 ```
 
-## Link Rel 
+## Link Rel
+
 - https://zhuanlan.zhihu.com/p/150231042
+
 ```
 <link rel="prefetch" href="/style.css" as="style" />
 <link rel="preload" href="/style.css" as="style" />

@@ -1,6 +1,6 @@
 ---
 title: Cloudflare
-sidebar_position: 999
+sidebar_position: 2
 ---
 
 ## Cloudflare tunnel
