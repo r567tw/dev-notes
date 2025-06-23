@@ -21,3 +21,6 @@ yarn-error.log*
 
 .vscode/
 _practice/
+.blog/
+myenv/
+convert_hugo_to_docusaurus.py
