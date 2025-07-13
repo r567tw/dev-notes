@@ -116,3 +116,7 @@ https://mailpit.axllent.org/
 ## K6
 
 https://blog.miniasp.com/post/2023/08/01/Getting-Started-with-Grafana-k6-Load-testing-tool#google_vignette
+
+## 加入 medium 旅行相關
+
+https://medium.com/@r567tw

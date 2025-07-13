@@ -608,3 +608,7 @@ services:
       - "./configuration/my.cnf:/etc/my.cnf"
       - "./data/mysql:/var/lib/mysql"
 ```
+
+## k8s
+
+- https://free.dev/
