@@ -6,12 +6,17 @@ sidebar_position: 3
 ## OSI 七層協議
 
 - Layer 7 - Application - HTTP/FTP/gRPC
-- Layer 6 - Presentation - Encoding, Serialization
-- Layer 5 - Session - Connection establishment, TLS
-- Layer 4 - Transport - UDP/TCP
+- Layer 6 - Presentation - Encoding, Serialization , 加密解密
+- Layer 5 - Session - Connection establishment, TLS , 全雙工或者半雙工
+- Layer 4 - Transport - UDP/TCP (port)
 - Layer 3 - Network - IP > Datagram
 - Layer 2 - Data link - Frames, Mac address Ethernet
 - Layer 1 - Physical - Electric signals, fiber or radio waves
+
+## Router
+
+- 路由器
+- 用於切割網段, 定義不同的網路段(連接不同網段)
 
 ## Socket
 
