@@ -61,13 +61,13 @@
             src: "img/logo.svg",
           },
           items: [
+            { to: "blog", label: "Blog", position: "left" }, // or position: 'right'
             {
               type: "doc",
               docId: "intro",
               position: "left",
               label: "Documents",
             },
-            { to: "blog", label: "Blog", position: "left" }, // or position: 'right'
             // { to: "https://r567tw.cc", label: "Blog", position: "left" },
             {
               to: "https://github.com/r567tw",
