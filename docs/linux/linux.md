@@ -1,9 +1,7 @@
 ---
-title: Linux
-sidebar_position: 5
+title: Intro
+sidebar_position: 1
 ---
-
-## intro
 
 > process: 電腦中執行的程式
 > Process > Thread > Coroutines
@@ -13,28 +11,6 @@ sidebar_position: 5
 3. hardware
 
 ## shell
-
-## command
-
-- cat
-- ls
-- cp
-- mv
-- touch
-- rm
-- echo
-- cd
-- mkdir
-- rmdir
-- grep
-- less / more
-- pwd
-- diff
-- file
-- find 和 locate
-- head 和 tail
-- sort
-- ps
 
 ## 設備管理
 
@@ -55,49 +31,3 @@ sidebar_position: 5
 - `udevd`（或新版的 `systemd-udevd`）當作真正執行這個功能的背景程式
 
 > 硬體插入（如 USB） → 核心偵測 → 發出 uevent → udevd 接收 → 比對規則 → 建立 /dev/XXX 節點（並可觸發其他行為）
-
-## Memo
-
-:::info
-這裡記錄幾個我工作中會常用的指令 Memo 用，畢竟...我就不喜歡背...
-:::
-
-## 查看目前那些 port 號被佔用
-
-```bash
-nc -zv 127.0.0.1 3300-3310 # 快速看 3300~3310 port 能不能被 connected
-sudo lsof -PiTCP -sTCP:LISTEN # Mac 用：查看目前哪些port號被用
-```
-
-## 清空某個檔案
-
-```
-true > .vscode/logs/log
-```
-
-## `sudo` 不用密碼
-
-```bash
-sudo visudo # = vi /etc/sudoers
-# 在 /etc/sudoers 增加一行
-`{ username } ALL=(ALL) NOPASSWD:ALL`
-
-# Ref: https://linuxhint.com/setup-sudo-no-password-linux/
-# Ref: https://dchesmis.blogspot.com/2018/05/visudosudo.html
-```
-
-## 讓 SSH 變得更方便拉
-
-- 修改`.ssh/config`檔案
-
-```
-Host             {{NAME}}
-Hostname         x.x.x.x
-Port             22
-User             admin
-```
-
-alias enter-nas="sshpass -p password ssh -t `{{NAME}}`"
-
-- ssh-keygen -t rsa -b 4096 > ssh-copy-id 用戶名@遠端伺服器 IP 地址
-- ssh-copy-id
