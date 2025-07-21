@@ -4,7 +4,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (
   module.exports = {
-    title: "Jimmy の note",
+    title: "Jimmy の Code",
     tagline: "Notes for Output & Understand",
     url: "https://notes.r567tw.cc",
     baseUrl: "/",
@@ -55,7 +55,7 @@
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
         navbar: {
-          title: "Jimmy Notes",
+          title: "Jimmy's Code",
           logo: {
             alt: "My Site Logo",
             src: "img/logo.svg",
@@ -66,7 +66,7 @@
               type: "doc",
               docId: "intro",
               position: "left",
-              label: "Documents",
+              label: "Notes",
             },
             // { to: "https://r567tw.cc", label: "Blog", position: "left" },
             {
@@ -78,7 +78,7 @@
         },
         footer: {
           style: "dark",
-          copyright: `Copyright © ${new Date().getFullYear()} Jimmy の note`,
+          copyright: `Copyright © ${new Date().getFullYear()} Jimmy の Code`,
         },
       }),
   }
