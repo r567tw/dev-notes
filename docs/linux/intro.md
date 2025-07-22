@@ -59,3 +59,25 @@ swap 是一種虛擬記憶體，當系統的實體記憶體（RAM）用完時，
 
 - swap partition：一個專用的磁碟分割區。
 - swap file：一個普通的檔案被設定為 swap。
+
+## Linux 核心的啟動
+
+- 簡化版啟動過程
+
+1. BIOS 啟動及載入韌體執行開機載入程式(boot loader)
+2. **開機載入程式(boot loader)找到核心的映像檔案，並載入記憶體並啟動**
+3. **核心初始化設備及驅動程式**
+4. **核心掛載 root 檔案系統 (rootfs)**
+5. **核心使用 PID 1 執行 init 程式，使用者空間在此時啟動**
+6. init 啟動其他的系統程序
+7. init 在整個啟動過程尾聲啟動一個程序，負責允許使用者登入
+
+### Boot loader
+
+- **GRUB**: 只是「啟動」核心不是「使用」核心
+- LILO
+- SYSLINUX
+- LOADLIN
+- systemd-boot
+- coreboot
+- 等等諸多種
