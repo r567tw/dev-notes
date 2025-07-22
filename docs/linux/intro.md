@@ -10,8 +10,6 @@ sidebar_position: 1
 2. linux kernel
 3. hardware
 
-## shell
-
 ## 設備管理
 
 很多 I/O 介面都是以檔案的形式由核心呈現給使用者程序的 這些設備檔案存放在 `/dev` 目錄中
@@ -31,3 +29,33 @@ sidebar_position: 1
 - `udevd`（或新版的 `systemd-udevd`）當作真正執行這個功能的背景程式
 
 > 硬體插入（如 USB） → 核心偵測 → 發出 uevent → udevd 接收 → 比對規則 → 建立 /dev/XXX 節點（並可觸發其他行為）
+
+## 磁碟與檔案系統
+
+- 分割表
+- 分割區(FileSystem Data Structures & File Data)
+
+### LVM（Logical Volume Manager）
+
+LVM 是 Linux 的邏輯卷管理機制，可提供比傳統分割更彈性的磁碟管理方式。
+
+#### LVM 的好處：
+
+- 動態調整空間大小（例如線上擴充 /home）
+- 整合多顆磁碟成為一個邏輯卷
+- 建立快照（snapshot）作為備份用途
+
+#### LVM 架構：
+
+- Physical Volume（PV）：實體磁碟或分割區
+- Volume Group（VG）：由多個 PV 組成的群組
+- Logical Volume（LV）：從 VG 中切出的邏輯磁碟區
+
+### swap 區（Swap Space）
+
+swap 是一種虛擬記憶體，當系統的實體記憶體（RAM）用完時，系統會把一些資料暫時移到 swap 來釋放 RAM 空間。雖然速度遠慢於 RAM，但在記憶體不足時能避免系統直接當機。
+
+使用形式：
+
+- swap partition：一個專用的磁碟分割區。
+- swap file：一個普通的檔案被設定為 swap。
