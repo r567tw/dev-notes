@@ -81,3 +81,51 @@ swap 是一種虛擬記憶體，當系統的實體記憶體（RAM）用完時，
 - systemd-boot
 - coreboot
 - 等等諸多種
+
+## 使用者空間的啟動
+
+1. init (systemd、runit)
+2. 基礎底層服務, 例如 udevd 和 syslogd
+3. 網路設定
+4. 中高層服務, 例如 cron 和列印服務
+5. 登入提示字元、GUI 及其他高層的應用程式，像是網頁伺服器軟體
+
+### Systemd
+
+- 採 目標導向（target-based）與 單元化管理（unit-based）設計。
+- PID 1 的 systemd 負責整個使用者空間的服務啟動與管理。
+- `systemctl`
+
+#### Unit 單元
+
+- systemd 中的每個資源（服務、掛載點、定時任務等）都是一個 unit。
+- 常見的 unit 類型
+  | 類型 | 副檔名 | 說明 |
+  | ------- | ---------- | ------------------- |
+  | service | `.service` | 背景服務 |
+  | socket | `.socket` | 套接字，與 `.service` 配對 |
+  | target | `.target` | 狀態群組，類似舊 runlevel |
+  | timer | `.timer` | 定時器，類似 cron |
+
+#### systemctl
+
+```
+# 查看目前已啟動的單元（所有類型）
+systemctl list-units
+
+# 只列出已啟動的服務
+systemctl list-units --type=service
+
+# 查詢某個服務狀態
+systemctl status sshd.service
+
+# 啟動 / 停止 / 重啟 / 重載服務
+systemctl start nginx.service
+systemctl stop nginx.service
+systemctl restart nginx.service
+systemctl reload nginx.service    # Reload 設定檔（服務需支援）
+
+# 設定是否開機自動啟動
+systemctl enable nginx.service
+systemctl disable nginx.service
+```
