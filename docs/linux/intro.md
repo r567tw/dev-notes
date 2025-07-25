@@ -129,3 +129,95 @@ systemctl reload nginx.service    # Reload 設定檔（服務需支援）
 systemctl enable nginx.service
 systemctl disable nginx.service
 ```
+
+## 系統設定日誌、系統時間、批次處理任務和使用者
+
+### 系統日誌（System Logs）
+
+#### syslog
+
+是傳統的日誌系統，支援多種 daemon（如 cron, auth, mail 等）。
+設定檔位置：/etc/rsyslog.conf（或 /etc/syslog.conf，依發行版不同）。
+預設日誌目錄：/var/log/
+
+常見檔案：
+
+- /var/log/syslog（Ubuntu）
+- /var/log/messages（CentOS）
+- /var/log/auth.log：登入、sudo 等認證資訊
+- /var/log/cron：排程任務執行紀錄
+
+#### journald（systemd 的日誌系統）
+
+使用 systemd-journald 收集所有服務與核心的日誌。
+
+```bash
+journalctl             # 查看全部日誌
+journalctl -u nginx    # 查看指定單元的日誌
+journalctl -b          # 查看本次開機後的日誌
+```
+
+### 系統時間與時區設定
+
+1. 檢查時間與時區
+
+```
+timedatectl
+```
+
+2. 設定時區（以台灣為例）
+
+```
+timedatectl set-timezone Asia/Taipei
+```
+
+3. 同步 NTP
+   啟用自動同步：
+
+```
+timedatectl set-ntp true
+```
+
+### 批次處理任務（Crontab）
+
+1. 編輯個人 crontab
+
+```
+crontab -e
+```
+
+2. 查看所有任務
+
+```
+crontab -l
+```
+
+3. 格式說明
+
+```
+- - - - - 指令
+│ │ │ │ │
+│ │ │ │ └─ 星期幾 (0-7，0 和 7 都是星期日)
+│ │ │ └─── 月份 (1-12)
+│ │ └───── 日期 (1-31)
+│ └─────── 小時 (0-23)
+└───────── 分鐘 (0-59)
+```
+
+### 使用者與帳號管理
+
+#### 使用者資料位置
+
+- /etc/passwd：使用者帳號資訊（帳號名、UID、GID、shell 路徑等）
+- /etc/shadow：使用者密碼資訊（加密儲存）
+- /etc/group：群組資料
+- /home/USERNAME/：使用者家目錄
+
+2. 基本指令
+
+```
+adduser myuser # 新增使用者（含互動式步驟）
+userdel myuser # 刪除使用者
+usermod -aG sudo myuser # 把使用者加入群組（如 sudo）
+id myuser # 查看使用者 UID/GID
+```
