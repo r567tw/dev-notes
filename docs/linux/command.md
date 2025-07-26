@@ -22,3 +22,14 @@ sidebar_position: 2
 - head 和 tail
 - sort
 - ps
+
+## 程序、監控相關
+
+- ps
+- top
+- lsof
+- strace
+- uptime
+- vmstat
+- iostat
+- pidstat

@@ -3,6 +3,8 @@ title: Intro
 sidebar_position: 1
 ---
 
+電腦的硬體資源有三種：CPU、記憶體和 I/O，程序為了獲得這些資源相互競爭，核心則負責分配資源。核心本身也是一種軟體資源，程序通過他建立新的程序並和其他程序通訊
+
 > process: 電腦中執行的程式
 > Process > Thread > Coroutines
 
@@ -221,3 +223,25 @@ userdel myuser # 刪除使用者
 usermod -aG sudo myuser # 把使用者加入群組（如 sudo）
 id myuser # 查看使用者 UID/GID
 ```
+
+## 程序與資源利用詳解
+
+### 單執行緒 v.s 多執行緒
+
+- 單執行緒：一個程序只有一條執行路徑，無法同時處理多任務。
+- 多執行緒：一個程序內可同時執行多條執行路徑（threads），共享記憶體與資源。
+  > 應用場景：I/O 密集適合多執行緒，CPU 密集可能考慮多進程。
+
+注意事項：多執行緒共享資源，需處理同步與鎖的問題。
+
+### 記憶體頁面錯誤（Page Fault）
+
+當程序存取尚未映射到記憶體的頁面時，會觸發 Page Fault。
+
+- Minor Fault：頁面已在記憶體中，只是還未對應給程序。
+- Major Fault：頁面不在記憶體中，需從磁碟讀入，耗時較高。
+
+### cgroup（Control Group）
+
+- cgroup 是 Linux 提供的資源限制與隔離機制，可限制 CPU、記憶體、I/O 等資源使用。常用於容器、系統服務資源控管。
+- 透過 /sys/fs/cgroup/ 可查看目前的資源分配狀況。
