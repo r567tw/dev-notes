@@ -245,3 +245,137 @@ id myuser # 查看使用者 UID/GID
 
 - cgroup 是 Linux 提供的資源限制與隔離機制，可限制 CPU、記憶體、I/O 等資源使用。常用於容器、系統服務資源控管。
 - 透過 /sys/fs/cgroup/ 可查看目前的資源分配狀況。
+
+## Shell Script
+
+1. 開頭宣告（Shebang）
+
+```bash
+#!/bin/bash
+```
+
+告訴系統此腳本使用 /bin/bash 解譯執行。
+
+2. 註解寫法
+
+```bash
+# 這是一行註解，用來說明程式邏輯
+```
+
+3. 變數宣告與使用
+
+```bash
+name="world"
+echo "Hello, $name"
+```
+
+變數前不用加 $，使用時才加 $。
+
+4. 條件判斷（if）
+
+```bash
+if [ "$name" = "world" ]; then
+  echo "Hello, world!"
+else
+  echo "Who are you?"
+fi
+```
+
+注意中括號要有空格。
+
+5. 判斷式的範例（檔案、數值）
+
+```bash
+if [ -f "file.txt" ]; then
+  echo "檔案存在"
+fi
+
+if [ "$age" -gt 18 ]; then
+  echo "成年人"
+fi
+```
+
+> -f：檢查檔案是否存在
+> -gt：greater than，大於
+
+6. 迴圈（for）
+
+```bash
+for i in 1 2 3; do
+  echo "第 $i 次"
+done
+```
+
+也可以讀取資料夾內所有檔案：
+
+```bash
+for file in *.txt; do
+  echo "找到檔案：$file"
+done
+```
+
+7. 迴圈（while）
+
+```bash
+count=1
+while [ $count -le 5 ]; do
+  echo "第 $count 次"
+  count=$((count + 1))
+done
+```
+
+8. 函式（function）
+
+```bash
+say_hello() {
+  echo "Hello, $1"
+}
+
+say_hello "r567tw"
+```
+
+9. 腳本執行方法
+
+```bash
+chmod +x script.sh    # 賦予執行權限
+./script.sh           # 執行腳本
+```
+
+10. case 條件判斷（適合選單或多選項）
+
+```bash
+#!/bin/bash
+
+read -p "請輸入選項 (start/stop/restart): " action
+
+case "$action" in
+  start)
+    echo "服務啟動中..."
+    ;;
+  stop)
+    echo "服務停止中..."
+    ;;
+  restart)
+    echo "服務重新啟動中..."
+    ;;
+  *)
+    echo "未知指令，請輸入 start/stop/restart"
+    ;;
+esac
+```
+
+11. 解析腳本參數（$1, $2, ...）
+
+```bash
+#!/bin/bash
+
+echo "第一個參數是：$1"
+echo "第二個參數是：$2"
+```
+
+```bash
+./myscript.sh hello world
+# 輸出：
+# 第一個參數是：hello
+# 第二個參數是：world
+```
