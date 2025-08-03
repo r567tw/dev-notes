@@ -69,3 +69,26 @@ composer require enlightn/enlightnpro
 
 19. 請寫一段 Laravel 的 Middleware，限制每分鐘最多 10 次請求，超過次數要回傳錯誤訊息。
 20. 請設計一個簡單的投票系統（Post 有多個選項，User 可對每個選項投一票），並用 Laravel Eloquent 設計資料表與關聯。
+
+### N+1 問題
+
+當你查詢一組資料後，對每筆資料再個別查詢關聯資料時，會產生過多 SQL 查詢，導致效能變差。
+
+```php
+$posts = Post::all();
+
+foreach ($posts as $post) {
+    echo $post->user->name;
+}
+
+# 解法：Eager Loading
+$posts = Post::with('user')->get();
+
+foreach ($posts as $post) {
+    echo $post->user->name;
+}
+
+# 動態載入 load
+$posts = Post::all();
+$posts->load('user');
+```
