@@ -3,6 +3,8 @@ title: Commands
 sidebar_position: 2
 ---
 
+- printenv
+- echo $PATH
 - cat
 - ls
 - cp
