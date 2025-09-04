@@ -3,6 +3,10 @@ title: Laravel
 sidebar_position: 7
 ---
 
+## RoadMap
+
+- https://laraveldaily.com/roadmap-learning-path
+
 ## Documents
 
 - https://deepwiki.com/laravel/laravel

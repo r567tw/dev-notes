@@ -51,3 +51,7 @@ sidebar_position: 4
 Ref: https://easonwang.gitbook.io/crypto/aes
 
 - Ref: https://medium.com/starbugs/how-to-store-password-in-database-sefely-6b20f48def92
+
+## 參考資源
+
+- [Learn Hack](https://www.hacksplaining.com/)
