@@ -122,3 +122,34 @@ https://blog.miniasp.com/post/2023/08/01/Getting-Started-with-Grafana-k6-Load-te
 https://medium.com/@r567tw
 
 ## Create Laravel Package
+
+## 博弈工作查詢
+
+- https://docs.google.com/spreadsheets/d/1vFsVN641zHiyOVjo0n_JtrHgpH2SCHT7n9__FnbcskE/htmlview#gid=0
+
+從硬體到 APP 層級：IT 系統全平台完整監控(https://www.books.com.tw/products/0010954080)
+
+WordPress: Woocommerce https://ithelp.ithome.com.tw/m/articles/10271040
+
+dist:wp dist-archive /mnt/c/Users/jimmy/repo/i-home /mnt/c/Users/jimmy/Desktop --plugin-dirname=wc-receipt-pdf
+
+Playground:
+
+每個月重複活動提醒的功能與 api 開發
+react 開發短網址系統 練習 React 專案
+吃東西亂數 api 抓 google 方圓 20 公里 20 家餐廳亂數
+
+Laravel 分析：
+https://ithelp.ithome.com.tw/articles/10219258
+
+釜山旅行
+https://www.instagram.com/reel/DOGC1kvjh2b/?igsh=c293NmNueWFjcmJw
+
+Laravel 學習
+https://www.bilibili.com/video/BV1FTQ4YyEHM/?spm_id_from=333.337.search-card.all.click
+
+SPfx
+https://www.bilibili.com/video/BV1UwtfzPExB/?spm_id_from=333.337.search-card.all.click
+
+React
+https://www.bilibili.com/cheese/play/ss11302?query_from=0&search_id=4473133997169940273&search_query=react&csource=common_hpsearch_null_null&spm_id_from=333.337.search-card.all.click

@@ -18,3 +18,18 @@
 - 應用情境：電話簿、檢查是否有重複、快取
 - 碰撞 (Collision)
 - 負載係數 (Load Factor): 雜湊內表內的元素數量/雜湊表的儲存槽總數
+
+## Graph
+
+- 含有節點 Node 以及邊 Edge 所組成的模型
+
+```python
+graph = {}
+graph["you"] = ["alice", "bob", "claire"]
+```
+
+- 有向圖、無向圖
+
+## Queue
+
+- FIFO 先進先出、後進後出
