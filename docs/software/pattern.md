@@ -1,4 +1,8 @@
-# Rule
+---
+sidebar_position: 3
+---
+
+# Pattern
 
 ## SOLID
 
