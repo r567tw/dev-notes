@@ -1,0 +1,10 @@
+# 允許所有搜尋引擎抓取整個網站
+User-agent: *
+Allow: /
+
+# 允許 Algolia Crawler 抓取
+User-agent: Algolia Crawler
+Allow: /
+
+# 避免搜尋引擎索引 robots.txt 自己
+Disallow: /robots.txt
