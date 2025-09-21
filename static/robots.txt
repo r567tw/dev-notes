@@ -1,4 +1,3 @@
-# Algolia-Crawler-Verif: 5C432601C677C7E1
 User-agent: *
 Allow: /
-
+Disallow: /robots.txt
