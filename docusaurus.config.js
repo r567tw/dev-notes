@@ -44,11 +44,12 @@
       [
         require.resolve("@easyops-cn/docusaurus-search-local"),
         /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+        // https://github.com/easyops-cn/docusaurus-search-local
         ({
           indexBlog: true,
           indexDocs: true,
           highlightSearchTermsOnTargetPage: true,
-          explicitSearchResultPath: true,
+          explicitSearchResultPath: false,
           searchResultLimits: 10,
           // `hashed` is recommended as long-term-cache of index file is possible.
           hashed: true,
