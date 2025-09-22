@@ -109,11 +109,9 @@
               position: "left",
             },
             {
-              type: "html",
-              position: "right",
-              value: `<a href="https://github.com/r567tw" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center;">
-                  <img src="/img/github.svg" alt="GitHub" style="width:20px; height:20px;">
-                </a>`,
+              to: "https://github.com/r567tw",
+              label: "GitHub",
+              position: "left",
             },
           ],
         },
