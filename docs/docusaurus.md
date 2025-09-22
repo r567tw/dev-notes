@@ -1,8 +1,52 @@
 ---
 sidebar_position: 998
-hide_table_of_contents: true
+title: Docusaurus
 ---
 
-## 實現搜尋功能
+## 搜尋
 
-- https://jimhuang.dev/docusaurus/search-local/
+本站使用`Local Search`的做法，可參考
+
+- https://github.com/easyops-cn/docusaurus-search-local
+
+## 中文化
+
+- 先在`docusaurus.config.js` 加入 i18n 選項
+
+```js
+  i18n: {
+    defaultLocale: 'zh-Hant',         // 預設語系
+    locales: ['zh-Hant'],             // 支援的語系
+    localeConfigs: {
+      'zh-Hant': {
+        label: '繁體中文',             // 語系切換選單上的名稱
+      },
+    },
+  },
+```
+
+- 執行指令
+
+```bash
+npm run write-translations -- --locale zh-Hant
+```
+
+- 之後去 `i18n/zh-Hant/*` 底下去做修改即可
+
+## 預設深色模式
+
+:::info
+我喜歡黑黑的，我喜歡深色模式
+:::
+
+```js
+  themeConfig: {
+    // 其他設定...
+    colorMode: {
+      defaultMode: 'dark',   // 預設深色
+      disableSwitch: false,  // 是否允許使用者切換（true = 不允許）
+      respectPrefersColorScheme: false, // 是否依照使用者系統設定
+    },
+  },
+
+```

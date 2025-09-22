@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Linux": {
+    "message": "Linux",
+    "description": "The label for category Linux in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Software": {
+    "message": "Software",
+    "description": "The label for category Software in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.PHP": {
+    "message": "PHP",
+    "description": "The label for category PHP in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Golang": {
+    "message": "Golang",
+    "description": "The label for category Golang in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Math": {
+    "message": "Math",
+    "description": "The label for category Math in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Other": {
+    "message": "Other",
+    "description": "The label for category Other in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Load Test": {
+    "message": "Load Test",
+    "description": "The label for category Load Test in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Next": {
+    "message": "Next",
+    "description": "The label for category Next in sidebar tutorialSidebar"
+  }
+}

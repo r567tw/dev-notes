@@ -29,18 +29,32 @@
     //     async: true,
     //   },
     // ],
+
+    i18n: {
+      defaultLocale: "zh-Hant", // 預設語系
+      locales: ["zh-Hant"], // 支援的語系
+      localeConfigs: {
+        "zh-Hant": {
+          label: "繁體中文", // 語系切換選單上的名稱
+        },
+      },
+    },
     themes: [
       // ... Your other themes.
       [
         require.resolve("@easyops-cn/docusaurus-search-local"),
         /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
         ({
-          // ... Your options.
+          indexBlog: true,
+          indexDocs: true,
+          highlightSearchTermsOnTargetPage: true,
+          explicitSearchResultPath: true,
+          searchResultLimits: 10,
           // `hashed` is recommended as long-term-cache of index file is possible.
           hashed: true,
 
           // For Docs using Chinese, it is recomended to set:
-          // language: ["en", "zh"],
+          language: ["en", "zh"],
 
           // Customize the keyboard shortcut to focus search bar (default is "mod+k"):
           // searchBarShortcutKeymap: "s", // Use 'S' key
@@ -63,6 +77,8 @@
           },
           blog: {
             showReadingTime: true,
+            blogSidebarCount: 10,
+            blogSidebarTitle: "Recent Posts",
             // Please change this to your repo.
             // editUrl:
             //   'https://github.com/facebook/docusaurus/edit/main/website/blog/',
@@ -90,10 +106,14 @@
               position: "left",
               label: "Notes",
             },
-            // { to: "https://r567tw.cc", label: "Blog", position: "left" },
             {
               to: "https://github.com/r567tw",
               label: "Github",
+              position: "left",
+            },
+            {
+              to: "https://project.r567tw.cc",
+              label: "Projects",
               position: "left",
             },
           ],
@@ -101,6 +121,11 @@
         footer: {
           style: "dark",
           copyright: `Copyright © ${new Date().getFullYear()} Jimmy の Code`,
+        },
+        colorMode: {
+          defaultMode: "dark", // 預設深色
+          disableSwitch: false, // 是否允許使用者切換（true = 不允許）
+          respectPrefersColorScheme: false, // 是否依照使用者系統設定
         },
       }),
   }
