@@ -5,3 +5,5 @@ build:
 clean:
 	rm -rf build/
 	rm -rf .docusaurus/
+post:
+	./post.sh "$(TITLE)"

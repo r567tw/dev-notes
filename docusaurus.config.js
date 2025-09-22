@@ -101,7 +101,6 @@
           },
           items: [
             { to: "blog", label: "Blog", position: "left" }, // or position: 'right'
-            { to: "blog/tags", label: "Tags", position: "left" },
             { to: "docs/intro", label: "Notes", position: "left" },
             {
               to: "https://project.r567tw.cc",
