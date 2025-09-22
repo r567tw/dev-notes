@@ -101,21 +101,19 @@
           },
           items: [
             { to: "blog", label: "Blog", position: "left" }, // or position: 'right'
-            {
-              type: "doc",
-              docId: "intro",
-              position: "left",
-              label: "Notes",
-            },
-            {
-              to: "https://github.com/r567tw",
-              label: "Github",
-              position: "left",
-            },
+            { to: "blog/tags", label: "Tags", position: "left" },
+            { to: "docs/intro", label: "Notes", position: "left" },
             {
               to: "https://project.r567tw.cc",
-              label: "Projects",
+              label: "Project",
               position: "left",
+            },
+            {
+              type: "html",
+              position: "right",
+              value: `<a href="https://github.com/r567tw" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center;">
+                  <img src="/img/github.svg" alt="GitHub" style="width:20px; height:20px;">
+                </a>`,
             },
           ],
         },
@@ -125,7 +123,7 @@
         },
         colorMode: {
           defaultMode: "dark", // 預設深色
-          disableSwitch: false, // 是否允許使用者切換（true = 不允許）
+          disableSwitch: true, // 是否允許使用者切換（true = 不允許）
           respectPrefersColorScheme: false, // 是否依照使用者系統設定
         },
       }),
