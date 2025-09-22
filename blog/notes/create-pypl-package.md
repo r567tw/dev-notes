@@ -12,6 +12,7 @@ tags:
 - 一個 pypl 帳號或一個 testpypl 帳號：在這裡我使用 testpypl, 這個網站就是 pypl 官方來測試 pypl package 的網站用的，所以測試的話你可以盡量使用。如果你要正式使用可以使用 pypl 帳號喔。
 - twine pypl package
 - build pypl package
+<!-- truncate -->
 
 # 第一步：準備
 
