@@ -3,9 +3,6 @@ title: Auth 筆記
 date: "2022-11-20 20:47:20+08:00"
 tags:
   - auth
-  - jwt
-  - token
-  - oauth
 ---
 
 # HTTP 是一種`Stateless`的協定

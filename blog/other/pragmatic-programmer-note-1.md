@@ -3,6 +3,7 @@ title: Pragmatic Programmer：知識資產
 date: "2022-04-16 14:21:32+08:00"
 tags:
   - Pragmatic Programmer
+  - reading
 ---
 
 <!-- {{% admonition note %}}

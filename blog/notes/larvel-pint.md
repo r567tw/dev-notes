@@ -2,7 +2,7 @@
 title: Laravel Pint 簡易教學
 date: "2022-08-02 01:33:11+00:00"
 tags:
-  - laravel package
+  - laravel
 ---
 
 # 前言

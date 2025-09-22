@@ -2,8 +2,7 @@
 title: 建立一個Pypl package
 date: "2022-11-06 10:47:20+08:00"
 tags:
-  - package
-  - pypl
+  - python
 ---
 
 這是一篇隨便寫一寫的文章，主要是紀錄我想要建立一個簡單的 pypl package 紀錄。

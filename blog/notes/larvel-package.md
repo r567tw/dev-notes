@@ -2,7 +2,7 @@
 title: 寫一個簡單的Laravel Package
 date: "2022-08-08 01:33:11+00:00"
 tags:
-  - laravel package
+  - laravel
 ---
 
 # 前言

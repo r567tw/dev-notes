@@ -2,8 +2,7 @@
 title: 開發個人助理Jarvis
 date: "2022-07-02 13:33:11+00:00"
 tags:
-  - line notify
-  - github
+  - side-project
 ---
 
 # 前言

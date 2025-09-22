@@ -3,6 +3,7 @@ title: Pragmatic Programmer：需求坑
 date: "2022-04-30 14:21:32+08:00"
 tags:
   - Pragmatic Programmer
+  - reading
 ---
 
 Pragmatic Programmer 他談很多題目，裏面也談到很多如何寫程式的廣泛技巧，例如第一篇我們談到的`正交性`, 以及`知識資產`的部分。未來可能我也會陸陸續續分享他各種不同的篇幅與個人領悟。

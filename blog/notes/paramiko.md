@@ -3,7 +3,6 @@ title: Python Paramiko 筆記
 date: "2021-02-06 11:05:00+00:00"
 tags:
   - python
-  - paramiko
 ---
 
 在以前公司工作的時候，有點忘了是遇到什麼情境，總之我就看到 Python 有這樣的一個套件庫：`Paramiko`

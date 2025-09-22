@@ -2,7 +2,6 @@
 title: 簡單的CRUD 操作
 date: "2018-10-04 13:28:52+00:00"
 tags:
-  - crud
   - php
 ---
 

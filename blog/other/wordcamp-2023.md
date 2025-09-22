@@ -2,7 +2,6 @@
 title: WordCamp 2023 一日遊
 date: "2023-10-03 00:00:00+08:00"
 tags:
-  - wordpresscamp
   - wordpress
 ---
 
