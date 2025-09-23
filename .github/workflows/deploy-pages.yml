@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: Notify Slack
         run: |
-          if [ "${{ needs.deploy.result }}" = "success" ]; then
+          if [ "${{ needs.build-and-deploy.result }}" = "success" ]; then
             STATUS="✅ 部署完成"
           else
             STATUS="❌ 部署失敗"
