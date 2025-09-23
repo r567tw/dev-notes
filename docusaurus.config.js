@@ -5,7 +5,7 @@
 (
   module.exports = {
     title: "Jimmy の Code",
-    tagline: "Notes for Output & Understand",
+    tagline: "Our Blog and Notes for Output & Understand",
     url: "https://r567tw.cc",
     baseUrl: "/",
     onBrokenLinks: "throw",
