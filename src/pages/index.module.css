@@ -1,3 +1,140 @@
+.tagRow {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 18px 0 8px 0;
+}
+
+.animatedTag {
+  opacity: 0;
+  background: transparent;
+  color: #222;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-radius: 16px;
+  padding: 6px 18px;
+  letter-spacing: 2px;
+  transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
+  animation: tagFadeInUp 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.animatedTag:hover {
+  background: #fffbe6;
+  box-shadow: 0 2px 12px #ffe0b2;
+  transform: translateY(-4px) scale(1.07);
+}
+
+@keyframes tagFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animatedButtons .button {
+  transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    box-shadow 0.25s;
+}
+.animatedButtons .button:hover {
+  transform: translateY(-6px) scale(1.07);
+  box-shadow: 0 4px 24px #ffe0b2, 0 2px 8px #e67e22;
+  background: linear-gradient(90deg, #ffe0b2 60%, #e67e22 100%);
+  color: #fff;
+}
+.animatedTitle {
+  animation: titleSlide 1.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #3b3b4f;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.animatedSubtitle {
+  animation: fadeInUp 1.5s;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.animatedTitle {
+  animation: titleSlide 1.2s;
+  display: flex;
+  align-items: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #3b3b4f;
+  letter-spacing: 2px;
+}
+
+.animatedSubtitle {
+  animation: fadeInUp 1.5s;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.animatedButtons {
+  opacity: 0;
+  animation: buttonFloatIn 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes buttonFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rocketFly {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(-12px) scale(1.15);
+  }
+}
+
+@keyframes waveHand {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-20deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes buttonFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
 /**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
@@ -8,6 +145,155 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+.home-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bgFadeIn 2s;
+}
+
+@keyframes bgFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.center-content {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(60, 60, 120, 0.12);
+  padding: 2.5rem 2rem;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  animation: cardPop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes cardPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 16px rgba(60, 60, 120, 0.1);
+  animation: avatarFade 1.5s;
+}
+
+@keyframes avatarFade {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animated-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #3b3b4f;
+  letter-spacing: 2px;
+  animation: titleSlide 1.2s;
+}
+
+@keyframes titleSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-typing {
+  font-size: 1.1rem;
+  color: #6366f1;
+  margin-bottom: 1.2rem;
+  min-height: 2.2em;
+  font-family: "Fira Mono", "Consolas", monospace;
+  border-right: 2px solid #6366f1;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end) 1, blink-caret 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #6366f1;
+  }
+}
+
+.animated-card {
+  background: #f1f5f9;
+  border-radius: 16px;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(60, 60, 120, 0.07);
+  animation: fadeInUp 1.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-list {
+  margin-bottom: 1.2rem;
+  animation: fadeInUp 1.8s;
+}
+
+.admonition-info {
+  background: #e0e7ff;
+  color: #3730a3;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  margin-top: 1.2rem;
+  animation: fadeInUp 2s;
 }
 
 @media screen and (max-width: 966px) {
@@ -21,4 +307,58 @@
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+}
+/* 新增 about 動畫區塊 */
+.homeBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.aboutAnimate {
+  margin: 24px 0;
+  animation: fadeInUp 1.2s ease;
+}
+
+.aboutAnimate span {
+  font-size: 1.3rem;
+  color: #2e8555;
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: textFlash 2s infinite alternate;
+}
+
+@keyframes textFlash {
+  from {
+    color: #2e8555;
+    text-shadow: none;
+  }
+  to {
+    color: #e67e22;
+    text-shadow: 0 0 8px #e67e22;
+  }
+}
+
+.aboutContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 16px;
+  background: linear-gradient(135deg, #fffbe6 40%, #ffe0b2 100%);
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(60, 60, 120, 0.18);
+  border: 1.5px solid #e0e7ff;
+  padding: 28px 24px;
+  animation: fadeInUp 1.5s;
+}
+
+/* 卡片內文字橘色，加陰影，確保可讀性 */
+.aboutContent p,
+.aboutContent ul,
+.aboutContent li {
+  color: #e67e22;
+  text-shadow: 0 1px 8px #fff, 0 2px 12px #e0e7ff;
+  font-size: 1.08rem;
+  font-weight: 500;
 }

@@ -24,3 +24,5 @@ _practice/
 .blog/
 myenv/
 convert_hugo_to_docusaurus.py
+
+.reference/
