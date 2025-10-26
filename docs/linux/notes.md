@@ -44,6 +44,27 @@ sudo visudo # = vi /etc/sudoers
 # Ref: https://dchesmis.blogspot.com/2018/05/visudosudo.html
 ```
 
+## 設定 SSH 只能執行某命令
+
+在 SSH 的 authorized_keys 檔案中，可以針對某個公鑰設定只允許執行特定指令，並限制其他 SSH 功能。
+
+例如：
+
+```text
+command="/home/deploy/deploy.sh",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... github-actions@deploy
+```
+
+說明：
+
+- command="/home/deploy/deploy.sh"：登入時只會執行這個指令，無法執行其他 shell。
+- no-agent-forwarding：禁止 SSH agent 轉發。
+- no-port-forwarding：禁止 port 轉發。
+- no-pty：不分配終端機（不能互動）。
+- no-user-rc：不載入使用者的 rc 檔案（如 .bashrc）。
+
+這種設定常用於自動化部署，例如 GitHub Actions push 代碼後觸發遠端腳本，提升安全性。
+只要把這行加到 `/home/deploy/.ssh/authorized_keys`，就能限制該 key 只能執行你指定的 deploy.sh 指令。
+
 ## 讓 SSH 變得更方便拉
 
 - 修改`.ssh/config`檔案
