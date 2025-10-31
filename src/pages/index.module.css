@@ -3,6 +3,7 @@
   justify-content: center;
   gap: 18px;
   margin: 18px 0 8px 0;
+  flex-wrap: wrap;
 }
 
 .animatedTag {
@@ -319,6 +320,8 @@
 .aboutAnimate {
   margin: 24px 0;
   animation: fadeInUp 1.2s ease;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .aboutAnimate span {
@@ -349,8 +352,30 @@
   border-radius: 18px;
   box-shadow: 0 6px 32px rgba(60, 60, 120, 0.18);
   border: 1.5px solid #e0e7ff;
-  padding: 28px 24px;
+  padding: 28px 32px;
   animation: fadeInUp 1.5s;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 700px) {
+  .aboutAnimate {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .aboutContent {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 8px;
+    max-width: 100%;
+    width: 100%;
+  }
+  .aboutContent img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
 }
 
 /* 卡片內文字橘色，加陰影，確保可讀性 */
