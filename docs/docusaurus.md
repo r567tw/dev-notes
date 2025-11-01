@@ -50,3 +50,38 @@ npm run write-translations -- --locale zh-Hant
   },
 
 ```
+
+## 將某文章置頂
+
+- 建立一個控制 theme 的 index.js
+
+```js
+// src/theme/BlogListPage/index.js
+import BlogListPage from "@theme-original/BlogListPage";
+
+export default function BlogListPageWrapper(props) {
+  const { items } = props;
+
+  // 將 sticky=true 的文章排在最上面
+  const sortedItems = [...items].sort((a, b) => {
+    const aSticky = a.content.frontMatter.sticky ? 1 : 0;
+    const bSticky = b.content.frontMatter.sticky ? 1 : 0;
+    if (aSticky !== bSticky) return bSticky - aSticky; // sticky 的排前面
+    return (
+      new Date(b.content.metadata.date) - new Date(a.content.metadata.date)
+    ); // 其餘照日期
+  });
+
+  return <BlogListPage {...props} items={sortedItems} />;
+}
+```
+
+> 這樣只要文章加入 sticky 這個屬性就可以了
+
+```
+title: 架站筆記
+date: "2025-10-31 23:36:55+08:00"
+hide_table_of_contents: false
+// highlight-next-line
+sticky: true
+```
