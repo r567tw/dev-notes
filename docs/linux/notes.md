@@ -80,3 +80,9 @@ alias enter-nas="sshpass -p password ssh -t `{{NAME}}`"
 
 - ssh-keygen -t rsa -b 4096 > ssh-copy-id 用戶名@遠端伺服器 IP 地址
 - ssh-copy-id
+
+## 如果需要計算自己在 Git 專案當中有幾天分別寫了幾次 Commit
+
+```bash
+git log --author="r567tw" --date=short --pretty=format:"%ad" | sort | uniq -c | grep "2025-10"
+```

@@ -1,6 +1,6 @@
 ---
 title: Ruby
-sidebar_position: 2
+sidebar_position: 7
 ---
 
 ## Ruby 基礎
