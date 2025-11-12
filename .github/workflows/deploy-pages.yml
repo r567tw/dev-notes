@@ -16,7 +16,7 @@ jobs:
       # 2️⃣ 安裝 Node.js
       - uses: actions/setup-node@v3
         with:
-          node-version: "25"
+          node-version: "22"
 
       # 3️⃣ 安裝依賴
       - run: npm ci
