@@ -6,12 +6,15 @@ tags:
   - reading
 ---
 
-<!-- {{% admonition note %}}
-Pragmatic Programmer 有談工程師的學習(知識資產)，我覺得蠻有趣的，可以記錄看看{{% /admonition %}} -->
+:::tip
+Pragmatic Programmer 有談工程師的學習(知識資產)，我覺得蠻有趣的，可以記錄看看
+:::
 
 在這個小篇章，我最有印象的是這句話：
 
 > 管理知識資產與管理金融資產非常相似
+
+<!-- truncate -->
 
 像是你管理金融資產會注意以下幾點：
 
