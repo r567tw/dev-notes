@@ -1,5 +1,5 @@
 ---
-title: Notes
+title: Tips
 sidebar_position: 3
 ---
 
@@ -85,4 +85,18 @@ alias enter-nas="sshpass -p password ssh -t `{{NAME}}`"
 
 ```bash
 git log --author="r567tw" --date=short --pretty=format:"%ad" | sort | uniq -c | grep "2025-10"
+```
+
+## 快速啟動 HTTP Server
+
+- python
+
+```python
+python -m http.server 8080
+```
+
+- javascript
+
+```javascript
+npx http-server -p 8080
 ```
