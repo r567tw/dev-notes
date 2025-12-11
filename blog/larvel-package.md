@@ -54,7 +54,7 @@ tags:
 
 我這個套件的目標很簡單，就是弄出一個 artisan 的指令來 helloworld 一下就好，所以這邊我在`src/Providers`裡面建立`PackageServiceProvider.php`檔
 
-```
+```php
 <?php
 declare(strict_types=1);
 

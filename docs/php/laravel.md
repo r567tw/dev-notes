@@ -240,7 +240,7 @@ composer require enlightn/enlightnpro
 3. Laravel 如何實作 Facade？底層實際是如何解決依賴的？
    > Laravel Facade 實作是透過繼承 Facade 類別。當靜態呼叫時，它會延遲執行，利用 getFacadeAccessor() 方法返回一個服務容器 (Service Container) 的綁定鍵（Binding Key）。底層實際是容器根據該鍵解析 (Resolve) 出真正的類別實例，並將靜態呼叫轉發給該實例處理。(和 Service Container 相輔相成)
 4. Laravel 中的中介層（Middleware）是如何運作的？它在請求流程的哪個階段執行？
-   > 中介層 (Middleware) 是 Laravel 處理 HTTP 請求的關鍵機制，它的運作方式可以形象地理解為層層把關的「洋蔥」模型。核心方法：handle()它接收兩個參數：<br/>$request: 當前的 HTTP 請求物件。<br/>$next: 閉包（Closure），代表洋蔥中的下一個層級。
+   > 中介層 (Middleware) 是 Laravel 處理 HTTP 請求的關鍵機制，它的運作方式可以形象地理解為層層把關的「洋蔥」模型。核心方法：handle()它接收兩個參數：<br/>\$request: 當前的 HTTP 請求物件。<br/>\$next: 閉包（Closure），代表洋蔥中的下一個層級。
 
 ### 二、效能與最佳化
 
