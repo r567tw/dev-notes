@@ -85,3 +85,13 @@ hide_table_of_contents: false
 // highlight-next-line
 sticky: true
 ```
+
+## 加入數學表達式
+
+- https://docusaurus.io/zh-CN/docs/next/markdown-features/math-equations
+
+```
+npm install --save remark-math@6 rehype-katex@7
+
+
+```

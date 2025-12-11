@@ -1,3 +1,12 @@
+/* 讓 KaTeX 區塊公式靠左顯示 */
+.math.math-display {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+.katex-html {
+  text-align: left !important;
+}
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -23,6 +32,6 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-html[data-theme='dark'] .docusaurus-highlight-code-line {
+html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }

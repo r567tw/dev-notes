@@ -30,56 +30,6 @@ export default function HomepageBody() {
             <div style={{ marginBottom: "4px" }}></div>
             <div
               style={{
-                marginBottom: "8px",
-                color: "#444",
-                fontSize: "1.05rem",
-              }}
-            >
-              我目前正在經營兩個 Threads
-              帳號，分別分享棒球與信仰生活，有興趣的話歡迎追蹤：
-            </div>
-            <div style={{ marginBottom: "4px" }}>
-              <a
-                href="https://www.threads.com/@fang_r567tw"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: "#222",
-                  fontWeight: 600,
-                  fontSize: "1.08rem",
-                  textDecoration: "none",
-                }}
-              >
-                <span
-                  role="img"
-                  aria-label="baseball"
-                  style={{ marginRight: 6 }}
-                >
-                  ⚾️
-                </span>
-                Threads（棒球帳/主帳）: @fang_r567tw
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://www.threads.com/@iamfang_christ"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: "#222",
-                  fontWeight: 600,
-                  fontSize: "1.08rem",
-                  textDecoration: "none",
-                }}
-              >
-                <span role="img" aria-label="faith" style={{ marginRight: 6 }}>
-                  ✝️
-                </span>
-                Threads（基督徒帳）: @iamfang_christ
-              </a>
-            </div>
-            <div
-              style={{
                 color: "#222",
                 fontWeight: 600,
                 fontSize: "1.08rem",
