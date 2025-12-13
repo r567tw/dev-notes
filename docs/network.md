@@ -301,6 +301,34 @@ Layer 4 和 Layer 7 負載均衡是兩種常見的負載均衡技術，它們在
 5. Decode
 6. Process
 
+### REST
+
+> REST（Representational State Transfer）是一種設計網路應用程式 API 的架構風格。它強調以資源為中心，透過標準的 HTTP 方法（如 GET、POST、PUT、DELETE）對資源進行操作，並保持無狀態（stateless）和統一介面。REST API 易於理解、擴展性高，廣泛用於現代 Web 服務設計。
+
+- 常見的方法包括：
+  - **GET**：取得資源，不會改變伺服器上的資料。
+  - **POST**：建立新資源，通常會改變伺服器狀態。
+  - **PUT**：更新整個資源（若不存在則建立）。
+  - **PATCH**：部分更新資源。
+  - **DELETE**：刪除資源。
+
+#### 冪等性（Idempotency）
+
+> 指的是一個操作無論執行多少次，對系統的影響都是一樣的。常見於 API 設計（如 HTTP PUT/DELETE）、分散式系統、資料庫操作等，能有效避免重複請求帶來的副作用，是高可用與健壯系統設計的重要原則。
+
+- GET、PUT、DELETE、HEAD、OPTIONS 都是冪等的，POST 通常不是。
+- 如果 POST 想要 Idempotency 可以加入 `client-generated id`、`idempotency key` 作為設計
+
+- **實際例子**：
+  - `GET`
+  - `PUT /user/123`：不論你執行幾次，結果都是 user 123 的資料被更新為相同內容。
+  - `DELETE /user/123`：不論你執行幾次，user 123 只會被刪除一次。
+- **非冪等例子**：
+  - `POST /order`：每次執行都會產生一筆新訂單。
+- `PATCH`：看狀況，如果每次都會有新增東西例如`count`就不是 idempotency...如果只是單純更新欄位則就是
+
+---
+
 ### RPC
 
 - RPC 是一種不需要了解底層網路技術就可以透過網路從遠端電腦程式上請求服務的協定
