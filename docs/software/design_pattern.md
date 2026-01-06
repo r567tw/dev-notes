@@ -2,7 +2,11 @@
 sidebar_position: 3
 ---
 
-# Design Pattern
+## Design Pattern
+
+### 監聽者模式
+
+### 裝飾者模式
 
 ## SOLID
 
