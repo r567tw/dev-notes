@@ -6,7 +6,274 @@ sidebar_position: 3
 
 ### 監聽者模式
 
+在物件間定義一種一對多的依賴關係，當這個物件狀態發生改變時，所有依賴他的物件都會被通知並自動更新
+
+#### Python 範例
+
+```python
+class Subject:
+  def __init__(self):
+    self._observers = []
+  def attach(self, observer):
+    self._observers.append(observer)
+  def detach(self, observer):
+    self._observers.remove(observer)
+  def notify(self, msg):
+    for observer in self._observers:
+      observer.update(msg)
+
+class Observer:
+  def update(self, msg):
+    print(f"Received: {msg}")
+
+subject = Subject()
+observer1 = Observer()
+observer2 = Observer()
+subject.attach(observer1)
+subject.attach(observer2)
+subject.notify("Hello Observers!")
+# Output:
+# Received: Hello Observers!
+# Received: Hello Observers!
+```
+
+> 這種模式常用於事件系統、GUI 框架、資料同步等場景。
+
 ### 裝飾者模式
+
+動態地給物件增加職責，就像包裝一層一層的裝飾品一樣，不需改變原本的類別。
+
+#### Python 範例
+
+```python
+class Coffee:
+  def cost(self):
+    return 5
+
+class MilkDecorator:
+  def __init__(self, coffee):
+    self._coffee = coffee
+  def cost(self):
+    return self._coffee.cost() + 2
+
+class SugarDecorator:
+  def __init__(self, coffee):
+    self._coffee = coffee
+  def cost(self):
+    return self._coffee.cost() + 1
+
+coffee = Coffee()
+print(coffee.cost())  # 5
+coffee = MilkDecorator(coffee)
+print(coffee.cost())  # 7
+coffee = SugarDecorator(coffee)
+print(coffee.cost())  # 8
+```
+
+> 裝飾者模式常用於需要動態擴充功能、避免類別爆炸的場景，例如 I/O stream、middleware 等。
+
+#### Python 語言層級的裝飾器
+
+- https://steam.oxxostudio.tw/category/python/basic/decorator.html
+
+Python 本身支援函式/方法的裝飾器（decorator），可用來動態擴充函式功能，語法簡潔，常見於日誌、權限驗證、快取等場景。
+
+```python
+def my_decorator(func):
+  def wrapper(*args, **kwargs):
+    print("執行前...")
+    result = func(*args, **kwargs)
+    print("執行後...")
+    return result
+  return wrapper
+
+@my_decorator
+def say_hello(name):
+  print(f"Hello, {name}")
+
+say_hello("Jimmy")
+# Output:
+# 執行前...
+# Hello, Jimmy
+# 執行後...
+```
+
+> Python 的 @decorator 語法糖讓裝飾器應用更直觀，能有效分離橫切關注點（如日誌、驗證、計時等）。
+
+### 單例模式 (Singleton)
+
+確保一個類別只有一個實例，並提供全域存取點。
+
+```python
+class Singleton:
+  _instance = None
+  def __new__(cls):
+    if cls._instance is None:
+      cls._instance = super().__new__(cls)
+    return cls._instance
+a = Singleton()
+b = Singleton()
+print(a is b)  # True
+```
+
+### 工廠模式 (Factory)
+
+定義一個用於建立物件的介面，讓子類決定實例化哪個類別。
+
+```python
+class Animal:
+  def speak(self):
+    pass
+class Dog(Animal):
+  def speak(self):
+    return "Woof!"
+class Cat(Animal):
+  def speak(self):
+    return "Meow!"
+def animal_factory(kind):
+  if kind == "dog":
+    return Dog()
+  elif kind == "cat":
+    return Cat()
+pet = animal_factory("dog")
+print(pet.speak())  # Woof!
+```
+
+### 策略模式 (Strategy)
+
+定義一系列演算法，把它們一個個封裝起來，並且使它們可以互換。
+
+```python
+class Strategy:
+  def do_operation(self, a, b):
+    pass
+class Add(Strategy):
+  def do_operation(self, a, b):
+    return a + b
+class Subtract(Strategy):
+  def do_operation(self, a, b):
+    return a - b
+def execute(strategy, a, b):
+  return strategy.do_operation(a, b)
+print(execute(Add(), 5, 3))      # 8
+print(execute(Subtract(), 5, 3)) # 2
+```
+
+### 命令模式 (Command)
+
+將請求封裝成物件，讓你用不同的請求、佇列或日誌參數化其他物件。
+
+```python
+class Light:
+  def on(self):
+    print("Light is ON")
+  def off(self):
+    print("Light is OFF")
+class Command:
+  def execute(self):
+    pass
+class LightOnCommand(Command):
+  def __init__(self, light):
+    self.light = light
+  def execute(self):
+    self.light.on()
+light = Light()
+cmd = LightOnCommand(light)
+cmd.execute()  # Light is ON
+```
+
+### 代理模式 (Proxy)
+
+為其他物件提供一種代理以控制對這個物件的訪問。
+
+```python
+class RealSubject:
+  def request(self):
+    print("RealSubject: Handling request.")
+class Proxy:
+  def __init__(self, real_subject):
+    self._real_subject = real_subject
+  def request(self):
+    print("Proxy: Logging before request.")
+    self._real_subject.request()
+real = RealSubject()
+proxy = Proxy(real)
+proxy.request()
+```
+
+### 模板方法模式 (Template Method)
+
+定義一個操作中的演算法骨架，將一些步驟延遲到子類別中。
+
+```python
+class AbstractClass:
+  def template_method(self):
+    self.step1()
+    self.step2()
+  def step1(self):
+    print("Step 1")
+  def step2(self):
+    pass
+class ConcreteClass(AbstractClass):
+  def step2(self):
+    print("Step 2")
+obj = ConcreteClass()
+obj.template_method()
+```
+
+### 狀態模式 (State)
+
+允許物件在內部狀態改變時改變它的行為。
+
+```python
+class State:
+  def handle(self):
+    pass
+class StateA(State):
+  def handle(self):
+    print("State A")
+class StateB(State):
+  def handle(self):
+    print("State B")
+class Context:
+  def __init__(self, state):
+    self.state = state
+  def request(self):
+    self.state.handle()
+context = Context(StateA())
+context.request()  # State A
+context.state = StateB()
+context.request()  # State B
+```
+
+### 責任鏈模式 (Chain of Responsibility)
+
+使多個物件都有機會處理請求，將這些物件連成一條鏈，並沿著這條鏈傳遞請求。
+
+```python
+class Handler:
+  def __init__(self, successor=None):
+    self.successor = successor
+  def handle(self, request):
+    if self.successor:
+      self.successor.handle(request)
+class ConcreteHandlerA(Handler):
+  def handle(self, request):
+    if request == "A":
+      print("Handled by A")
+    else:
+      super().handle(request)
+class ConcreteHandlerB(Handler):
+  def handle(self, request):
+    if request == "B":
+      print("Handled by B")
+    else:
+      super().handle(request)
+handler = ConcreteHandlerA(ConcreteHandlerB())
+handler.handle("B")  # Handled by B
+```
+
+---
 
 ## SOLID
 
