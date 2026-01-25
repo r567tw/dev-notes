@@ -13,10 +13,13 @@ tags:
 在 Threads 上面看到有人聊到資料庫連線爆掉的問題，以前在做後端工程師的時候也會遇到...於是學會了像是使用`SHOW PROCESSLIST`、或是增加 DBMS 連線數，以下這篇是和 AI 聊天的過程和請 AI 幫忙寫的文章...XD
 :::
 
-## 一、確認目前連線數
+## 一、確認目前最高連線數
+
+> 之前應該就要了解自己系統了
 
 ```sql
-SHOW VARIABLES LIKE 'max_connections';
+SHOW VARIABLES LIKE 'max_connections'; -- mysql
+SHOW max_connections; -- pgsql
 ```
 
 ---
@@ -24,7 +27,8 @@ SHOW VARIABLES LIKE 'max_connections';
 ## 二、找出佔用連線的 Query / Client
 
 ```sql
-SHOW FULL PROCESSLIST;
+SHOW FULL PROCESSLIST; --mysql
+SELECT * FROM pg_stat_activity; --pgsql
 ```
 
 常見問題包含：
@@ -38,7 +42,9 @@ SHOW FULL PROCESSLIST;
 ## 三、緊急止血（Production）
 
 ```sql
-KILL <process_id>;
+KILL <process_id>; -- mysql
+SELECT pg_cancel_backend(<pid of the process>) --pgsql
+SELECT pg_terminate_backend(<pid of the process>) --pgsql
 ```
 
 ---
@@ -49,13 +55,19 @@ KILL <process_id>;
 
 程式沒有釋放 DB 連線，導致連線逐漸累積。
 
+> 這個之前有遇過...如果自己寫的程式碼要記得做 db close 呀！
+
 ### 2. 每個 Request 建立新連線
 
 沒有使用 connection pool，每次 request 都建立新 client。
 
+> 個人認為常常是 php 慢的原因...但我覺得也要檢討為什麼每次 Query 會慢？應該要研究整個查詢的 Bottleneck 進而優化 SQL 查詢...有時候慢的原因常常出自於架構設計問題與撰寫程式碼的問題...總歸都是人自己的問題 XD
+
 ### 3. Worker / PHP-FPM 開太多
 
 Worker 數量 × DB connection = 真實連線需求。
+
+> 學到了！我覺得最近可能也要好好學習 php-fpm 的功課 要開多少個 Worker 之類的
 
 ---
 
@@ -64,7 +76,8 @@ Worker 數量 × DB connection = 真實連線需求。
 ### 1. 調整 MySQL 連線上限
 
 ```sql
-SET GLOBAL max_connections = 200;
+SET GLOBAL max_connections = 200; --mysql
+ALTER SYSTEM SET max_connections TO '200'; --pgsql
 ```
 
 注意：需搭配 RAM 評估，不能無限制提高。
@@ -72,15 +85,6 @@ SET GLOBAL max_connections = 200;
 ---
 
 ### 2. 建立 Connection Pool（應用程式層）
-
-Node.js / ORM 範例：
-
-```js
-pool: {
-  min: 2,
-  max: 10
-}
-```
 
 ---
 
@@ -118,7 +122,7 @@ PHP-FPM workers × DB conn per request
 ```
 
 只要需求 > max_connections
-→ MySQL 必炸。
+→ MySQL/PostgreSQL 必炸。
 
 ---
 
