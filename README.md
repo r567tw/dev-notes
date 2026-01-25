@@ -10,9 +10,7 @@
 
 ### Code Review
 
-:::tip
-Code Review 同樣可以對應心理學中的馬斯洛需求層次理論，協助檢視團隊在不同層面的品質表現。
-:::
+> Code Review 同樣可以對應心理學中的馬斯洛需求層次理論，協助檢視團隊在不同層面的品質表現。
 
 - 來源：https://www.dein.fr/posts/2015-02-18-maslows-pyramid-of-code-review
 - Correct 正確性 ➝ 基本生理需求
