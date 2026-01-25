@@ -26,3 +26,4 @@ myenv/
 convert_hugo_to_docusaurus.py
 
 .reference/
+*.log
