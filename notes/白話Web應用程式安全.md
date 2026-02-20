@@ -53,12 +53,9 @@ set-Cookie: session_id=123456789; Secure; HttpOnly; SameSite=Strict; Max-Age=604
 
 - Secure: 只有發出 HTTPS 請求才發送 Cookie
 - HttpOnly : JavaScript 不可以存取 Cookie
-- SameSite: 通常預設值是 `Lax` (SameSite=Lax)
-- Expires
-
-### 跨站追蹤
-
-- 瀏覽歷程隔離(history isolation)
+- SameSite: 通常預設值是 `Lax` (SameSite=Lax)，可剝離跨源請求狹帶的Cookie
+- Expires：Cookie 的有效期限
+- 讓 Cookie 失效:`Set-Cookie: session_id=; Max-Age=-1`
 
 ## 3. 加密
 
@@ -70,16 +67,19 @@ set-Cookie: session_id=123456789; Secure; HttpOnly; SameSite=Strict; Max-Age=604
 ### 加密金鑰
 
 - 加密金鑰 v.s 解密金鑰
-- 對稱加密演算法(區塊加密)
-- 非對稱加密演算法
-- 雜湊演算法：無法解密其輸出的演算法
-  - 雜湊碰撞
+- 對稱加密演算法(區塊加密 Block cipher): 使用相同金鑰進行加密和解密資料
+- 非對稱加密演算法: 使用不同金鑰進行資料加密和解密
+- 雜湊演算法：無法解密其輸出的加密演算法，兩個不同輸入產生相同輸出的機會幾乎為0
+  - 雜湊碰撞:發生不同輸入產生相同輸出
+  - 雜湊值/雜湊：雜湊演算法的輸出
+  - 通常檢測它是否有無異動，用於保管憑證和偵測 Web 伺服器上的可疑事件
 
 ### 加密傳輸
 
-- TLS: 加密套件--金鑰交換演算法、身份驗證演算法、批量加密演算法、訊息鑑別碼演算法
+- TLS: 在 IP 上實作加密傳輸技術，前身 SSL 加密套件包含四種元素--金鑰交換演算法、身份驗證演算法、批量加密演算法、訊息鑑別碼演算法
 - HTTPS
-- HSTS (HTTP 強制安全傳輸):`Strict-Transport-Security: max-age=604800`
+- 重導向 HTTPS
+- 通知瀏覽器始終使用 HTTPS :`Strict-Transport-Security: max-age=604800`
 
 ### 靜態加密
 
@@ -108,6 +108,7 @@ $$Hash(Password + Salt + Pepper) = Stored\_Value$$
 - 白名單篩選
 - 黑名單阻擋
 - 使用樣板比對(正規表達式)
+- 進一步檢驗(信用卡號碼、URL、Mac Address)
 - 檢驗電子郵件位址
 - 檢驗檔案上傳
 
@@ -118,8 +119,7 @@ $$Hash(Password + Salt + Pepper) = Stored\_Value$$
 - 轉義命令字串裡面的輸出
 
 ### 正確處理資源
-
-### REST
+- RESTFul API: Get 取得、Post 新建立、Put 更新、Delete 刪除
 
 ### 縱深防禦
 
@@ -127,11 +127,14 @@ $$Hash(Password + Salt + Pepper) = Stored\_Value$$
 
 ### 最小權限原則
 
+- 是指每個軟體元件和執行程序只能被授予完成預期任務所需的最小權限集
+
 ## 5. 安全是一種程序
 
 ### 應用四眼原則
 
-- 重要變更通常需要經過兩個人審核通過才能實施的一種管理機制
+- 一種控制機制：重要變更通常需要經過兩個人審核通過才能實施的一種管理機制
+- 橡皮鴨除錯法
 
 ### 在流程中套用最小權限原則
 
@@ -149,7 +152,31 @@ $$Hash(Password + Salt + Pepper) = Stored\_Value$$
 
 ### 保留稽核軌跡
 
+- 程式碼變更
+- 部署
+- HTTP 存取日誌
+- 使用者行為
+- 資料更新
+- 管理活動
+- SSH 存取日誌
+
+
 ### 撰寫安全的程式碼
+
+- 實施源碼控制 (Git Flow): 紀錄何時為 Web App 加入新功能至關重要
+- 管理依賴套件
+NodeJS npm yarn pnpm
+Ruby Bundler
+Python pip
+Java Maven Gradie
+.NET NuGET
+PHP Composer
+- 設計建構流程： mifify , Build Process
+- 撰寫單元測試：100%覆蓋率並非程式碼完全正確，無可避免地有些條件分支可能無法檢查到，甚至可能在邏輯上做出錯誤判斷
+- 程式碼審查
+- 發行流程自動化
+- 部署到準上線環境
+- 回退到前一版 (rollback)
 
 ### 借助工具保護自己
 
@@ -165,21 +192,23 @@ $$Hash(Password + Salt + Pepper) = Stored\_Value$$
 
 ## 6. 瀏覽器端的漏洞
 
-> 攻擊分為兩種型態：1. 攻擊網站上存在的漏洞 2. 誘騙使用者瀏覽受駭客控制的網站
 
-### 跨站腳本
+### 跨站腳本(XSS)
+> 攻擊分為兩種型態：1. 攻擊網站上存在的漏洞 2. 誘騙使用者瀏覽受駭客控制的網站
 
 - `XSS`
 - 儲存型跨站腳本：動態內容來自於資料庫
 - 反射型跨站腳本：HTTP 請求本身
 - Dom 型跨站腳本
 
-- 透過字元轉義化解跨站腳本攻擊
+- **透過字元轉義化解跨站腳本攻擊**
+- 內容安全政策：CSP-- 指示瀏覽器只能從特定來源載入 JavaScript
+> Content-Security-Policy: default-src 'self'; script-src breddit.com
 
 ### 跨站請求偽造
 
 - 別讓 GET 請求具有副作用
-- 防 CSRF 符記
+- 防 CSRF 符記 (CSRF Token)
 - 確保 Cookie 有 SameSite attribute
 
 ### 點擊挾持
@@ -193,7 +222,8 @@ Content-Security-Policy: frame-ancestors 'none'
 ### 跨站腳本引入
 
 - XSSI
-- JavaScript 不應包含機敏或與使用者相關的身份貧窶
+- JavaScript 不應包含機敏或與使用者相關的身份
+  - 如果需要：一種透過非同步呼叫伺服器取得回傳內容(token)、一種則是將機敏資訊放在網頁本身的 HTML 裡面(hidden field)
 - 設定跨域資源政策
 
 ## 7. 網路的漏洞
@@ -238,15 +268,17 @@ add_header Strict-Transport-Security "max-age=31536000"
 
 ### 單一登入 SSO
 
+> SSO 有兩種主要技術：OpenID Connect(搭配 Oauth)、SAML 
 - 將身份驗證的重責大任委托給第三方
 - OpenID Connect & OAuth
 - Oauth 一般用在授權而非識別
+- OpenID Connect 搭在 Oauth 上面而完成的，發出請求的 APP 會收到一組 JWT token
 - SAML
+> Ｗeb App 是 SP 服務提供者，需要發佈一份帶有 SAML詮釋資料 meta data 的 xml 檔案，用以通知身份提供者，你打算託管評斷控制服物(ACS)的 URL, 以及給身份提供者用來簽署要求的數位憑證。ACS 是一組回呼URL，身份提供者在使用者登入之後，會傳送給使用者
 
 ### 強化身份驗證能力
 
-- 密碼複雜度規則
-- 密碼輪換
+- 密碼複雜度規則、密碼輪換
 - 圖靈驗證碼：CAPTCHA
 - 速率限制
 
@@ -280,7 +312,7 @@ add_header Strict-Transport-Security "max-age=31536000"
 ### Session 劫持
 
 - 從網路劫持 Session => 使用 HTTPS 以及 Secure with Cookie
-- 利用 XSS 劫持 Session => 設定 Cookie 的 HttpOnly
+- 利用 XSS 劫持 Session => **設定 Cookie 的 HttpOnly**
 - 不良的 Session ID
 - Session 定製：不能接受由用戶端選定的 Session ID
 
@@ -291,6 +323,7 @@ add_header Strict-Transport-Security "max-age=31536000"
 ## 10.授權機制的漏洞
 
 **授權和身份驗證密切相關，前者用以確保使用者只能存取有權存取的資料; 後者則在使用者與 App 互動時用來識別身份**
+> 每個網站都不一樣，授權是你有沒有權利這麼作、身份驗證是你能不能進來
 
 ### 為授權建模
 
@@ -315,6 +348,8 @@ add_header Strict-Transport-Security "max-age=31536000"
 
 - 接受來自不可信任來源的序列化內容要特別留意，若可能請優先選用 JSON 或 YAML 等文字型序列化格式，或使用數位簽章來防止資料竄改
 
+### Json 和 Yaml 的漏洞
+> 開發 NodeJS 應用程式時，切勿將不可信任得內容交給 eval() 處理
 ### XML 的漏洞
 
 - 停用任何 XML Parser 內聯 DTD 處理功能
