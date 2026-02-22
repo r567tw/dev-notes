@@ -263,18 +263,88 @@ add_header Strict-Transport-Security "max-age=31536000"
 ## 8.身份驗證機制的漏洞
 
 ### 暴力攻擊
+> 駭客竊取身份憑據最直接方法是使用工具嘗試數百萬筆帳號和密碼組合，並記錄哪些組合返回成功代碼，這種方法稱之為暴力攻擊
 
 - 工具：Hydra
 
 ### 單一登入 SSO
+> 確保安全處理身份驗證的一種方式就是讓其他系統負責這項任務
 
+> 將身份驗證的工作委托給第三方稱為單一登入(SSO)
 > SSO 有兩種主要技術：OpenID Connect(搭配 Oauth)、SAML 
-- 將身份驗證的重責大任委托給第三方
-- OpenID Connect & OAuth
+
+#### OpenID Connect & OAuth
 - Oauth 一般用在授權而非識別
 - OpenID Connect 搭在 Oauth 上面而完成的，發出請求的 APP 會收到一組 JWT token
-- SAML
+
+- **第一步：使用者授權**
+  使用者點擊「使用 Google 登入」按鈕，應用程式將使用者重導向至身份提供者的授權端點，並提交必要的參數。
+  ```
+  https://accounts.google.com/o/oauth2/auth?redirect_uri=https://app.com/callback&response_type=code&client_id=YOUR_CLIENT_ID&state=RANDOM_STATE&scope=email+profile
+  ```
+
+- **第二步：取得授權代碼**
+  使用者在身份提供者登入並同意授權後，身份提供者會將使用者重導向回應用程式的回調 URL，並附帶授權代碼。
+  ```
+  https://app.com/callback?code=AUTH_CODE&state=RANDOM_STATE
+  ```
+
+- **第三步：交換存取令牌**
+  應用程式伺服器使用授權代碼和客戶端秘鑰向身份提供者的令牌端點發出請求，以換取存取令牌，進而存取使用者資訊。
+  ```
+  POST https://oauth2.googleapis.com/token
+  Content-Type: application/x-www-form-urlencoded
+  
+  code=AUTH_CODE&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&redirect_uri=https://app.com/callback&grant_type=authorization_code
+  ```
+
+- **第四步：取得身份信息** (openid connect)
+  應用程式伺服器使用存取令牌向身份提供者的 UserInfo 端點發出請求，以取得使用者的身份信息（如姓名、電子郵件等）。
+  ```
+  GET https://www.googleapis.com/oauth2/v2/userinfo
+  Authorization: Bearer ACCESS_TOKEN
+  ```
+
+- **第五步：建立使用者會話** (openid connect)
+  應用程式伺服器驗證令牌並建立使用者會話，使用者即可登入應用程式。
+
+> **OpenID Connect**: 一個建立在 OAuth 之上的身份驗證層，透過發行 JWT token 來識別使用者身份。
+
+
+#### SAML
 > Ｗeb App 是 SP 服務提供者，需要發佈一份帶有 SAML詮釋資料 meta data 的 xml 檔案，用以通知身份提供者，你打算託管評斷控制服物(ACS)的 URL, 以及給身份提供者用來簽署要求的數位憑證。ACS 是一組回呼URL，身份提供者在使用者登入之後，會傳送給使用者
+
+**SAML 工作原理**
+
+SAML (Security Assertion Markup Language) 是一種基於 XML 的身份驗證和授權協議。
+
+**SAML 三方角色：**
+- **使用者代理 (User Agent)**：通常是瀏覽器
+- **服務提供者 (SP)**：提供服務的 Web App
+- **身份提供者 (IdP)**：驗證使用者身份的系統
+
+**SAML 工作流程：**
+
+1. **使用者發起登入**
+  使用者訪問 Web App，要求登入時被重導向至身份提供者
+
+2. **身份提供者驗證**
+  使用者在身份提供者登入，提供憑證進行驗證
+
+3. **SAML 斷言生成**
+  驗證成功後，身份提供者生成 SAML 斷言（包含使用者身份信息），並使用數位簽章簽署
+
+4. **返回服務提供者**
+  使用者被重導向回 Web App 的斷言消費服務 (ACS)，SAML 斷言以 POST 方式傳遞
+
+5. **驗證和建立會話**
+  Web App 驗證 SAML 斷言的簽章，確認其完整性和合法性，然後建立使用者會話
+
+**SAML 元資料：**
+
+Web App 需發佈 SAML 詮釋資料 (Metadata) XML 檔案，告知身份提供者：
+- 斷言消費服務 (ACS) 的 URL
+- 用於驗證身份提供者簽署的數位憑證
 
 ### 強化身份驗證能力
 
@@ -287,6 +357,49 @@ add_header Strict-Transport-Security "max-age=31536000"
 - MFA
 
 ### 生物特徵識別
+- 瀏覽器 API WebAuthn
+#### WebAuthn
+
+WebAuthn 是一個 Web 標準，允許使用者使用生物特徵識別（如指紋、臉部識別）或安全金鑰進行身份驗證，取代傳統密碼。
+
+**主要特點：**
+- 無密碼認證
+- 抗網路釣魚
+- 跨瀏覽器支援
+
+**基本流程：**
+
+1. **註冊階段** - 建立認證器
+```javascript
+const registration = await navigator.credentials.create({
+  publicKey: {
+    challenge: new Uint8Array(32),
+    rp: { name: "Example Corp" },
+    user: {
+      id: new Uint8Array(16),
+      name: "user@example.com",
+      displayName: "John Doe"
+    },
+    pubKeyCredParams: [{ alg: -7, type: "public-key" }]
+  }
+});
+```
+
+2. **驗證階段** - 驗證使用者
+```javascript
+const assertion = await navigator.credentials.get({
+  publicKey: {
+    challenge: new Uint8Array(32),
+    rpId: "example.com",
+    userVerification: "preferred"
+  }
+});
+```
+
+**優勢：**
+- 強化安全性，消除密碼洩漏風險
+- 改善使用者體驗
+- 符合最新安全標準
 
 ### 身份憑據的保存方式
 
@@ -305,9 +418,49 @@ add_header Strict-Transport-Security "max-age=31536000"
 
 ### Session 的運作原理
 
-- 伺服器端 Session：透過 `Set-Cookie`
-- 用戶端 Session (Cookie)
-- JWT
+#### Session
+傳統 Session 是一種伺服器端的身份驗證機制。
+
+**運作原理：**
+1. 使用者登入時，伺服器驗證憑證後建立一個 Session 物件
+2. 伺服器生成唯一的 Session ID，並透過 `Set-Cookie` 回應標頭將其發送給客戶端
+3. 客戶端保存 Cookie，每次請求時自動附帶 Session ID
+4. 伺服器根據 Session ID 查詢記錄的使用者資訊，識別請求來源
+
+**優勢：**
+- 使用者資訊儲存在伺服器，不會暴露給客戶端
+- 伺服器可隨時撤銷或更新 Session
+- 相對安全可控
+
+**缺點：**
+- 伺服器需維護 Session 存儲（記憶體或資料庫），增加伺服器負擔
+- 不適合分散式系統或多伺服器架構
+- Session 資料難以橫向擴展
+
+#### JWT
+
+JWT（JSON Web Token）是一種無狀態的身份驗證方式，使用者資訊被編碼在 Token 本身。
+
+**JWT 的組成：**
+- **Header（標頭）**：包含 Token 類型和使用的雜湊演算法
+- **Payload（載荷）**：包含使用者資訊和其他聲明（Claims）
+- **Signature（簽章）**：透過密鑰簽署前兩部分，確保 Token 未被篡改
+
+**JWT 格式：**
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+```
+
+**優勢：**
+- 無需在伺服器端儲存 Session，減少伺服器負擔
+- 可用於分散式系統和微服務架構
+- 跨域友善
+
+**安全考量：**
+- 不應在 Payload 中儲存敏感資訊（如密碼），因為 Token 可被解碼
+- 必須驗證簽章以確保 Token 的真實性
+- 應設定合理的過期時間（`exp` claim）
+
 
 ### Session 劫持
 
@@ -326,18 +479,52 @@ add_header Strict-Transport-Security "max-age=31536000"
 > 每個網站都不一樣，授權是你有沒有權利這麼作、身份驗證是你能不能進來
 
 ### 為授權建模
+- 案例研究：網路論壇
+- 案例研究：內容平台
+- 案例研究：訊息傳遞系統
 
 ### 設計授權機制
 
 ### 實作存取控制
+#### RBAC（角色型存取控制）
+
+RBAC（Role-Based Access Control）是一種根據使用者角色來管理權限的存取控制機制。
+
+**核心概念：**
+- **角色（Role）**：代表一組相關的權限集合，如管理員、編輯、檢視者
+- **權限（Permission）**：允許執行特定操作的授權，如建立、編輯、刪除
+- **使用者（User）**：被指派一個或多個角色
+
+**RBAC 運作模式：**
+```
+使用者 → 角色 → 權限 → 資源
+```
+
+**實作示例：**
+- 管理員角色：擁有建立、編輯、刪除、稽核等所有權限
+- 編輯角色：擁有建立、編輯權限
+- 檢視者角色：僅擁有檢視權限
+
+**優勢：**
+- 簡化權限管理，減少複雜性
+- 易於維護和更新角色權限
+- 符合最小權限原則
+
+**注意事項：**
+- 避免過度授予角色權限
+- 定期審查和更新角色定義
+- 應有明確的角色職責劃分
 
 ### 測試授權機制
+- 單元測試
+- 模擬函式庫
 
 ### 常見的授權缺失
 
 - 缺少存取控制
 - 搞混負責存取控制的程式
-- 違反信任邊界
+- 違反信任邊界：
+> 來自 HTTP 請求的輸入再通過查驗之前是不可信任;而來自資料庫的輸入通常假定可信任，關鍵是不要在同一資料結構中混合可信和不可信的輸入
 - 依不可信任輸入做出存取控制決策
 
 ## 11. 資料載荷上的漏洞
