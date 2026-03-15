@@ -35,6 +35,12 @@ export default function HomepageHeader() {
           >
             #喜歡黑畫面
           </span>
+          <span
+            className={styles.animatedTag}
+            style={{ animationDelay: "1.5s" }}
+          >
+            #INTJ 
+          </span>
         </div>
         <div
           className={clsx(styles.buttons, styles.animatedButtons)}
