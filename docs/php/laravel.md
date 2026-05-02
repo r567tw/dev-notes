@@ -295,3 +295,6 @@ foreach ($posts as $post) {
 $posts = Post::all();
 $posts->load('user');
 ```
+
+## Other
+- Pruning Model : https://laravel.com/docs/12.x/eloquent#pruning-models

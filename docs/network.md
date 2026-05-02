@@ -327,6 +327,9 @@ Layer 4 和 Layer 7 負載均衡是兩種常見的負載均衡技術，它們在
   - `POST /order`：每次執行都會產生一筆新訂單。
 - `PATCH`：看狀況，如果每次都會有新增東西例如`count`就不是 idempotency...如果只是單純更新欄位則就是
 
+#### Other
+- JSON API Spec: https://jsonapi.org/
+
 ---
 
 ### RPC
