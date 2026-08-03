@@ -59,11 +59,10 @@ arp -a
 - DHCP
 - CIDR 表示法
 
-### ICMP (In IP)
+### ICMP 
 
-- Laryer 3 Protocal
+- Layer 3 Protocol
 - 檢測網路是否有通？
-- IP 協定裡的一部分，它用於在網絡設備之間傳遞控制消息。
 
 ```
 ping
