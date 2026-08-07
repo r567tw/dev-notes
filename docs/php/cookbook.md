@@ -1054,3 +1054,6 @@ $ php -a
 ## Study PHP original code
 
 - https://github.com/php/php-src
+
+## Useful Packages
+- https://ext-ffmpeg.com/
