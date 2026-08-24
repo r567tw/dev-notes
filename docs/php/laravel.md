@@ -298,3 +298,7 @@ $posts->load('user');
 
 ## Other
 - Pruning Model : https://laravel.com/docs/12.x/eloquent#pruning-models
+
+## Related Package
+- [Laravel Scale](https://github.com/provydon/laravel-scale)
+- [Laravel Lite](https://github.com/anthonybudd/Laravel-Lite)
