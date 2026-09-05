@@ -1,10 +1,9 @@
 ---
-title: 架站筆記
-date: "2025-10-31 23:36:55+08:00"
-hide_table_of_contents: false
-tags:
-  - side-project
+title: Site Notes
+sidebar_position: 2
 ---
+
+
 
 :::tip
 持續更新中 💪
@@ -86,10 +85,6 @@ adduser deployer
 
 ## 安裝基本工具
 
-:::danger
-尚未實作
-:::
-
 - 安裝基本監控工具：
 
   ```bash
@@ -99,6 +94,18 @@ adduser deployer
 - 若有餘裕，可加上：
   - **Netdata**：即時效能監控（非常輕量）
   - **Prometheus + Grafana**（進階方案）
+
+## Fail2Ban
+```bash
+apt update
+apt install fail2ban
+sudo systemctl enable --now fail2ban
+fail2ban-client --version
+sudo systemctl status fail2ban
+# 查看
+sudo fail2ban-client status
+sudo fail2ban-client status sshd
+```
 
 ## ufw
 
