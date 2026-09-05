@@ -85,7 +85,7 @@ adduser deployer
 
 ## 安裝基本工具
 
-- 安裝基本監控工具：
+- 安裝基本的 Server troubleshooting 與流量觀察工具：
 
   ```bash
   sudo apt install htop iotop net-tools vnstat
@@ -94,6 +94,86 @@ adduser deployer
 - 若有餘裕，可加上：
   - **Netdata**：即時效能監控（非常輕量）
   - **Prometheus + Grafana**（進階方案）
+
+- `htop`：查看 CPU、RAM、Swap 與 Process
+- `iotop`：查看 Disk I/O
+- `net-tools`：提供 `netstat` 等傳統網路工具
+- `vnstat`：累積網路流量統計
+
+
+### htop
+
+查看目前 Server 的 CPU、RAM、Swap 使用量，以及哪個 Process 最吃資源。
+
+```bash
+htop
+```
+
+在 htop 裡可以按 `F6` 選擇排序方式，例如 `CPU%` 或 `MEM%`，按 `q` 離開。
+
+Server 變慢時，可以依序確認：
+
+1. CPU 是否接近 100%。
+2. RAM 或 Swap 是否不足。
+3. 哪個 Process 使用量最高，例如 `php-fpm`、`postgres`、`redis-server` 或 `nginx`。
+
+### iotop
+
+查看哪些 Process 正在大量讀寫 Disk。只有懷疑 Disk I/O 有問題時才需要使用，通常需要 root 權限：
+
+```bash
+sudo iotop
+```
+
+主要觀察 `DISK READ` 與 `DISK WRITE`。如果 `postgres` 或 `php-fpm` 持續有很高的寫入量，可能需要進一步檢查 Database、Laravel Log、Cache、Session、Backup 或其他檔案操作。按 `q` 離開。
+
+### net-tools / netstat
+
+`net-tools` 主要提供 `netstat`。可以使用以下指令查看目前有哪些 Port 正在 Listen，以及背後的 Process：
+
+```bash
+sudo netstat -tulpn
+```
+
+參數意義如下：
+
+| 參數 | 意義 |
+| ---- | ---- |
+| `-t` | TCP |
+| `-u` | UDP |
+| `-l` | Listening |
+| `-p` | 顯示 Process |
+| `-n` | 不解析 hostname |
+
+現代 Linux 日常較推薦使用 `ss`：
+
+```bash
+sudo ss -lntup
+```
+
+檢查安全性時，特別注意 `0.0.0.0:PORT` 或 `:::PORT`，通常代表服務可能接受外部連線；`127.0.0.1:PORT` 或 `::1:PORT` 則代表只接受 localhost 連線。例如 `127.0.0.1:5432` 表示 PostgreSQL 沒有直接暴露給 Internet。
+
+### vnstat
+
+查看 Server 的歷史網路流量。`ss` 用來看目前的 Connection，`vnstat` 則用來看過去累積的流量。
+
+```bash
+vnstat       # 查看總覽
+vnstat -d    # 每日流量
+vnstat -h    # 每小時流量
+vnstat -m    # 每月流量
+vnstat --iflist       # 查看網路介面
+vnstat -i enp1s0      # 指定網路介面
+```
+
+- `RX`：Server 收到的流量，例如收到 Client 的 API Request。
+- `TX`：Server 傳出的流量，例如回傳 JSON Response 給 Client。
+
+vnstat 需要背景服務持續累積統計資料；安裝後可以確認服務狀態：
+
+```bash
+sudo systemctl enable --now vnstat
+```
 
 ## Fail2Ban
 ```bash
